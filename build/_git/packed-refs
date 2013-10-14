@@ -1,0 +1,8 @@
+# pack-refs with: peeled 
+6e902941b95d988eb67b7f80a44e2a40874c7483 refs/tags/v1.0
+^2ee7edfbd70aac2b06b4a7a782312377d07644ee
+655bdfc2c5635d698c8901c8a2295e00aac141c7 refs/remotes/origin/new-image-optimization
+2eb8919d4829fcaed6f265a953e39a5a9d9382a5 refs/remotes/origin/master
+6c37cc6214d58253687d6a495e9c103a88304cfe refs/remotes/origin/css-parse-hack
+6b164a0d383c104e61c7cf58289b8751bb54f3c9 refs/remotes/origin/compass
+d60186b81bd7884af23ce2a76b62f567b53bfa02 refs/remotes/origin/1.0

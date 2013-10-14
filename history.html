@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" xmlns="http://www.w3.org/1999/xhtml"> <!--<![endif]-->
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <base href="http://localhost/~alt/drosera-boilerplate/"/>
+    <link rel="stylesheet" href="css/vendor/bootstrap-3.0.0.min.css">
+    <link rel="stylesheet" href="css/vendor/bootstrap-theme-3.0.0.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="js/vendor/require-2.1.8.min.js"></script>
+    <script src="js/vendor/jquery-1.10.2.min.js"></script>
+    <script src="js/vendor/bootstrap-3.0.0.min.js"></script>
+  </head>
+  <body class="ds-navbar-body">
+    <!--[if lt IE 9]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please 
+        <a href="http://browsehappy.com/">upgrade your browser</a> 
+        to improve your experience.
+      </p>
+    <![endif]-->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header ds-navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".ds-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://github.com/andydude/tetration/" tabindex="2">Tetration</a>
+        </div>
+        <div class="nav-collapse ds-navbar-collapse in">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a class="ds-navpair-title" href="/"  tabindex="4">Home</a>
+              <a class="ds-navpair-arrow dropdown-toggle" data-toggle="dropdown" href="#" tabindex="5">
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="http://andydude.github.io/">About Me</a></li>
+                <li><a href="applications.html">Applications</a></li>
+                <li><a href="identities.html">Identities</a></li>
+                <li><a href="papers.html">Papers</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="glossary.html">Glossary</a></li>
+                <li><a href="links.html">References</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a class="ds-navpair-title" href="hyperops.html"  tabindex="4">Hyperops</a>
+              <a class="ds-navpair-arrow dropdown-toggle" data-toggle="dropdown" href="#" tabindex="5">
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="exponentiation.html">Exponentiation</a></li>
+                <li><a href="hyper-history.html">History</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a class="ds-navpair-title" href="data.html"  tabindex="4">Functions</a>
+              <a class="ds-navpair-arrow dropdown-toggle" data-toggle="dropdown" href="#" tabindex="5">
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="db/">Self-power</a></li>
+                <li><a href="cd/">Self-root</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a class="ds-navpair-title" href="data.html"  tabindex="4">Iteration</a>
+              <a class="ds-navpair-arrow dropdown-toggle" data-toggle="dropdown" href="#" tabindex="5">
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="db/">Methods</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a class="ds-navpair-title" href="data.html"  tabindex="4">Tetration</a>
+              <a class="ds-navpair-arrow dropdown-toggle" data-toggle="dropdown" href="#" tabindex="5">
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="db/">Tetrates</a></li>
+                <li><a href="cd/">Tetrationals</a></li>
+                <li><a href="ns/">Super-roots</a></li>
+                <li><a href="vc/">Super-logarithms</a></li>
+                <li><a href="vc/">Methods</a></li>
+                <li><a href="vc/">History</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a class="ds-navpair-title" href="tr/" tabindex="6">Towers</a>
+              <a class="ds-navpair-arrow dropdown-toggle" data-toggle="dropdown" href="#" tabindex="7">
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="tr/dro.html">Nested Exponentials</a></li>
+                <li><a href="tr/dro.html">Prime Factorization</a></li>
+                <li><a href="tr/dro.html">Series Expansions</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <li><a class="navbar-brand" href="Forum">Forum</a></li>
+          </ul>
+        </div><!-- END .ds-navbar-collapse -->
+      </div><!-- END .container -->
+    </div><!-- END .ds-navbar -->
+        <div class="container">
+            <div class="jumbotron">
+                <h1>History of Exponentiation</h1>
+            </div>
+<p>
+The story of <i>tetration</i> began with <i>exponentiation</i>.
+</p>
+<p>
+Just shy of a score after the first records of the "+" and "&minus;" 
+notation appeared in 1526, in 1544
+the German mathematician <em>Michael Stifel</em> published
+a detailed investigation of exponentiation in <i>Arithmetica integra</i>.
+Stifel discovered <i>logarithms</i> before John Napier, and gave
+an early form of logarithm tables. Stifel also coined the term
+<i>exponent</i>, also published in <i>Arithmetica integra</i>, 
+but it did not find its way into the English language until 1704, 
+when the term <i>exponential</i> appeared in
+the <i>Lexicon Technicum</i> by John Harris.
+</p>
+<p>
+The Scottish mathematician <em>John Napier</em> is most remembered as the inventor
+of <i>logarithms</i>, although the idea had been around before him, he was the 
+first to use the term, although it did not appear in English until 1615. Napier 
+published his major work, <i>Mirifici Logarithmorum Canonis Descriptio</i>, 
+in 1614, which contains several dozen pages of logarithm tables, along with a 
+lengthy explanation of both logarithms and trigonometry. Napier's work made a 
+huge impact on natural sciences across the board.
+</p>
+<p>
+One of the most generous contributors to the development of exponentiation was
+<em>Leonhard Euler</em> (pronounced <i>oiler</i>). Euler coined the term <i>function</i>, and introduced 
+the notation for trigonometric functions we still use today. Exponentiation had
+already been defined over the complex numbers, for some time, when he rediscovered in 1748 what is now known as Euler's Formula:
+LS(
+LI(Euler's Formula:, 
+    [ppE()ppSup(IU()ppV(x)) = cos(ppV(x)) + IU() sin(ppV(x))])
+)TAB()
+It was later found, that Euler was not the first to discover the formula that 
+now bears his name. It was first proved, in an obscure form, by <em>Roger Cotes</em> 
+in 1714. Cotes is also known for working with Isaac Newton during the 
+publication of his major work, <i>Philosophiae Naturalis Principia Mathematica</i>, commonly referred to as "<i>The Principia</i>."
+</p>
+</div><hr/><div class="std">
+<h1>History of Tetration</h1>
+<p>
+The <i>product-logarithm</i>, also known as the Lambert-<var>W</var> function, is 
+indirectly related to tetration because it is related to the
+<i>infinite iterated exponential</i> function. (More detail can be found
+in <a href="ident.html">Identities</a>.) 
+The <i>product-logarithm</i> was developed by French
+mathematician <em>Johann Heinrich Lambert</em> who published
+it in his first book in 1758. 
+The infinite iterated exponential function is probably the first use of
+tetration, although the terminology has varied over time. It has
+also been called the <i>hyperpower</i> function, or simply referred to
+by its definition: "<var>x</var>^<var>x</var>^<var>x</var>^...". It was not until 1989 that
+<em>Joseph F. MacDonnell</em> used the term <i>hyperpower</i> for this function.
+In 1778, Euler was the first to mention this function when he proved that 
+it converged on the interval <b><i>e</i></b><sup>&minus;<b><i>e</i></b></sup> &le; <var>x</var> &le; <b><i>e</i></b><sup>1/<b><i>e</i></b></sup>.
+Another person to write about the infinite iterated exponential
+function was Eisenstein in 1844. Later, in 1925, 
+P&oacute;lya and Szeg&ouml;
+first used the "<var>W</var>(<var>x</var>)" notation that is commonly used today.
+</p>
+<p>
+The notation <sup><var>y</var></sup><var>x</var> is what most people use for tetration,
+and was introduced by <em>Hans Maurer</em> in 1901. Much later, in 1995,
+<em>Rudy Rucker</em> published a book called <i>Infinity and the Mind</i>
+in which he used this notation, and gave it so much publicity 
+that Rucker is sometimes credited with its first use.
+</p>
+<p>
+The <i>Ackermann</i> function is a topic of some confusion, 
+because there are at least two versions of
+the function. One version has 2 arguments, and is closely
+related to <i>hyper-operations</i>. Another version
+has 3 arguments, and is <i>equivalent</i> to hyper-operations. 
+Both of these functions are named
+after <em>Wilhelm Ackermann</em> who defined them in 1928. In 1953,
+<em>Andrzej Grzegorczyk</em> also published a paper on the 
+hyper-operations, hence the sequence of hyper-operations are
+sometimes referred to as the <i>Grzegorczyk hierarchy</i>.
+</p>
+<p>
+In 1947, <em>Reuben Louis Goodstein</em> coined the term <i>tetration</i>, 
+and the names for other hyper-operations:
+<a href="gloss.html#
+tetration">tetration</a> for hyper4,
+<a href="gloss.html#
+pentation">pentation</a> for hyper5,
+<a href="gloss.html#
+hexation">hexation</a> for hyper6,
+and so on, from the Greek number prefixes for the number that represents
+the hyper-operator. It is said that the second half: <i>-ation</i>,
+is short for <i>iteration</i>, but Goodstein himself gave no such indication.
+</p>
+<p>
+The most modern analysis of tetration is <i>Exponentials reiterated</i>
+by <em>Robert Arthur Knoebel</em> published in 1981 in
+<i>American Mathematical Monthly</i>, a periodical also host to other
+tetration-related articles such as <i>Infinite exponentials</i> published
+in 1936 by Barrow about the infinite iterated exponential function.
+The most recent analysis of tetration is a website by
+<em>Ioannis N. Galidakis</em> called <a href="http://users.forthnet.gr/ath/jgal/math/">Extreme Mathematics</a>. In it, Galidakis gives two extensions
+of tetration to real numbers, and an extension of the product-logarithm
+to quaternions.
+</p>
+<p>
+In 1976 <em>Donald E. Knuth</em> invented a notation for hyper-operations
+called <i>Up-arrow notation</i>. It has been very successful
+on the internet, because it allows tetration to be represented
+as "<code>x^^y</code>".
+More recently, in 1996, <em>John Horton Conway</em> and <em>Richard K. Guy</em>
+published a book called <i>The Book of Numbers</i> in which they
+put forth yet another hyper-operation notation. Their notation,
+called <i>Chained-arrow notation</i> is much more expressive that Knuth's,
+and allows operations well beyond the hyper-operations. Another
+notation that goes beyond the hyper-operations yet still includes
+them was developed by <em>Jonathan Bowers</em> in 2002 called <i>Array notation</i>.
+Bowers' notation includes an infix notation he calls 
+<i>extended operator notation</i> which is equivalent in all respects
+to the current <i>de facto</i> standard notation for hyper-operations,
+ prominently used in <em>Robert Munafo</em>'s website
+about <a href="http://home.earthlink.net/~mrob/pub/math/largenum.html">Large Numbers</a>.
+</p>
+
+
+<!--
+ 1758 (Johann Heinrich Lambert)
+ 1778 Euler proved <var>x</var>^^0 converged on .06..1.4
+ 1844 Eisenstein on <var>x</var>^^00
+1889 "hypercomplex" coined
+ 1901 (Hans Maurer) uses ^{y}x notation
+
+ 1925 "W" symbol used by P�lya and Szeg�
+ 1928 Ackermann function
+ 1936 Barrow "Infinite exponentials" AMM
+ 1947 "tetration" coined
+ 1953 (Andrzej Grzegorczyk) published
+ 1976 (Dr. Donald Knuth) arrow notation
+ 1981 (Dr. Robert Arthur Knoebel) "Exponentials reiterated" AMM
+    http://genealogy.math.ndsu.nodak.edu/html/id.phtml?id=31728
+ 1982 i was born
+ 1989 "hyperpower" coined by (Joseph F. MacDonnell)
+ 1995 (Rudy Rucker) "Infinity and the Mind"
+1996 (John Horton Conway) (Richard K. Guy)
+2000 Banwell and Jayakumar "showed that a W-function describes the relation between voltage, current and resistance in a diode"
+2004 Packel and Yuen "applied the W-function to a ballistic projectile in the presence of air resistance"
+2005 Hayes "Other applications have been discovered in statistical mechanics, quantum chemistry, combinatorics, enzyme kinetics, the physiology of vision, the engineering of thin films, hydrology, and the analysis of algorithms"
+
+(Dr. Gerald Arthur Edgar)
+    http://www.genealogy.math.ndsu.nodak.edu/html/id.phtml?id=11345
+-->
+</div><hr/><div class="footer">
+<table class="footalign">
+  <tr>
+    <td style="text-align: left; width: 90%; color: gray; vertical-align: top;">
+Copyright &copy; 2010 <a href="mailto:and_j_rob@yahoo.com" style="color: gray;">Andrew Robbins</a> <span style="color: black;">(<ISML TYPE="counter"> visits)</span>
+    </td>
+    <td style="text-align: right; width: 10%;">
+	<table>
+	  <tr>
+	    <td>
+<a href="http://www.w3.org/RDF/"><img style="border: 0px;" src="img/rdf_flyer.png" alt="1" /></a>
+	    </td>
+	    <td>
+<a href="http://www.w3.org/"><img style="border: 0px;" src="img/w3c_icon.png" alt="1" /></a>
+	    </td>
+	  </tr>
+	</table>
+    </td>
+  </tr>
+</table>
+</div>
+</body>
+</html>
+        <div class="container">
+            <div class="jumbotron">
+                Home of Tetration
+            </div>
+        </div>
+        <div class="container">
+            Hello world
+        </div>
+    <!-- //-beg- concat_js -->
+    <script src="js/vendor/h5bp-plugins-4.2.0.js"></script>
+    <script src="js/vendor/sizzle.amd.js"></script>
+    <script src="js/vendor/d3.v3.min.js" charset="UTF-8"></script>
+    <script src="js/vendor/modernizr.amd.js"></script>
+    <script src="js/vendor/mustache-0.7.3.js"></script>
+    <script src="js/vendor/jquery.mustache-0.2.8.js"></script>
+    <script src="js/vendor/drosera-config.js"></script>
+    <script src="js/vendor/drosera-bootstrap.js"></script>
+    <script src="js/vendor/drosera-modernizr.js"></script>
+    <script src="js/vendor/drosera-version.js"></script>
+    <script src="js/main.js"></script>
+    <!-- //-end- concat_js -->
+  </body>
+</html>
+
