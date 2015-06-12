@@ -1,0 +1,166 @@
+
+# Filename: fspace.bloom
+# Copyright: 2005-2007 James Robey
+# Project: Blooms (please reference the Blooms.license file for copyright details.)
+
+include std
+stateful
+
+page fragment.index
+  div using browser
+    style padding: 20px;
+  
+server div.browser group admin
+init
+  modes = {'view':'edit', 'edit':'delete', 'delete':'view'}
+  modecolor = {'view':'black', 'edit':'green', 'delete':'red'}
+rules
+  id [~.master~]
+  style 
+    background-image: url([~BASEURL~]admin/texture1.jpg);
+
+  py 
+    #set default mode to view
+    if not self.has_key('mode'):  
+      self.mode = 'view'
+      
+    #)show the last path or traverse to one pointed to by ARGP
+    #else go to the root of the zodb
+    if self.mode == 'view':
+      if ARGS['reset']: 
+        obj = ROOT
+        self.last = []
+      elif self.has_key('last') and not ARGP:  
+        obj = ROOT.goto(self.last)
+      else:
+        obj = ROOT.goto(ARGP)
+        self.last = ARGP
+        
+    #)Handle various actions when something happens:
+    
+    #Set new mode
+    if ARGS['newmode']:   
+      self.mode = ARGS['newmode']
+    #Set the value of an attribute
+    elif ARGS['changeattr']:
+      obj.set(ARGS['name'], eval(ARGS['value']))
+    
+    elif self.mode == 'delete':
+      obj.rmspace(ARGP[-1])
+    
+    elif self.mode == 'edit':
+      obj = ROOT.goto(self.last)
+      #obj.set(ARGP[-1], eval(ARGS['data']))
+        
+  #) draw the mode box
+  div 
+    style 
+      margin: 10px; 
+      text-align: right;
+      font-size: 0.8em;
+      
+    #provide an additem sub server page
+    ajax
+      path: fspace/additem/[~str(obj)~]
+      send: masterid=[~.master~]
+      replace: [~.master~]
+      text: Add new entry
+    br
+    
+    #change mode
+    ajax
+      path: fspace/browser/[~str(obj)~]
+      send: newmode=[~modes[self.mode]~]
+      replace: [~.master~]
+      text: Change mode to [~modes[self.mode]~]
+        
+  #)list the current mode
+  div text Mode: [~self.mode.upper()~]
+  br
+  #)draw the path to the currently viewed folder
+  div using widgets.shadowbox
+    ajax
+      path: fspace/browser
+      send: reset=True
+      replace: [~.master~]
+      text: Root
+      
+    text :
+    py thisobj = ROOT
+    loop item in obj()
+      text /
+      py thisobj = thisobj[item]
+      ajax
+        path: fspace/browser/[~str(thisobj)~]
+        replace: [~.master~]
+        text: [~item~]   
+  br
+   
+  #if object has keys, display them
+  py keysforObj = obj.keys()
+  cond keysforObj
+    div using widgets.shadowbox %% background="#ccccff"
+      loop key in keysforObj
+        div
+          style 
+            color: black; 
+            background: grey; 
+            padding: 0px 0px 0px 20px;
+            font-size: 0.8em;
+          bold [~key~]
+        div
+          style 
+            padding: 0.5em;
+            font-size: 0.8em;
+          text [~`obj.get(key)`~]    
+    br
+  
+  py dirsinside = obj.spaces()
+  cond dirsinside
+    div using widgets.shadowbox
+      div loop item in dirsinside
+        ajax
+          path: fspace/browser/[~str(obj[item])~]
+          replace: [~.master~]
+          text: [~item~]
+          style color: [~modecolor[self.mode]~];
+
+denied
+  style width: 100%;
+  align center
+  text [~REQ.acl.user~]: not authorized to view this.
+     
+server div.additem group admin
+  id [~ARGS['masterid']~]
+  div text Add an entry to [~ARGP~]
+  br
+  div 
+    text name
+    field
+      id: [~.name~]
+      value: something  
+  div 
+    text value
+    field
+      id: [~.value~]
+      value: something
+  ajax
+    path: fspace/browser/[~'/'.join(ARGP)~]
+    send: changeattr=True|name=?[~.name~]|value=?[~.value~]
+    replace: [~ARGS['masterid']~]
+    text: Create
+
+
+
+
+eof
+
+page div.windowed uses gui
+  
+  #set a flag in the gui module to not paint the background this request.
+  call gui.manage_screen yes
+      
+  #make the browser window
+  div using gui.window %% xy=(100, 100), size=(640, 300), title='FSpace Browser 1', bloom='fspace.div.browser'
+  div using gui.window %% xy=(130, 130), size=(640, 300), title='FSpace Browser 2', bloom='fspace.div.browser'
+  

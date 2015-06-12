@@ -1,0 +1,19 @@
+server div.index
+  new html
+    new head
+      xml
+        <link rel="stylesheet" href="/style.css" type="text/css" />
+    new body
+      new br
+      new br
+      new br
+      new center
+        new div
+          new h1 text Blooms Sites
+          new hr
+          new p
+            new ul
+              xml
+                <li><a href='.blooms/libcalc/index'>An online calculator</a></li>
+
+

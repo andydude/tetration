@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Home of Tetration - Visualizer</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<script src="visualizer.js"/>
+</head>
+<body>
+<div class="header">
+
+<center class="logo">
+  <img src="img/tetra-logo.png" alt="Graph"/>
+  <br/>
+  <h1>Home of Tetration</h1>
+  <br/>
+  <div class="nav"> 
+  <a href="index.html">Home</a> &nbsp;|&nbsp;
+  <a href="hyper.html">Hyperops</a> &nbsp;|&nbsp;
+  <a href="funct.html">Functions</a> &nbsp;|&nbsp;
+  <a href="itern.html">Iteration</a> &nbsp;|&nbsp;
+  <a href="tetra.html">Tetration</a> &nbsp;|&nbsp;
+  <a href="tower.html">Towers</a>
+  </div>
+
+</center>
+
+
+
+<center>
+  <div class="nav">
+  Home pages :
+  <a href="about.html">About Me</a> &nbsp;|&nbsp;
+  <a href="appli.html">Applications</a> &nbsp;|&nbsp;
+  <a href="ident.html">Identities</a> &nbsp;|&nbsp;
+  <a href="paper.html">Papers</a> &nbsp;|&nbsp;
+  <a href="graph.html">Gallery</a> &nbsp;|&nbsp;
+  <a href="gloss.html">Glossary</a> &nbsp;|&nbsp;
+  <a href="links.html">References</a>
+  </div>
+</center>
+
+</div><hr/><div class="std">
+<h1>Visualization</h1>
+<p>
+  Please select from the options below to view plots of tetration and related functions.
+</p>
+<div id="application">
+<div id="appVisualizer">
+<div id="appOptions">
+ <div id="appPlotType" style="text-align: left;">
+  <label>Plot Type</label>
+  <br/>
+  <input type="radio" name="appGraph" value="rect" checked="checked"/><label>Rectangular plot</label>
+  <br/>
+  <input type="radio" name="appGraph" value="polar"/><label>Polar plot</label>
+  <br/>
+  <input type="radio" name="appGraph" value="spow"/><label>Fractal plot</label>
+  <br/>
+  <input type="radio" name="appGraph" value="spow"/><label>Contour plot</label>
+ </div>
+
+ <div id="appFunction" style="text-align: left;">
+  <div id="appFuncHeight">
+  <label>Height:</label>
+  <select>
+    <option value="-infinity">-infinity</option>
+    <option value="-2">-2</option>
+    <option value="-1.9">-1.9</option>
+    <option value="-1.8">-1.8</option>
+    <option value="-1.7">-1.7</option>
+    <option value="-1.6">-1.6</option>
+    <option value="-1.5">-1.5</option>
+    <option value="-1.4">-1.4</option>
+    <option value="-1.3">-1.3</option>
+    <option value="-1.2">-1.2</option>
+    <option value="-1.1">-1.1</option>
+    <option value="-1">-1</option>
+    <option value="-0.9">-0.9</option>
+    <option value="-0.8">-0.8</option>
+    <option value="-0.7">-0.7</option>
+    <option value="-0.6">-0.6</option>
+    <option value="-0.5">-0.5</option>
+    <option value="-0.4">-0.4</option>
+    <option value="-0.3">-0.3</option>
+    <option value="-0.2">-0.2</option>
+    <option value="-0.1">-0.1</option>
+    <option value="0">0</option>
+    <option value="0.1">0.1</option>
+    <option value="0.2">0.2</option>
+    <option value="0.3">0.3</option>
+    <option value="0.4">0.4</option>
+    <option value="0.5">0.5</option>
+    <option value="0.6">0.6</option>
+    <option value="0.7">0.7</option>
+    <option value="0.8">0.8</option>
+    <option value="0.9">0.9</option>
+    <option value="1">1</option>
+    <option value="1.1">1.1</option>
+    <option value="1.2">1.2</option>
+    <option value="1.3">1.3</option>
+    <option value="1.4">1.4</option>
+    <option value="1.5">1.5</option>
+    <option value="1.6">1.6</option>
+    <option value="1.7">1.7</option>
+    <option value="1.8">1.8</option>
+    <option value="1.9">1.9</option>
+    <option value="2" selected="selected">2</option>
+    <option value="2.1">2.1</option>
+    <option value="2.2">2.2</option>
+    <option value="2.3">2.3</option>
+    <option value="2.4">2.4</option>
+    <option value="2.5">2.5</option>
+    <option value="2.6">2.6</option>
+    <option value="2.7">2.7</option>
+    <option value="e">e</option>
+    <option value="2.8">2.8</option>
+    <option value="2.9">2.9</option>
+    <option value="3">3</option>
+    <option value="3.1">3.1</option>
+    <option value="3.14159265358979323846264338328">pi</option>
+    <option value="3.2">3.2</option>
+    <option value="3.3">3.3</option>
+    <option value="3.4">3.4</option>
+    <option value="3.5">3.5</option>
+    <option value="3.6">3.6</option>
+    <option value="3.7">3.7</option>
+    <option value="3.8">3.8</option>
+    <option value="3.9">3.9</option>
+    <option value="4">4</option>
+    <option value="infinity">infinity</option>
+  </select>
+   <br/>
+   <input type="radio" name="appFunction" value="spow"/><label>Tetrate (superpower)</label>
+   <br/>
+   <input type="radio" name="appFunction" value="sroot"/><label>Superroot</label>
+  </div>
+  <div id="appFuncBase">
+  <label>Base:</label>
+  <select>
+    <option value="-1">-1</option>
+    <option value="-0.9">-0.9</option>
+    <option value="-0.8">-0.8</option>
+    <option value="-0.7">-0.7</option>
+    <option value="-0.6">-0.6</option>
+    <option value="-0.5">-0.5</option>
+    <option value="-0.4">-0.4</option>
+    <option value="-0.3">-0.3</option>
+    <option value="-0.2">-0.2</option>
+    <option value="-0.1">-0.1</option>
+    <option value="0">0</option>
+    <option value="0.1">0.1</option>
+    <option value="0.2">0.2</option>
+    <option value="0.3">0.3</option>
+    <option value="0.4">0.4</option>
+    <option value="0.5">0.5</option>
+    <option value="0.567143290409783872999968662210">0.567143 = W(1)</option>
+    <option value="0.577215664901532860606512090082">0.577216 = gamma</option>
+    <option value="0.6">0.6</option>
+    <option value="0.7">0.7</option>
+    <option value="0.8">0.8</option>
+    <option value="0.9">0.9</option>
+    <option value="1">1</option>
+    <option value="1.1">1.1</option>
+    <option value="1.2">1.2</option>
+    <option value="1.3">1.3</option>
+    <option value="1.4">1.4</option>
+    <option value="1.41421356237309504880168872421">1.414213 = sqrt(2)</option>
+    <option value="1.444667861009766133658339108596">1.444668 = e^(1/e)</option>
+    <option value="1.5">1.5</option>
+    <option value="1.6">1.6</option>
+    <option value="1.61803398874989484820458683437">1.618033 = phi</option>
+    <option value="1.7">1.7</option>
+    <option value="1.8">1.8</option>
+    <option value="1.9">1.9</option>
+    <option value="2">2</option>
+    <option value="2.1">2.1</option>
+    <option value="2.2">2.2</option>
+    <option value="2.3">2.3</option>
+    <option value="2.4">2.4</option>
+    <option value="2.5">2.5</option>
+    <option value="2.6">2.6</option>
+    <option value="2.7">2.7</option>
+    <option value="e" selected="selected">e</option>
+    <option value="2.8">2.8</option>
+    <option value="2.9">2.9</option>
+    <option value="3">3</option>
+    <option value="3.1">3.1</option>
+    <option value="3.14159265358979323846264338328">3.141592 = pi</option>
+    <option value="3.2">3.2</option>
+    <option value="3.3">3.3</option>
+    <option value="3.4">3.4</option>
+    <option value="3.5">3.5</option>
+    <option value="3.6">3.6</option>
+    <option value="3.7">3.7</option>
+    <option value="3.8">3.8</option>
+    <option value="3.9">3.9</option>
+    <option value="4">4</option>
+    <option value="4.1">4.1</option>
+    <option value="4.2">4.2</option>
+    <option value="4.3">4.3</option>
+    <option value="4.4">4.4</option>
+    <option value="4.5">4.5</option>
+    <option value="4.6">4.6</option>
+    <option value="4.7">4.7</option>
+    <option value="4.8">4.8</option>
+    <option value="4.8104773809653516554730356667">4.810477 = i^(1/i)</option>
+    <option value="4.9">4.9</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+  </select>
+   <br/>
+   <input type="radio" name="appFunction" value="sexp" checked="checked"/>
+   <label>Tetrational (superexponential)</label>
+   <br/>
+   <input type="radio" name="appFunction" value="slog"/><label>Superlog (superlogarithm)</label>
+  </div>
+  <br/>
+  <input type="button" value="Draw" onclick="draw()"/>
+ </div>
+</div>
+<div id="appPlotBorder">
+<div id="appPlot">
+<canvas id="appCanvas"/>
+hi there
+<div style="background-color: white">hi</div>
+</div>
+</div>
+</div>
+</div>
+</div><hr/><div class="std">
+<h1>Gallery</h1>
+<br/>
+<div class="center"><img src="img/taux-9.png" alt="taux"/><br/>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <msubsup><mo>exp</mo><mi>e</mi><mi>y</mi></msubsup>
+ <mo>(</mo><mi>x</mi><mo>)</mo>
+</math> for <var>y</var> in {
+<span style="color: #F33;">1</span>,
+<span style="color: #C93;">&frac34;</span>,
+<span style="color: #CF6;">&frac12;</span>,
+<span style="color: #6F3;">&frac14;</span>,
+<span style="color: #3F6;">0</span>,
+<span style="color: #3FF;">-&frac14;</span>,
+<span style="color: #06F;">-&frac12;</span>,
+<span style="color: #33C;">-&frac34;</span>,
+<span style="color: #C3F;">-1</span>
+}</div>
+<p>
+Visualizing Tetration
+</p>
+</div><hr/><div class="footer">
+<table class="footalign">
+  <tr>
+    <td style="text-align: left; width: 90%; color: gray; vertical-align: top;">
+Copyright &copy; 2008 <a href="mailto:and_j_rob(AT)yahoo.com" style="color: gray;">Andrew Robbins</a>
+    </td>
+    <td style="text-align: right; width: 10%;">
+	<table>
+	  <tr>
+	    <td>
+<a href="http://www.w3.org/RDF/"><img style="border: 0px;" src="img/rdf_flyer.png" alt="1" /></a>
+	    </td>
+	    <td>
+<a href="http://www.w3.org/"><img style="border: 0px;" src="img/w3c_icon.png" alt="1" /></a>
+	    </td>
+	  </tr>
+	</table>
+    </td>
+  </tr>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+(* Usage:
+** 
+** prep = SuperLogPrepare[x, n];    -- Prepare for slog_x(z)_n
+** SuperLog[x, z]                   -- Prepare fast (n=10)
+** SuperLog[prep, z]                -- Use local prep
+** SuperLog[z]                      -- Use global prep
+*)
+SuperLogPrepare[x_, n_Integer] := {x, LinearSolve[Table[
+    k^j/k! - If[j == k, Log[x]^-k, 0], {j, 0, n - 1}, 
+    {k, 1, n}], Table[If[k == 1, 1, 0], {k, 1, n}]]}
+SuperLogPrepare[x_, {nMax_Integer}] := SuperLogPrepare[x, {1, nMax}]
+SuperLogPrepare[x_, {nMin_Integer, nMax_Integer}] := 
+    SuperLogPrepare[x, {nMin, nMax, 1}]
+SuperLogPrepare[x_, {nMin_Integer, nMax_Integer, nStep_Integer}] := 
+    Block[{m}, m = Table[If[k <= nMax, 
+        k^j/k! - If[j == k, Log[x]^-k, 0], If[j == 0, 1, 0]],
+        {j, 0, nMax - 1}, {k, 1, nMax + 1}];
+    Table[m[[[]][Range[i]]] = RowReduce[m[[[]][Range[i]]]];
+        {x, m[[[]][Range[i], nMax + 1]]}, 
+        {i, nMin, nMax, nStep}]]
+SuperLogLinear[x_, z_] := SuperLog[{x, {}}, z, (#2-1)&]
+SuperLogCritical[{x_, terms_}, z_] := -1 + 
+    Sum[terms[[[]][k]]*z^k/k!, {k, 1, Length[terms]}]
+SuperLog[z_?NumericQ] := SuperLog[$SuperLogPrep, z]
+SuperLog[{x_?NumericQ, terms_List}, z_?NumericQ] := 
+    SuperLog[{x, terms}, z, SuperLogCritical]
+SuperLog[{x_?NumericQ, terms_List}, z_?NumericQ, f_] := Which[
+    z < 0,      f[{x, terms}, x^z] - 1,
+    z == 0,     -1,
+    0 < z < 1,  f[{x, terms}, z],
+    z == 1,     0,
+    z > 1,      Block[{i = -1}, f[{x, terms}, 
+        NestWhile[Log[x,#]&,z,(i++;#>1)&]]+i]]
+InternalSLO2[x_, z_] := Block[{dec, mtx, y1, y2},
+    mtx = Table[Table[If[k == 12, If[j == 0, 1, 0],
+        k^j/k! - If[j == k, Log[x]^-k, 0]], {k, 1, 12}], {j, 0, 10}];
+    mtx[[[]][Range[10]]] = RowReduce[mtx[[[]][Range[10]]]];
+    y1 = SuperLog[{x, Most[mtx][[[]][All, 12]]}, z];
+    y2 = SuperLog[{x, RowReduce[mtx][[[]][All, 12]]}, z];
+    If[y1 != y2, dec = Floor[-Log[10, Abs[y2 - y1]]];
+        Floor[y2*10^dec]/10^dec, y2]];
+InternalSLO3 = Compile[{{x, _Real}, {z, _Real}}, InternalSLO2[x, z]];
+SuperLog[x_?NumericQ, z_?NumericQ] /; (1.4 <= x <= 16) := InternalSLO3[x, z]
+
+(* Usage:
+**
+** prep = SuperLogPrepare[x, n];    -- Prepare for tet_x(y)_n
+** Tetrate[x, y]                    -- Prepare fast (n=10)
+** Tetrate[prep, z]                 -- Use local prep
+** Tetrate[z]                       -- Use global prep
+*)
+TetrateLinear[x_, y_] := Tetrate[{x, {}}, y, (#2+1)&]
+TetrateCritical[prep_, y_] :=
+    FindRoot[SuperLogCritical[prep, z] == y, {z, 1}][[[]][1, 2]]
+Tetrate[y_?NumericQ] := Tetrate[$SuperLogPrep, y]
+Tetrate[{x_?NumericQ, terms_List}, y_?NumericQ] := 
+    Tetrate[{x, terms}, y, TetrateCritical]
+Tetrate[{x_?NumericQ, terms_List}, y_?NumericQ, f_] := If[y > -1, 
+    Nest[Power[x, #]&, f[{x, terms}, y - Ceiling[y]], Ceiling[y]],
+    Nest[Log[x, #]&, f[{x, terms}, y - Ceiling[y]], -Ceiling[y]]]
+InternalTEO2[x_, y_] := Block[{dec, mtx},
+    mtx = Table[Table[If[k == 12, If[j == 0, 1, 0],
+        k^j/k! - If[j == k, Log[x]^-k, 0]], {k, 1, 12}], {j, 0, 10}];
+    mtx[[[]][Range[10]]] = RowReduce[mtx[[[]][Range[10]]]];
+    z1 = FindRoot[SuperLog[{x, 
+        Most[mtx][[[]][All, 12]]}, z] == y, {z, 1}][[[]][1, 2]];
+    z2 = FindRoot[SuperLog[{x, 
+        RowReduce[mtx][[[]][All, 12]]}, z] == y, {z, 1}][[[]][1, 2]];
+    If[z1 != z2, dec = Floor[-Log[10, Abs[z2 - z1]]];
+        Floor[z2*10^dec]/10^dec, z2]]
+InternalTEO3 = Compile[{{x, _Real}, {y, _Real}}, InternalTEO2[x, y]];
+Tetrate[x_?NumericQ, y_?NumericQ] /; (1.4 <= x) := If[y > -1, 
+    Nest[Power[x, #]&, InternalTEO3[x, y - Ceiling[y]], Ceiling[y]],
+    Nest[Log[x, #]&, InternalTEO3[x, y - Ceiling[y]], -Ceiling[y]]]
+
+(* Fast Approximations:
+**
+** SuperRoot[y, z]  == srt_y(z)     (n=10)
+** IterExp[x, y, a] == exp_x^y(a)   (n=10)
+** IterLog[x, y, a] == log_x^y(a)   (n=10)
+*)
+SuperRoot[y_, z_] := FindRoot[Tetrate[x, y] == z, {x, 2}][[[]][1, 2]]
+IterExp[x_, y_, a_] := Tetrate[x, y + SuperLog[x, a]]
+IterLog[x_, y_, a_] := IterExp[x, -y, a]
+
+(* Globals *)
+$SuperLogPrep = SuperLogPrepare[[[E]], 10];

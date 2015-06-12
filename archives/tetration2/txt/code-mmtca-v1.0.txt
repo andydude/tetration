@@ -1,0 +1,23 @@
+(*
+** Usage:
+**      prep = SuperLogPrepare[n, x];
+**      SuperLog[prep, z]    -- gives n-th approx. of slog_x(z) 
+**      Tetrate[prep, y]     -- gives n-th approx. of x^^y
+**
+** Copyright 2005 Andrew Robbins
+*)
+
+SuperLogPrepare[n_Integer, x_] := {x, LinearSolve[Table[
+    k^j/k! - If[j == k, Log[x]^-k, 0], {j, 0, n - 1}, 
+    {k, 1, n}], Table[If[k == 1, 1, 0], {k, 1, n}]]}
+
+SuperLog[v_, z_?NumericQ] := Block[{(*SlogCrit*)}, 
+    SlogCrit[zc_] := -1 + Sum[v[[2, k]]*zc^k/k!, {k, 1, Length[v[[2]]]}]; 
+    Which[z <= 0, SlogCrit[v[[1]]^z] - 1, 0 < z <= 1, SlogCrit[z], z > 1, 
+    Block[{i=-1}, SlogCrit[NestWhile[Log[v[[1]], #]&, z, (i++;#>1)&]]+i]]]
+
+Tetrate[v_, y_?NumericQ] := Block[{(*SlogCrit, TetCrit*)},
+    SlogCrit[zc_] := -1 + Sum[v[[2, k]]*zc^k/k!, {k, 1, Length[v[[2]]]}];
+    TetCrit[yc_] := FindRoot[SlogCrit[z] == yc, {z, 1}][[1, 2]]; If[y > -1, 
+    Nest[Power[v[[1]], #]&, TetCrit[y - Ceiling[y]], Ceiling[y]],
+    Nest[Log[v[[1]], #]&, TetCrit[y - Ceiling[y]], -Ceiling[y]]]]

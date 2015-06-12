@@ -1,0 +1,416 @@
+
+<html>
+<head>
+	<title>Home of Tetration</title>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<script>
+		sideFrameOff();
+	</script>
+</head>
+<body style="background-color:#111;color:silver;">
+
+<div class="darkness" style="text-align: center;">
+	<img src="img/taux-head.png"/>
+	<br/>
+	<span style="text-align: center; font-style: italic; font-weight: bold; color: yellow; font-size: 72;">Tetration</span>
+
+
+<br/><br/>
+
+<center>
+<span style="color:white;"><b>Featured Pages:</b></span>&nbsp;
+<a href="appl.html">Applications</a> &nbsp;|&nbsp;
+<a href="chaos.html">Chaos</a> &nbsp;|&nbsp;
+<a href="exfac.html">Exp. Factorial</a> &nbsp;|&nbsp;
+<a href="funeq.html">Functional Eq.</a> &nbsp;|&nbsp;
+<a href="hist.html">History</a> &nbsp;|&nbsp;
+<a href="itern.html">Iteration</a> 
+</center>
+
+<br/>
+
+<center>
+Reference:&nbsp;
+<a href="defs.html">Definitions</a> &nbsp;|&nbsp;
+<a href="ident.html">Identities</a> &nbsp;|&nbsp;
+<a href="mthds.html">Methods</a> &nbsp;|&nbsp;
+<a href="code.html">Code</a> &nbsp;|&nbsp;
+<a href="tabs.html">Tables</a> &nbsp;|&nbsp;
+<a href="graph.html">Graphs</a> &nbsp;|&nbsp;
+<a href="gloss.html">Glossary</a> &nbsp;|&nbsp;
+<a href="links.html">Links</a>
+</center>
+
+<br/>
+
+<center>
+Discussion:&nbsp;
+<a href="index.html">Welcome</a> =&gt;
+<a href="basic.html">Basics</a> =&gt;
+<a href="hyper.html">Hyperops</a> =&gt;
+<a href="tetra.html">Tetration</a> =&gt;
+<a href="slog.html">Super-log</a> =&gt;
+<a href="sroot.html">Super-root</a> =&gt;
+<a href="paper.html">Papers</a>
+</center>
+
+</div>
+
+<hr/>
+<div class="darkness">
+<h1>Welcome to the Home of Tetration</h1>
+<p>
+    This site is about <a href="gloss.html#tetration">tetration</a>.
+    Tetration is an obscure mathematical operation that
+    currently falls under the category of <i>Pure Mathematics</i>, 
+    because it has few <a href="appl.html">applications</a>. 
+    Even so, many mathematicians
+    have been interested in tetration, because of the historical significance
+    of its relatives in the <a href="gloss.html#hyperoperatorsequence">hyper-operator sequence</a>, 
+    and because it is easy to make very large numbers with tetration.
+</p>
+<p>
+    There are many related functions that are not exactly 
+    tetration but are inter-connected in some way.
+    When someone thinks about <i>sine</i> or <i>cosine</i>,
+    they generally aren't the only things that come to mind. Usually
+    other related functions such as <i>tangent</i> or the rest of
+    the trigonometric functions also come to mind, or perhaps a
+    vague memory that they have something to do with triangles.
+</p>
+<p>
+    One function that is intimately related to tetration, that
+    is much more well-known than tetration, 
+    is the <a href="gloss.html#lambertwfunction">Lambert W-function</a>,
+    also known as the <a href="gloss.html#productlogarithm">product-logarithm</a>. This function allows
+    many differential equations and equations involving
+    exponentials to be solved in closed-form rather than having
+    to resort to <a href="nmanl.html">numerical analysis</a> only. 
+    The product-logarithm
+    is so well known that both <i>Maple</i> (<code>LambertW</code>) and
+    <i>Mathematica</i> (<code>ProductLog</code>) 
+    provide it as a built-in function.
+</p>
+<p>
+    Tetration and its associated functions have been studied for
+    hundreds of years, so it has quite a <a href="hist.html">history</a>
+    behind it. Most of its history has been the investigation
+    of infinite tetration, also known as the 
+    <a href="gloss.html#infinitelyiteratedexponential">infinitely iterated exponential</a>.
+    This function, along with the square <a href="gloss.html#superroot">super-root</a>, are
+    isomorphic to the <a href="gloss.html#lambertwfunction">Lambert W-function</a>, so any equation
+    that one can solve can be solved by any of them.
+</p>
+<p>
+    This website is an attempt to bring together those things
+    that are related to tetration, or could possibly be of use
+    in understanding more about tetration, namely various
+    <a href="mthds.html">methods</a> that have been used to
+    generalize <a href="itern.html">iteration</a> 
+    to <b><i>continuous iteration</i></b>,
+    <b><i>fractional iteration</i></b>, <b><i>real-analytic iteration</i></b>, or 
+    <b><i>complex-analytic iteration</i></b> (which could also be called
+    holomorphic iteration). This
+    relates to tetration, because the definition (in words)
+    of tetration (used here) is:
+</p>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><a href="gloss.html#tetration">Tetration</a> is the <a href="gloss.html#orbit">orbit</a> of an <a href="gloss.html#exponentialfunction">exponential function</a> from 1.
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+</div>
+<hr/>
+<div class="darkness">
+<h1>Site Map</h1>
+<p>
+   Pages listed alphabetically by title: 
+</p>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><a href="appl.html">Applications</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+Talks about applications of integer tetration, infinitely iterated exponentials, the Lambert <var>W</var>-function, continuous iteration, analytic iteration, and notations used to express them.
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><a href="basic.html">Basics</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><a href="chaos.html">Chaos</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><a href="code.html">Code</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+Self-explanatory, some Maple and Mathematica code to calculate functions discussed on this website.
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><a href="defs.html">Definitions</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+The definitions of tetration, super-log, super-root, 
+and hyper-ops.
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><a href="exfac.html">Exponential Factorial</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+About the exponential factorial defined as ef(1) = 1 and
+ef(<var>x</var>) = <var>x</var><sup>ef(<var>x</var>-1)</sup>. Most discussions of this function involve its definition over integer <var>x</var>, but here we discuss how to extend it to real <var>x</var>. The method used here is described in
+<a href="funeq.html">Functional Equations</a> in more detail.
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><a href="funeq.html">Functional Equations</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+Self-explanatory, some functional equations related to tetration.
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><a href="gloss.html">Glossary</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+Self-explanatory, a list of terms used on this website.
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><a href="graph.html">Graphs</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><a href="hist.html">History</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><a href="hyper.html">Hyper-operators</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><a href="ident.html">Identities</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><a href="imagn.html">Imagination</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><a href="itern.html">Iteration</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><a href="links.html">Links</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><a href="mthds.html">Methods</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><a href="nmanl.html">Numeric Analysis</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><a href="paper.html">Papers</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><a href="quest.html">Questions</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><a href="slog.html">Super-logarithms</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><a href="sroot.html">Super-roots</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><a href="tabs.html">Tables</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><a href="tetra.html">Tetration</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><a href="tower.html">Towers</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</div>
+
+<hr/>
+<div class="darkness" style="padding: 10px;">
+<table class="middleone" cellspacing="5" style="width: 100%;">
+<tr style="width: 100%;"><td style="text-align: left; width: 50%;">
+ <a href=".html"></a>
+</td><td style="text-align: center; width: auto;">
+&nbsp;
+</td><td style="text-align: right; width: 50%;">
+Next Page: <a href="basic.html">Basics</a>
+</td></tr>
+</table>
+</div>
+<hr/>
+
+
+<div class="lightness">
+Visited: <ISML TYPE="counter"> times, last updated: 2006-02-15, by: Andrew Robbins, contact: and_j_rob(at)yahoo(dot)com
+</div>
+</body>
+</html>
+<!--

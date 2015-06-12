@@ -1,0 +1,13 @@
+.in {
+  color: #0000CC;
+  vertical-align: top;
+}
+.out {
+  color: silver;
+  vertical-align: top;
+}
+
+.err {
+  color: red;
+  vertical-align: top;
+}

@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<html:html xmlns:html="http://www.w3.org/1999/xhtml">
+  <html:head>
+    <html:title>SVG Drag Test</html:title>
+    <html:style type="text/css"><![CDATA[
+      body {
+          margin: 0px;
+          padding: 0px;
+          background-color: white;
+      }
+      
+      div {
+          margin: 0px;
+          padding: 0px;
+      }
+    ]]></html:style>
+  </html:head>
+  <html:body>
+    <html:div>
+      <svg 
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0" y="0" width="100%" height="450"
+        contentScriptType="text/ecmascript">
+        <style type="text/css"><![CDATA[
+          polygon {
+              stroke: white;
+              stroke-width: 2px;
+              fill: url(#stdbtn);
+          }
+          circle {
+              stroke: black;
+              stroke-width: 4px;
+              opacity: 0.8;
+          }
+          text {
+              text-anchor: middle;
+          }
+        ]]></style>
+        <script xlink:href="js/dsButtons.js" />
+        <script xlink:href="js/dsCenterText.js" />
+        <script xlink:href="js/dsFullscreen.js" />
+        <script xlink:href="js/dsDragObject.js" />
+        <defs id="dsDefs">
+          <linearGradient id="bigblue" x1="0%" y1="0%" x2="0" y2="100%"
+              gradientUnits="objectBoundingBox" >            <stop offset="0" stop-color="black" stop-opacity="1" />            <stop offset="0.5" stop-color="blue" stop-opacity="1" />            <stop offset="1" stop-color="cyan" stop-opacity="1" />          </linearGradient>          <linearGradient id="stdbtn" x1="0%" y1="0%" x2="100%" y2="100%"
+              gradientUnits="objectBoundingBox" >            <stop offset="0" stop-color="silver" stop-opacity="1" />            <stop offset="1" stop-color="black" stop-opacity="1" />          </linearGradient>        </defs>
+        <g>
+          <g transform="translate(400,350)" id="yy" 
+            onload="yy = new dsDragObject('yy');">
+            <rect width="200" height="50"
+                opacity="0.9" fill="#FFFF33" 
+                stroke="black" stroke-width="2px"
+                id="help" onload="dsCenter('help');">
+              SVG Drag Test
+            </rect>
+          </g>
+          <g transform="translate(150,150)" id="rr" 
+              onload="rr = new dsDragObject('rr');">
+            <circle r="100" fill="#FF3333" />
+            <text id="out"> Drag Me! </text>
+          </g>
+          <g transform="translate(238,300)" id="gg" 
+              onload="gg = new dsDragObject('gg');">
+            <circle r="100" fill="#33CC33" />
+            <g transform="translate(-50,-25)" >
+              <rect width="100" height="50" id="ggho" fill="url(#stdbtn)"
+                  onload="ggho = new dsOctagonButton('ggho', 3);">
+                Home
+              </rect>
+            </g>
+          </g>
+          <g transform="translate(326,150)" id="bb" 
+              onload="bb = new dsDragObject('bb');">
+            <circle r="104" fill="url(#bigblue)"
+              style="opacity: 0.9; stroke-width: 12px;" />
+            <text style="font-size: 9pt;" fill="white">
+              <textPath startOffset="50%"
+                  xlink:href="#bb_titlepath"
+                  method="align"
+                  >
+                The Cool Navigation Circle Window
+              </textPath>
+            </text>
+            <g transform="translate(-50,-45)" id="bbp" 
+              onload="bbp = new dsDragObject('bbp');">
+              <rect width="100" height="40" id="bbps" fill="url(#stdbtn)"
+                  onload="bbps = new dsOctagonButton('bbps', 2);">
+                Prev
+              </rect>
+            </g>
+            <g transform="translate(-50,5)" id="bbn" 
+              onload="bbn = new dsDragObject('bbn');">
+              <rect width="100" height="40" id="bbns" fill="url(#stdbtn)"
+                  onload="bbns = new dsOctagonButton('bbns', 2);">
+                Next
+              </rect>
+            </g>
+            <path id="bb_titlepath" opacity="0" fill="none"
+              d="M -100 0 C -100 -55 -55 -100 0 -100 C 55 -100 100 -55 100 0" />
+          </g>
+        </g>
+      </svg>
+    </html:div>
+    <html:hr/>
+    <html:div style="padding: 50px;">
+        <html:div style="background-color: yellow;">
+          The red circle just has text in it.
+          The green circle has an octagon button in it 
+          (very fancy mouseover effect).
+          The blue circle has two draggable buttons in it.
+          All the circles are draggable, give it a try!
+        </html:div>
+    </html:div>
+  </html:body>
+</html:html>

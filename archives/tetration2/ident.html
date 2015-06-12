@@ -1,0 +1,1091 @@
+
+<html>
+<head>
+	<title>Home of Tetration - Identities</title>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<script>
+		sideFrameOff();
+	</script>
+</head>
+<body style="background-color:#111;color:silver;">
+
+<div class="darkness" style="text-align: center;">
+	<img src="img/taux-head.png"/>
+	<br/>
+	<span style="text-align: center; font-style: italic; font-weight: bold; color: yellow; font-size: 72;">Tetration</span>
+
+
+<br/><br/>
+
+<center>
+<span style="color:white;"><b>Featured Pages:</b></span>&nbsp;
+<a href="appl.html">Applications</a> &nbsp;|&nbsp;
+<a href="chaos.html">Chaos</a> &nbsp;|&nbsp;
+<a href="exfac.html">Exp. Factorial</a> &nbsp;|&nbsp;
+<a href="funeq.html">Functional Eq.</a> &nbsp;|&nbsp;
+<a href="hist.html">History</a> &nbsp;|&nbsp;
+<a href="itern.html">Iteration</a> 
+</center>
+
+<br/>
+
+<center>
+Reference:&nbsp;
+<a href="defs.html">Definitions</a> &nbsp;|&nbsp;
+<a href="ident.html">Identities</a> &nbsp;|&nbsp;
+<a href="mthds.html">Methods</a> &nbsp;|&nbsp;
+<a href="code.html">Code</a> &nbsp;|&nbsp;
+<a href="tabs.html">Tables</a> &nbsp;|&nbsp;
+<a href="graph.html">Graphs</a> &nbsp;|&nbsp;
+<a href="gloss.html">Glossary</a> &nbsp;|&nbsp;
+<a href="links.html">Links</a>
+</center>
+
+<br/>
+
+<center>
+Discussion:&nbsp;
+<a href="index.html">Welcome</a> =&gt;
+<a href="basic.html">Basics</a> =&gt;
+<a href="hyper.html">Hyperops</a> =&gt;
+<a href="tetra.html">Tetration</a> =&gt;
+<a href="slog.html">Super-log</a> =&gt;
+<a href="sroot.html">Super-root</a> =&gt;
+<a href="paper.html">Papers</a>
+</center>
+
+</div>
+
+<hr/>
+<div class="darkness">
+<h1>About the Identities</h1>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+It is my hope that this list is as comprehensive as possible. To that end,
+I have included some things that have little to do with
+<b><i>tetration</i></b> or <b><i>hyper-operations</i></b>, except that they are nice 
+relationships. As a general note, some browsers have trouble with
+multiple subscripts or superscripts, so where there might be a
+problem I have either made the formula into an image, or used
+either "_" or "^" respectively.
+</div>
+<hr/>
+<div class="darkness">
+<h1>Axioms</h1>
+<br/>
+<table class="middleone"><tbody><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td style="color:white;">
+&bull;&nbsp;
+</td><td>
+<img src="img/formu-tet.png"/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>
+the defining property of tetration
+</td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="color:white;">
+&bull;&nbsp;
+</td><td>
+<img src="img/formu-slog.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</td><td>
+the defining property of super-logarithms
+</td></tr>
+</tbody></table>
+
+<!--
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sub><var>x</var></sub>(<var>x</var><sup><var>z</var></sup>) = slog<sub><var>x</var></sub>(<var>x</var>) - 1 
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup>(<var>n</var>)</sup><var>y</var> = <var>x</var>[<sup>(<var>n</var>&minus;1)</sup><var>x</var>]<sup>y&minus;1</sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+defining property of hyper-operations
+		</td>
+	</tr>
+-->
+
+</div>
+<hr/>
+<div class="darkness">
+<h1>Identities</h1>
+
+<h2>Common Definitions</h2>
+<table class="middleone"><tbody><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td style="color:white;">
+&bull;&nbsp;<sup><var>n</var></sup><var>x</var><sup><var>a</var></sup> =
+</td><td>
+<img src="img/formu-iterexp.png"/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>
+for iterated exponentiation
+</td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="color:white;">
+&bull;&nbsp;<sup><var>n</var></sup><var>x</var> =
+</td><td>
+<img src="img/formu-tetrate.png"/>
+</td><td>
+for integer tetration
+</td></tr>
+</tbody></table>
+
+<h2>Simple Definitions</h2>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>n</var></sup><var>x</var><sup><var>a</var></sup> = exp<sup><var>n</var></sup><sub><var>x</var></sub>(<var>a</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+for iterated exponentiation
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>n</var></sup><var>x</var> = <sup><var>n</var></sup><var>x</var><sup>1</sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+for integer tetration
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+<h2>Inverse Function Formulas</h2>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>z</var> = <sup><var>y</var></sup><var>x</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+tetration
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>y</var> = slog<sub><var>x</var></sub>(<var>z</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+super-logarithm
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var> = srt<sub><var>y</var></sub>(<var>z</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+super-root
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>z</var> = <sup><var>y</var></sup><var>x</var><sup><var>a</var></sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+iterated exponentiation
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>y</var> = slog<sub><var>x</var></sub>(<var>z</var>) &minus; slog<sub><var>x</var></sub>(<var>a</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+inverse iterated exponentiation with respect to <var>y</var>
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var> = srt_(y + slog<sub><var>x</var></sub>(<var>a</var>))(<var>z</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+inverse iterated exponentiation with respect to <var>x</var>
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>a</var> = <sup>&minus;<var>y</var></sup><var>x</var><sup><var>z</var></sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+inverse iterated exponentiation with respect to <var>a</var>
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+<h2>Integer Values of Tetration</h2>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup>&minus;<var>n</var></sup><var>x</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+undefined for integer <var>n</var>
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup>&minus;2</sup><var>x</var> = &plusmn;&infin;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup>&minus;1</sup><var>x</var> = 0
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup>0</sup><var>x</var> = 1
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup>1</sup><var>x</var> = <var>x</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup>2</sup><var>x</var> = <var>x</var><sup><var>x</var></sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup>&infin;</sup><var>x</var> = &minus;<var>W</var>(&minus;log(<var>z</var>)) / log(<var>z</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+in terms of the <b><i>product-logarithm</i></b>, the Lambert-<var>W</var> function.
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup>&minus;&infin;</sup><var>x</var> = <sup>&infin;</sup><var>x</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+is a different branch of the infinite iterated exponential.
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+<h2>Integer Values of Iterated Exponentiation</h2>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup>&minus;<var>n</var></sup><var>x</var><sup><var>a</var></sup> = 
+    log<sup><var>n</var></sup><sub><var>x</var></sub>(<var>a</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup>&minus;2</sup><var>x</var><sup><var>a</var></sup> = log<sub><var>x</var></sub>(log<sub><var>x</var></sub>(<var>a</var>))
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup>&minus;1</sup><var>x</var><sup><var>a</var></sup> = log<sub><var>x</var></sub>(<var>a</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup>0</sup><var>x</var><sup><var>a</var></sup> = <var>a</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup>1</sup><var>x</var><sup><var>a</var></sup> = <var>x</var><sup><var>a</var></sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup>2</sup><var>x</var><sup><var>a</var></sup> = <var>x</var>^<var>x</var>^<var>a</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+the graph of which made this website's logo
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>n</var></sup><var>x</var><sup><var>a</var></sup> = exp<sup><var>n</var></sup><sub><var>x</var></sub>(<var>a</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup>&infin;</sup><var>x</var><sup><var>a</var></sup> = <sup>&infin;</sup><var>x</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+in terms of the <b><i>infinite iterated exponential</i></b>.
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup>&minus;&infin;</sup><var>x</var><sup><var>a</var></sup> = <sup>&infin;</sup><var>x</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+is a different branch of the infinite iterated exponential.
+		</td>
+	</tr>
+
+
+	</tbody>
+	</table>
+	</ul>
+
+<h2>The Infinite Iterated Exponential and Company</h2>
+This table shows an interesting relationship:
+that these functions are so similar, they can all be expressed in terms of each other.
+<br/><br/>
+<table class="middleone"><tbody>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td style="color:white;">
+&bull;&nbsp;<sup>&infin;</sup><var>x</var>
+</td><td>
+<td style="color:white;">
+= &minus;<var>W</var>(&minus;log(<var>z</var>)) / log(<var>z</var>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</td><td>
+<td style="color:white;">
+= 1 / srt<sub>2</sub>(1 / <var>x</var>)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>
+the infinite iterated exponential
+</td></tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td style="color:white;">
+&bull;&nbsp;<sup>&infin;</sup>(<b><i>e</i></b><sup>&minus;<var>x</var></sup>)<var>x</var>
+</td><td>
+<td style="color:white;">
+= <var>W</var>(<var>x</var>)
+</td><td>
+<td style="color:white;">
+= <var>x</var> / srt<sub>2</sub>(<b><i>e</i></b><sup><var>x</var></sup>)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>
+the product-logarithm
+</td></tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td style="color:white;">
+&bull;&nbsp;1 / <sup>&infin;</sup>(1 / <var>x</var>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</td><td>
+<td style="color:white;">
+= log(<var>z</var>) / <var>W</var>(log(<var>z</var>))
+</td><td>
+<td style="color:white;">
+= srt<sub>2</sub>(<var>x</var>)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>
+the square super-root
+</td></tr>
+
+</tbody></table>
+<br/><br/>
+
+<h2>General Piecewise-Definitions</h2>
+For tetration:
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>y</var></sup><var>x</var> = log<sub><var>x</var></sub>(<sup><var>y</var>+1</sup><var>x</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if <var>y</var> &lt; -1, note: this piece iterates!
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>y</var></sup><var>x</var> = <var>t</var>(<var>x</var>, <var>y</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if -1 &lt; <var>y</var> &le; 0
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>y</var></sup><var>x</var> = <var>x</var>^(<sup><var>y</var>&minus;1</sup><var>x</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if <var>y</var> &gt; 0, note: this piece iterates!
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+where <var>t</var>(<var>x</var>, <var>y</var>) is the <b><i>critical function</i></b> for tetration.
+<br/><br/>
+For the super-logarithm:
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sub><var>x</var></sub>(<var>z</var>) = 
+    slog<sub><var>x</var></sub>(<var>x</var><sup><var>z</var></sup>) &minus; 1
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if <var>z</var> &le; 0
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sub><var>x</var></sub>(<var>z</var>) = <var>s</var>(<var>x</var>, <var>z</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if 0 &lt; <var>z</var> &le; 1
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sub><var>x</var></sub>(<var>z</var>) = 
+    slog<sub><var>x</var></sub>(log<sub><var>x</var></sub>(<var>z</var>)) + 1
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if <var>z</var> &gt; 1, note: this piece iterates!
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+where <var>s</var>(<var>x</var>, <var>z</var>) is the <b><i>critical function</i></b> for the super-logarithm.
+
+<h2>A Simple Extension to Real Numbers</h2>
+The simplest extension to real numbers is the bare minimum required
+to obey the known integer values for tetration and the super-logarithm:
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>t</var>(<var>x</var>, <var>y</var>) = <var>y</var> + 1
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if -1 &lt; <var>y</var> &le; 0, for tetration
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>s</var>(<var>x</var>, <var>z</var>) = <var>z</var> &minus; 1
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if 0 &lt; <var>z</var> &le; 1, for superlog
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+which satisfy the constraints:
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>t</var>(<var>x</var>, -1) = 0
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+like <sup>-1</sup><var>x</var> = 0
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>t</var>(<var>x</var>, 0) = 1
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+like <sup>0</sup><var>x</var> = 1
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+and
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>s</var>(<var>x</var>, 0) = -1
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+like slog<sub><var>x</var></sub>(0) = -1
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>s</var>(<var>x</var>, 1) = 0
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+like slog<sub><var>x</var></sub>(1) = 0
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+<h2>Complex Conjugate Properties</h2>
+Using my extension, these have been verified numerically
+for inputs with small imaginary parts between &minus;1/2 and 1/2.
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>conj(<sup><var>y</var></sup><var>x</var>) = <sup>conj(<var>y</var>)</sup><var>x</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+for tetration
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>conj(slog<sub><var>x</var></sub>(<var>z</var>)) = slog<sub><var>x</var></sub>(conj(<var>z</var>))
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+for superlog
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+<h2>Integration Formulas</h2>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>&int; <sub><var>x</var>=0..1</sub> <var>x</var><sup><var>x</var></sup> <var><b>d</b>x</var> = 
+    &sum; <sub><var>n</var>=1..&infin;</sub> (&minus;1)<sup><var>n</var>+1</sup> / <var>n</var><sup><var>n</var></sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+<a href="http://mathworld.wolfram.com/PowerTower.html">Power Tower</a>
+Formula #27 -- From MathWorld
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>&int; <sub><var>x</var>=0..1</sub> <var>x</var><sup>&minus;<var>x</var></sup> <var><b>d</b>x</var> = 
+    &sum; <sub><var>n</var>=1..&infin;</sub> 1 / <var>n</var><sup><var>n</var></sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+<a href="http://mathworld.wolfram.com/PowerTower.html">Power Tower</a>
+Formula #29 -- From MathWorld
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+<h2>Hyper-operator Notation</h2>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup>(<var>n</var>)</sup><var>y</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+Munafo's hyper-operator notation (<i>de facto</i> standard)
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup>(<var>n</var>)</sup><var>y</var> = <var>x</var>&uarr;<sup>(<var>n</var>&minus;2)</sup> <var>y</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+Knuth's extended up-arrow notation (<i>acedemic</i> standard)
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup>(<var>n</var>)</sup><var>y</var> = <var>x</var> &rarr; <var>y</var> &rarr; (<var>n</var> &minus; 2)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+Conway's chained-arrow notation
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup>(<var>n</var>)</sup><var>y</var> = { <var>x</var>, <var>y</var>, <var>n</var> }
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+Bower's array notation
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup>(<var>n</var>)</sup><var>y</var> = hyper(<var>x</var>, <var>n</var>, <var>y</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+The hyper() function notation
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup>(<var>n</var>)</sup><var>y</var> = hyper-<var>n</var>(<var>x</var>, <var>y</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+The hyper-<var>n</var>() function notation
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+<h2>Tetration Notation</h2>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>y</var></sup><var>x</var> = "<code>x^^y</code>"
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+ASCII notation for tetration
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>y</var></sup><var>x</var> = <var>x</var>&uarr;&uarr;<var>y</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+Knuth's up-arrow notation
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>y</var></sup><var>x</var> = <var>x</var>&uarr;<sup>2</sup> <var>y</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+Knuth's extended up-arrow notation
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>y</var></sup><var>x</var> = <var>x</var> &rarr; <var>y</var> &rarr; 2
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+Conway's chained-arrow notation
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>y</var></sup><var>x</var> = <var>x</var><sup>(4)</sup><var>y</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+Munafo's hyper-operator notation (<i>de facto</i> standard)
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>y</var></sup><var>x</var> = hyper(<var>x</var>, 4, <var>y</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+The hyper() function notation
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>y</var></sup><var>x</var> = hyper4(<var>x</var>, <var>y</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+The hyper-<var>n</var>() function notation
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>y</var></sup><var>x</var> = twr<sub><var>y</var></sub>(<var>x</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+A notation for <b><i>power tower</i></b> functions
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>y</var></sup><var>x</var> = tet<sub><var>x</var></sub>(<var>y</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+A notation for <b><i>tetrational</i></b> functions
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+<h2>Iterated Exponentiation Notation</h2>
+Galidakis uses the notation <sup><var>y</var></sup>(<var>x</var>, <var>a</var>) for iterated exponentiation,
+which is beneficial when <var>a</var> is complicated.
+In ASCII, the same can be expressed using the notation "<code>x^^y@a</code>", 
+which can be found in several places around the internet. Interestingly,
+some have noticed that the notation "<code>x^^y.a</code>" is equivalent
+to the first-degree approximation of tetration, where <var>y</var> is the integer part and <var>a</var> is the fractional part of the value being tetrated.
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>y</var></sup><var>x</var><sup><var>a</var></sup> = "<code>x^^y@a</code>"
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+ASCII notation for iterated exponentiation
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>y</var></sup><var>x</var><sup><var>a</var></sup> = "<code>x^^y.a</code>"
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+ASCII notation for approximate iterated exponentiation
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>y</var></sup><var>x</var><sup><var>a</var></sup> = <sup><var>y</var></sup>(<var>x</var>, <var>a</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+Galidakis' notation for iterated exponentiation
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>y</var></sup><var>x</var><sup><var>a</var></sup> = exp<sup><var>y</var></sup><sub><var>x</var></sub>(<var>a</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+A functional notation for iterated exponentiation
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+<h2>Miscellaneous</h2>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup><var>y</var></sup> = <b><i>e</i></b><sup><var>y</var> log(<var>x</var>)</sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+exponentiation in terms of <span style="color:white;"><b>exp</b></span> and <span style="color:white;"><b>log</b></span>
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup><var>y</var></sup> = <sup>1 + slog_<var>x</var>(<var>y</var>)</sup><var>x</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+exponentiation in terms of <span style="color:white;"><b>tet</b></span> and <span style="color:white;"><b>slog</b></span>
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup><var>y</var></sup> = <sup>1</sup><var>x</var><sup><var>y</var></sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+exponentiation in terms of continuously iterated exponentiation
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>y</var></sup><var>x</var> = <sup><var>y</var></sup><var>x</var><sup>1</sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+tetration in terms of continuously iterated exponentiation
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>y</var></sup><var>x</var><sup><var>a</var></sup> = <sup><var>y</var> + slog_<var>x</var>(<var>a</var>)</sup><var>x</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+continuously iterated exponentiation in terms of tetration
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+
+</div>
+<hr/>
+<div class="darkness">
+<h1>Other Things Known</h1>
+<br/>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup>&infin;</sup><var>x</var> 
+<span style="color: silver;">
+converges on the interval [<b><i>e</i></b><sup>&minus;<b><i>e</i></b></sup>, <b><i>e</i></b><sup>1/<b><i>e</i></b></sup>].
+</span>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>
+<span style="color: silver;">
+"In 1990, [Daniel Geisler] realized that the method [he] had discovered for defining tetration for complex numbers was not limited to tetration, but applied to iterated functions in the complex domain with a hyperbolic or irrationally neutral fixed point not at infinity."
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --
+[<a href="http://www.tetration.org">Tetraiton.org</a>]
+</span>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+
+	</tbody>
+	</table>
+	</ul>
+</div>
+<hr/>
+
+<div class="lightness">
+Visited: <ISML TYPE="counter"> times, last updated: 2006-02-15, by: Andrew Robbins, contact: and_j_rob(at)yahoo(dot)com
+</div>
+</body>
+</html>
+<!--

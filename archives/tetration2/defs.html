@@ -1,0 +1,322 @@
+
+<html>
+<head>
+	<title>Home of Tetration - Definitions</title>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<script>
+		sideFrameOff();
+	</script>
+</head>
+<body style="background-color:#111;color:silver;">
+
+<div class="darkness" style="text-align: center;">
+	<img src="img/taux-head.png"/>
+	<br/>
+	<span style="text-align: center; font-style: italic; font-weight: bold; color: yellow; font-size: 72;">Tetration</span>
+
+
+<br/><br/>
+
+<center>
+<span style="color:white;"><b>Featured Pages:</b></span>&nbsp;
+<a href="appl.html">Applications</a> &nbsp;|&nbsp;
+<a href="chaos.html">Chaos</a> &nbsp;|&nbsp;
+<a href="exfac.html">Exp. Factorial</a> &nbsp;|&nbsp;
+<a href="funeq.html">Functional Eq.</a> &nbsp;|&nbsp;
+<a href="hist.html">History</a> &nbsp;|&nbsp;
+<a href="itern.html">Iteration</a> 
+</center>
+
+<br/>
+
+<center>
+Reference:&nbsp;
+<a href="defs.html">Definitions</a> &nbsp;|&nbsp;
+<a href="ident.html">Identities</a> &nbsp;|&nbsp;
+<a href="mthds.html">Methods</a> &nbsp;|&nbsp;
+<a href="code.html">Code</a> &nbsp;|&nbsp;
+<a href="tabs.html">Tables</a> &nbsp;|&nbsp;
+<a href="graph.html">Graphs</a> &nbsp;|&nbsp;
+<a href="gloss.html">Glossary</a> &nbsp;|&nbsp;
+<a href="links.html">Links</a>
+</center>
+
+<br/>
+
+<center>
+Discussion:&nbsp;
+<a href="index.html">Welcome</a> =&gt;
+<a href="basic.html">Basics</a> =&gt;
+<a href="hyper.html">Hyperops</a> =&gt;
+<a href="tetra.html">Tetration</a> =&gt;
+<a href="slog.html">Super-log</a> =&gt;
+<a href="sroot.html">Super-root</a> =&gt;
+<a href="paper.html">Papers</a>
+</center>
+
+</div>
+
+<hr/>
+<div class="darkness">
+<h1>About the Definitions</h1>
+<p>
+    The following definitions are based on widely available definitions, including 
+    <a href="http://home.earthlink.net/~mrob/pub/math/largenum.html">Munafo</a>'s 
+    definition of the <i>hyper-operators</i>. The only new definition here is the
+    definition of the <i>super-logarithm</i>, which is discussed in more detail
+    in my <a href="paper.html">paper</a>. 
+</p>
+</div>
+<hr/>
+<div class="darkness">
+<h1>Definitions</h1>
+
+<h2>Knuth</h2>
+Hyper-operators:
+
+    
+    <center>
+	<img src="img/auto/knuth.png" alt="x \uparrow^{n} y = 
+\begin{cases}
+x^y & \text{if } n = 1\\
+x & \text{if } n > 1 \text{ and }  y = 1\\
+x \uparrow^{n-1} (x \uparrow^{n} (y-1)) & \text{otherwise}
+\end{cases}"/>
+    </center>
+
+<h2>Exponentiation</h2>
+<p>
+    This is the usual definition of exponentiation, 
+    defined so that integer powers and non-integer powers
+    are, in effect, separate definitions. Since the
+    logarithm has multiple values in the complex plane,
+    it should be understood that only the principle
+    branch of the logarithm is used:
+</p>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup>1</sup> := <var>x</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup><var>n</var></sup> := <var>x</var> <var>x</var><sup><var>n</var>-1</sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+for integer <var>n</var> &gt; 1
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup><var>y</var></sup> := <b><i>e</i></b><sup><var>y</var> log(<var>x</var>)</sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+for non-integer <var>y</var>
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+<h2>Hyper-operations</h2>
+<p>
+    This is defined so that the base case of addition is defined,
+    and all hyper-operators after it will have 1 as an identity element.
+    For other values of hyper-operators, see the
+    <a href="ident.html">Identities</a> page.
+    To allow later hyper-operators to be defined in terms of previous
+    hyper-operators, the last part defines hyper-operators recursively:
+</p>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup>(<var>n</var>)</sup>1 := <var>x</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+for integer <var>n</var> &gt; 1
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup>(1)</sup><var>y</var> := <var>x</var> + <var>y</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+for integer <var>y</var>
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup>(<var>n</var>)</sup><var>y</var> 
+    := <var>x</var><sup>(<var>n</var> - 1)</sup>(<var>x</var><sup>(<var>n</var>)</sup>(<var>y</var> - 1))
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+for integer <var>y</var>, <var>n</var> and <var>n</var> &gt; 0
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+<h2>Super-logarithms</h2>
+<p>
+    This definition is different than any other definitions of the super-logarithm.
+    The only place you can find this definition is here, on this website, and
+    in my <a href="paper.html">paper</a>. The first two parts define the
+    super-logarithm everywhere in terms of the interval 0 &lt; <var>z</var> &le; 1.
+    Once the values are within that interval, the third part uses the series
+    approximation, which converges on that interval:
+</p>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sub><var>x</var></sub>(<var>z</var>) := slog<sub><var>x</var></sub>(<var>x</var><sup><var>z</var></sup>) - 1
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if <var>x</var> &gt; 1, <var>z</var> &le; 0
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sub><var>x</var></sub>(<var>z</var>) := slog<sub><var>x</var></sub>(log<sub><var>x</var></sub>(<var>z</var>)) + 1
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if <var>x</var> &gt; 1, <var>z</var> &gt; 1
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sub><var>x</var></sub>(<var>z</var>) := -1 + &sum; <sub><var>k</var>=1..&infin;</sub> 
+    <var>z</var><sup><var>k</var></sup> <var>s</var><sub><var>k</var></sub>(<var>x</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if <var>x</var> &gt; 1, 0 &lt; <var>z</var> &le; 1 <br/><br/>
+    where <var>s</var><sub><var>k</var></sub>(<var>x</var>) = lim<sub>n &rarr; &infin;</sub> 
+        det(<b>C</b><sub><var>k</var></sub>(<var>x</var>)<sub><var>n</var></sub>)/
+        det(<b>C</b><sub>0</sub>(<var>x</var>)<sub><var>n</var></sub>) <br/>
+    and (C<sub><var>m</var></sub>(<var>x</var>)<sub><var>n</var></sub>)<sub><var>jk</var></sub> =
+    ( k<sup>(<var>j</var>&minus;1)</sup> - &delta;<sub>(<var>j</var>&minus;1)<var>k</var></sub> <var>k</var>! log(<var>x</var>)<sup>(1&minus;<var>j</var>)</sup> ) 
+    (1 - &delta;<sub><var>mk</var></sub>) + &delta;<sub><var>mk</var></sub> <br/>
+    where <var>j</var>,<var>k</var> = 1..<var>m</var> and &delta;<sub><var>mk</var></sub> is Kronecker delta.
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+<h2>Tetration</h2>
+<p>
+    This defines tetration completely in terms of the super-logarithm, but
+    because the range of the super-logarithm never goes below -2, the
+    first part defines tetration recursively until <var>y</var> &gt; -2. Once
+    it is, then <var>y</var> will be within the proper interval for the second part.
+    The reason why neither of the intervals includes -2, is because 
+    tetration is undefined at <var>y</var> = -2. Furthermore, tetration is undefined
+    at every negative integer except -1.
+</p>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>y</var></sup><var>x</var> := log<sub><var>x</var></sub>(<sup><var>y</var>+1</sup><var>x</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if <var>x</var> &gt; 1, <var>y</var> &lt; -2
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>y</var></sup><var>x</var> := slog<sub><sub><table cellspacing="0" cellpadding="0" border="0" 
+class="subsup"><tr><td><var>x</var></td><tr><tr><td>-1</td><tr></table></sub></sub>(<var>y</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if <var>x</var> &gt; 1, <var>y</var> &gt; -2
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+<h2>Continuously Iterated Exponentials</h2>
+<p>
+    Although it is easy to recognize that tetration (2 arguments) can
+    be defined in terms of iterated exponentiation (3 arguments) where
+    the main input is 1, an interesting relationship allows 
+    iterated exponentiation (3 arguments) to be defined in terms of
+    tetration (2 arguments) without any loss of information, so
+    this is its most natural definition:
+</p>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>y</var></sup><var>x</var><sup><var>a</var></sup>
+    := <sup><var>y</var> + slog<sub><var>x</var></sub>(<var>a</var>)</sup><var>x</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if <var>x</var> &gt; 1
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+</div>
+<hr/>
+
+<div class="lightness">
+Visited: <ISML TYPE="counter"> times, last updated: 2006-02-15, by: Andrew Robbins, contact: and_j_rob(at)yahoo(dot)com
+</div>
+</body>
+</html>
+<!--

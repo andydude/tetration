@@ -1,0 +1,144 @@
+
+<html>
+<head>
+	<title>Home of Tetration</title>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<script>
+		sideFrameOff();
+	</script>
+</head>
+<body>
+
+<div class="darkness" style="text-align: center;">
+	<img src="img/taux-head.png"/>
+	<br/>
+	<span style="text-align: center; font-style: italic; font-weight: bold; color: yellow; font-size: 72;">Tetration</span>
+    <br/>
+	<table class="middleone" 
+		style="text-align: center;" cellspacing="15">
+	<tbody>
+	<tr><td width="14%">&nbsp;</td><td width="14%">
+		<a href="index.html">Main</a></td><td width="14%">
+		<a href="ident.html">Identities</a></td><td width="16%">
+		<a href="code.html">Code</a></td><td width="14%">
+		<a href="graph.html">Graphs</a></td><td width="14%">
+		<a href="paper.html">Paper</a>
+		</td><td width="14%">&nbsp;</td></tr>
+		<tr><td width="14%">&nbsp;</td><td width="14%">
+		<a href="hist.html">History</a></td><td width="14%">
+		<a href="defs.html">Definitions</a></td><td width="16%">
+		<a href="error.html">Error</a></td><td width="14%">
+		<a href="tabs.html">Tables</a></td><td width="14%">
+		<a href="links.html">Links</a>
+	</td><td width="14%">&nbsp;</td></tr>
+	</tbody>
+	</table>
+</div>
+
+<div class="darkness">
+<h1>Welcome to the Home of Tetration</h1>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+This site is about Tetration.
+Tetration is an obscure mathematical operation that
+ currently falls under the category of <i>Pure Mathematics</i>, 
+because it has almost no application. Even so, many mathematicians
+have been interested in tetration, because of the historical significance
+of its relatives in the hyper-operation sequence, and because it is easy
+to make very large numbers with tetration.
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The <span style="color:white;"><b>hyper-operation sequence</b></span> is the technical name for the list of
+mathematical operators you already know: addition (<var>a</var> + <var>b</var>) is the first,
+multiplication (<var>a</var>*<var>b</var> = <var>ab</var>) is the second, and exponentiation 
+(<var>a</var>^<var>b</var> = <var>a</var><sup><var>b</var></sup>) is the third. The reason why these are in the same list, 
+and in this order is because you can think of multiplication as repeated addition, 
+and you can think of exponentiation as repeated multiplication. 
+The fourth operation in this sequence is called <span style="color:white;"><b>tetration</b></span>, 
+because it is the fourth (tetra). Tetration then, would be repeated
+exponentiation. The problem is that there are two ways to do that, lets say for 
+repeating exponentiation on 3 threes:
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>The bottom-up method
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+Evaluate 3^3^3 as 27^3 = 19683
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>The top-down method
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+Evaluate 3^3^3 as 3^27 = 7625597484987
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+From Algebra, we know that (<var>a</var><sup><var>b</var></sup>)<sup><var>c</var></sup> = <var>a</var><sup>(<var>b</var><var>c</var>)</sup>, so the bottom-up method is
+not really a new operator, but is simply expressible in terms of exponentiation. 
+<a href="http://home.earthlink.net/~mrob/pub/math/largenum.html">Munafo</a> uses the
+notation <var>x</var><sub>(<var>4</var>)</sub><var>y</var> for this "lower" form of repeated exponentiation, and
+gives the relationship:
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>The bottom-up method in general
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+<var>x</var><sub>(4)</sub><var>y</var> = <var>x</var>^<var>x</var>^(<var>y</var>&minus;1)
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>The top-down method in general
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+<var>x</var><sup>(4)</sup><var>y</var> = <sup><var>y</var></sup><var>x</var>
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+When we talk about tetration, we are <i>only</i> talking about the top-down method, 
+because this makes a new operation. Now that we know what tetration is, it is easy to see why such an obscure 
+mathematical operation would be studied for hundreds of years, 
+even without any substantial progress.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Another problem with tetration is that the
+values at real <var>y</var> in <sup><var>y</var></sup><var>x</var> are unknown. Many extensions of tetration have
+been devised, but none so far have satisfied all the requirements tetration
+should have. Hopefully, my paper will provide new insight
+into tetration and its inverse, the <b><i>super-logarithm</i></b>, by providing a definition
+of an extension that does satisfy those requirements, and a method that approximates
+that definition. For more information, read my paper, available from the menu above.
+
+
+</div>
+
+<div class="lightness">
+<br/>
+Visited: <ISML TYPE="counter"> times, last updated: 2006-02-15, by: Andrew Robbins, contact: and_j_rob(at)yahoo(dot)com
+</div>
+</body>
+</html>
+<!--

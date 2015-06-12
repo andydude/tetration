@@ -1,0 +1,357 @@
+
+<html>
+<head>
+	<title>Home of Tetration - Tables</title>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<script>
+		sideFrameOff();
+	</script>
+</head>
+<body>
+
+<div class="darkness" style="text-align: center;">
+	<img src="img/taux-head.png"/>
+	<br/>
+	<span style="text-align: center; font-style: italic; font-weight: bold; color: yellow; font-size: 72;">Tetration</span>
+
+
+<br/><br/>
+
+<center>
+Main:&nbsp;
+<a href="main.html">Welcome</a> ...
+<a href="paper.html">Paper</a>
+</center>
+
+<br/>
+
+<center>
+Reference:&nbsp;
+<a href="defs.html">Definitions</a> &nbsp;|&nbsp;
+<a href="ident.html">Identities</a> &nbsp;|&nbsp;
+<a href="tabs.html">Tables</a> &nbsp;|&nbsp;
+<a href="gloss.html">Glossary</a> &nbsp;|&nbsp;
+<a href="links.html">Links</a>
+</center>
+
+<br/>
+
+<center>
+Other:&nbsp;
+<a href="appl.html">Application</a> &nbsp;|&nbsp;
+<a href="hist.html">History</a> &nbsp;|&nbsp;
+<a href="mthds.html">Methods</a> &nbsp;|&nbsp;
+<a href="graph.html">Graphs</a> &nbsp;|&nbsp;
+<a href="code.html">Code</a> &nbsp;|&nbsp;
+<a href="digit.html">Precision</a> 
+</center>
+
+<br/>
+
+<center>
+Discussion:&nbsp;
+<a href="revw.html">Review</a> =&gt;
+<a href="intro.html">Introduction</a> =&gt;
+<a href="hyper.html">Hyperops</a> =&gt;
+<a href="tetra.html">Tetration</a> =&gt;
+<a href="slog.html">Superlog</a>
+</center>
+
+</div>
+
+<div class="darkness">
+<h1>Tables of Values</h1>
+<br/>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>Table of values for <a href="txt/table-tetbin.txt">binary tetration</a> (base 2)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>Table of values for <a href="txt/table-tetnat.txt">natural tetration</a> (base <b><i>e</i></b>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>Table of values for <a href="txt/table-tetdec.txt">decimal tetration</a> (base 10)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+</div>
+<div class="darkness">
+<h1>About&nbsp;&nbsp;<sup><b><i>&pi;</i></b></sup><b><i>e</i></b></h1>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The value of <sup><b><i>&pi;</i></b></sup><b><i>e</i></b> is one of the questions that started this investigation. It would
+be fitting, then, to focus on this one value now that an infinitely differentiable extension
+has been found. Here is a summary of what is known to be exact, using the approximations
+described in my <a href="paper.html">paper</a>:
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><b><i>&pi;</i></b></sup><b><i>e</i></b> ~ <span style="color:white;"><b>37</b></span>,<span style="color:white;"><b>149</b></span>,<span style="color: gray;">###</span>,<span style="color: gray;">###</span>.<span style="color: gray;">###</span>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+digits known to be exact
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><b><i>&pi;</i></b></sup><b><i>e</i></b> ~ <span style="color:white;"><b>37</b></span>,<span style="color:white;"><b>149</b></span>,805,<span style="color: gray;">###</span>.<span style="color: gray;">###</span>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+could be this high
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><b><i>&pi;</i></b></sup><b><i>e</i></b> ~ <span style="color:white;"><b>37</b></span>,<span style="color:white;"><b>149</b></span>,795,<span style="color: gray;">###</span>.<span style="color: gray;">###</span>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+could be this low
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The reason for these values can be seen in the values of successive approximations of
+the inverse super-logarithm, as defined in my <a href="paper.html">paper</a>. An
+exact value in this context, is defined to be the digits within the decimal representation of
+the values of the 
+<var>n</var>-th approximation and 2<var>n</var>-th approximation for the same input,
+that agree when rounded to the nearest place value that would allow agreement. The rounding
+system used here, however is subjective, a 5 can either be rounded up or down, other than that
+normal half-rounding is used:
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sup>&minus;1</sup><sub><b><i>e</i></b></sub>(<b><i>&pi;</i></b>)<sub>10</sub>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+<span style="color: gray;">= <span style="color:white;"><b>37</b></span>,<span style="color:white;"><b>1</b></span>05,406,757.569</span>
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sup>&minus;1</sup><sub><b><i>e</i></b></sub>(<b><i>&pi;</i></b>)<sub>20</sub>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+<span style="color: gray;">= <span style="color:white;"><b>37</b></span>,<span style="color:white;"><b>15</b></span>5,268,624.635</span>
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sup>&minus;1</sup><sub><b><i>e</i></b></sub>(<b><i>&pi;</i></b>)<sub>30</sub>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+<span style="color: gray;">= <span style="color:white;"><b>37</b></span>,<span style="color:white;"><b>15</b></span>2,290,690.852</span>
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sup>&minus;1</sup><sub><b><i>e</i></b></sub>(<b><i>&pi;</i></b>)<sub>40</sub>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+<span style="color: gray;">= <span style="color:white;"><b>37</b></span>,<span style="color:white;"><b>15</b></span>0,849,430.350</span>
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sup>&minus;1</sup><sub><b><i>e</i></b></sub>(<b><i>&pi;</i></b>)<sub>50</sub>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+<span style="color: gray;">= <span style="color:white;"><b>37</b></span>,<span style="color:white;"><b>15</b></span>0,331,380.039</span>
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sup>&minus;1</sup><sub><b><i>e</i></b></sub>(<b><i>&pi;</i></b>)<sub>60</sub>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+<span style="color: gray;">= <span style="color:white;"><b>37</b></span>,<span style="color:white;"><b>15</b></span>0,112,554.576</span>
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sup>&minus;1</sup><sub><b><i>e</i></b></sub>(<b><i>&pi;</i></b>)<sub>70</sub>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+<span style="color: gray;">= <span style="color:white;"><b>37</b></span>,<span style="color:white;"><b>149</b></span>,986,051.500</span>
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sup>&minus;1</sup><sub><b><i>e</i></b></sub>(<b><i>&pi;</i></b>)<sub>80</sub>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+<span style="color: gray;">= <span style="color:white;"><b>37</b></span>,<span style="color:white;"><b>149</b></span>,912,712.494</span>
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sup>&minus;1</sup><sub><b><i>e</i></b></sub>(<b><i>&pi;</i></b>)<sub>90</sub>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+<span style="color: gray;">= <span style="color:white;"><b>37</b></span>,<span style="color:white;"><b>149</b></span>,874,928.208</span>
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sup>&minus;1</sup><sub><b><i>e</i></b></sub>(<b><i>&pi;</i></b>)<sub>100</sub>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+<span style="color: gray;">= <span style="color:white;"><b>37</b></span>,<span style="color:white;"><b>149</b></span>,<span style="color:white;"><b>8</b></span>52,157.218</span>
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sup>&minus;1</sup><sub><b><i>e</i></b></sub>(<b><i>&pi;</i></b>)<sub>110</sub>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+<span style="color: gray;">= <span style="color:white;"><b>37</b></span>,<span style="color:white;"><b>149</b></span>,<span style="color:white;"><b>8</b></span>35,758.346</span>
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sup>&minus;1</sup><sub><b><i>e</i></b></sub>(<b><i>&pi;</i></b>)<sub>120</sub>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+<span style="color: gray;">= <span style="color:white;"><b>37</b></span>,<span style="color:white;"><b>149</b></span>,<span style="color:white;"><b>8</b></span>25,450.226</span>
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sup>&minus;1</sup><sub><b><i>e</i></b></sub>(<b><i>&pi;</i></b>)<sub>130</sub>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+<span style="color: gray;">= <span style="color:white;"><b>37</b></span>,<span style="color:white;"><b>149</b></span>,<span style="color:white;"><b>8</b></span>19,264.787</span>
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sup>&minus;1</sup><sub><b><i>e</i></b></sub>(<b><i>&pi;</i></b>)<sub>140</sub>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+<span style="color: gray;">= <span style="color:white;"><b>37</b></span>,<span style="color:white;"><b>149</b></span>,<span style="color:white;"><b>8</b></span>14,532.744</span>
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sup>&minus;1</sup><sub><b><i>e</i></b></sub>(<b><i>&pi;</i></b>)<sub>150</sub>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+<span style="color: gray;">= <span style="color:white;"><b>37</b></span>,<span style="color:white;"><b>149</b></span>,<span style="color:white;"><b>8</b></span>10,983.642</span>
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sup>&minus;1</sup><sub><b><i>e</i></b></sub>(<b><i>&pi;</i></b>)<sub>200</sub>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+<span style="color: gray;">= <span style="color:white;"><b>37</b></span>,<span style="color:white;"><b>149</b></span>,<span style="color:white;"><b>80</b></span>4,230.685</span>
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sup>&minus;1</sup><sub><b><i>e</i></b></sub>(<b><i>&pi;</i></b>)<sub>300</sub>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+<span style="color: gray;">= <span style="color:white;"><b>37</b></span>,<span style="color:white;"><b>149</b></span>,<span style="color:white;"><b>80</b></span>2,030.621</span>
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sup>&minus;1</sup><sub><b><i>e</i></b></sub>(<b><i>&pi;</i></b>)<sub>400</sub>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+<span style="color: gray;">= <span style="color:white;"><b>37</b></span>,<span style="color:white;"><b>149</b></span>,<span style="color:white;"><b>80</b></span>1,852.585</span>
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+</div>
+
+<div class="lightness">
+<br/>
+Visited: <ISML TYPE="counter"> times, last updated: 2006-02-15, by: Andrew Robbins, contact: and_j_rob(at)yahoo(dot)com
+</div>
+</body>
+</html>
+<!--

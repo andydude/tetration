@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Home of Tetration - Special Functions - Self-power Function</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+<div class="header">
+
+<center class="logo">
+  <img src="img/tetra-logo.png" alt="Graph"/>
+  <br/>
+  <h1>Home of Tetration</h1>
+  <br/>
+  <div class="nav"> 
+  <a href="index.html">Home</a> &nbsp;|&nbsp;
+  <a href="hyper.html">Hyperops</a> &nbsp;|&nbsp;
+  <a href="funct.html">Functions</a> &nbsp;|&nbsp;
+  <a href="itern.html">Iteration</a> &nbsp;|&nbsp;
+  <a href="tetra.html">Tetration</a> &nbsp;|&nbsp;
+  <a href="tower.html">Towers</a>
+  </div>
+
+</center>
+
+
+<center>
+  <div class="nav">
+  Function pages (<span style="color: orange;">under construction</span>) :
+  <a href="fn-sqtow.html"><var>x</var><sup><var>x</var></sup></a> &nbsp;|&nbsp;
+  <a href="fn-rctow.html"><var>x</var><sup>1/<var>x</var></sup></a> &nbsp;|&nbsp;
+  <a href="fn-tconj.html">Topological Conjugacy</a> 
+  </div>
+</center>
+
+</div><hr/><div class="std">
+<h1>Self-power (<var>x</var><sup><var>x</var></sup>)</h1>
+<p>
+	The <em>self-power</em> function is a great way to start learning about tetration. 
+	It is simply defined as <var>x</var><sup><var>x</var></sup>, but it is also a form of tetration, 
+	because <var>x</var><sup><var>x</var></sup> = <sup>2</sup><var>x</var>.
+	However, even this simple function displays some aspects of tetration, for example, 
+	it grows faster than any power function and faster than any exponential function.  
+	One of the first steps that most people take before considering <a href="gloss.html#
+tetration">tetration</a> 
+	in general is to first think about <var>x</var><sup><var>x</var></sup>, and then go on to generalize to 
+	the next logical step, which is tetration.
+</p>
+<p>
+	One prominent property of the self-power function is that its graph is only real-valued
+	for positive inputs, which means that negative inputs create complex-valued outputs.
+	To see why this is, let us consider when <var>x</var> = -1/2: when we substitute this in the
+	definition we get (-1/2)<sup>(-1/2)</sup> = 
+	
+  
+  <img src="img/tex/xtothex-xneghalf.png" alt="-\ii\sqrt{2}"/>
+	which is an imaginary number.
+</p>
+</div><hr/><div class="std">
+<h1>Series for <var>x</var><sup><var>x</var></sup></h1>
+<p>
+Although this is one of the simplest cases of <a href="gloss.html#
+tetration">tetration</a>, it is a non-trivial case, since the immediate answer to a series expansion for <var>x</var><sup><var>x</var></sup> would be:
+
+  
+  </p><p><center><img src="img/tex/xtothex-simple.png" alt="x^x = 
+\ee^{x\log(x)} = \sum_{k=0}^{\infty} \frac{x^k \log(x)^k}{k!}"/></center></p><p class="noindent">
+which is not a Taylor series in <var>x</var>. The derivatives of <var>x</var><sup><var>x</var></sup> at 1 give the <a href="gloss.html#
+exponentialcoefficients">exponential coefficients</a> (1, 1, 2, 3, 8, 10, 54, -42, 944, ...) which is (<a href="http://www.research.att.com/~njas/sequences/A005727">A005727</a>). In Sloane's database entry for this sequence, Jovovic gives the <a href="gloss.html#
+closedform">closed form</a>:
+
+  
+  </p><p><center><img src="img/tex/xtothex-taylor.png" alt="x^x = 
+\sum_{k=0}^{\infty}\frac{(x-1)^k}{k!}
+\sum_{j=0}^{k}\stirfirst{k}{j}
+\sum_{i=0}^{j}\binom{j}{i} i^{(j-i)}
+"/></center></p><p class="noindent">
+This leads to the question: why is it so complicated? which also leads to whether or not it would be different if the function was not <var>x</var><sup><var>x</var></sup>, but what if the function was 
+
+  
+  <img src="img/tex/xtothex-expexp.png" alt="\ee^{x \ee^x}"/> instead? The derivatives of this function at 0 yields a similar set of <a href="gloss.html#
+exponentialcoefficients">exponential coefficients</a> (1, 1, 3, 10, 41, 196, 1057, ...) which is (<a href="http://www.research.att.com/~njas/sequences/A000248">A000248</a>). This database entry gives the <a href="gloss.html#
+closedform">closed form</a>:
+
+  
+  </p><p><center><img src="img/tex/xtothex-puiseux.png" alt="x^x = 
+\sum_{k=0}^{\infty}\frac{\log(x)^k}{k!}
+\sum_{j=0}^{k}\binom{k}{j} j^{(k-j)}
+"/></center></p><p class="noindent">
+showing that a simpler form of the first expansion does exist.
+</p>
+</div><hr/><div class="footer">
+<table class="footalign">
+  <tr>
+    <td style="text-align: left; width: 90%; color: gray; vertical-align: top;">
+Copyright &copy; 2010 <a href="mailto:and_j_rob@yahoo.com" style="color: gray;">Andrew Robbins</a> <span style="color: black;">(<ISML TYPE="counter"> visits)</span>
+    </td>
+    <td style="text-align: right; width: 10%;">
+	<table>
+	  <tr>
+	    <td>
+<a href="http://www.w3.org/RDF/"><img style="border: 0px;" src="img/rdf_flyer.png" alt="1" /></a>
+	    </td>
+	    <td>
+<a href="http://www.w3.org/"><img style="border: 0px;" src="img/w3c_icon.png" alt="1" /></a>
+	    </td>
+	  </tr>
+	</table>
+    </td>
+  </tr>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Home of Tetration - Special Functions - Topological Conjugacy</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+<div class="header">
+
+<center class="logo">
+  <img src="img/tetra-logo.png" alt="Graph"/>
+  <br/>
+  <h1>Home of Tetration</h1>
+  <br/>
+  <div class="nav"> 
+  <a href="index.html">Home</a> &nbsp;|&nbsp;
+  <a href="hyper.html">Hyperops</a> &nbsp;|&nbsp;
+  <a href="funct.html">Functions</a> &nbsp;|&nbsp;
+  <a href="itern.html">Iteration</a> &nbsp;|&nbsp;
+  <a href="tetra.html">Tetration</a> &nbsp;|&nbsp;
+  <a href="tower.html">Towers</a>
+  </div>
+
+</center>
+
+
+<center>
+  <div class="nav">
+  Function pages (<span style="color: orange;">under construction</span>) :
+  <a href="fn-sqtow.html"><var>x</var><sup><var>x</var></sup></a> &nbsp;|&nbsp;
+  <a href="fn-rctow.html"><var>x</var><sup>1/<var>x</var></sup></a> &nbsp;|&nbsp;
+  <a href="fn-tconj.html">Topological Conjugacy</a> 
+  </div>
+</center>
+
+</div><hr/><div class="std">
+<h1>Topological Conjugacy</h1>
+<p>
+  Two functions <var>f</var> and <var>g</var> are <em>topological conjugates</em> 
+  if a <a href="gloss.html#
+homeomorphism">homeomorphism</a> <var>h</var> exists between them such that
+  
+  
+  <img src="img/tex/tc-def.png" alt="f \circ h = h \circ g"/>. This
+  allows us to relate the iterates of <var>f</var> and <var>g</var> together. 
+  Since <var>h</var> is a homeomorphism, it is an <a href="gloss.html#
+invertible">invertible</a> 
+  function, so we can write <var>f</var> in terms of the others as 
+  
+  
+  <img src="img/tex/tc-cor.png" alt="f = h \circ g \circ h^{-1}"/>.
+  The second iterate of <var>f</var> would then be
+
+  
+  <img src="img/tex/tc-snd.png" alt="f^2 = h \circ g \circ h^{-1} \circ h \circ g \circ h^{-1} = h \circ g^2 \circ h^{-1}"/>,
+so generalizing this result we get 
+
+  
+  <img src="img/tex/tc-trd.png" alt="f^n = h \circ g^n \circ h^{-1}"/>.
+</p>
+<p>
+This may be said more simply by saying the following diagram commutes: 
+
+  
+  </p><p><center><img src="img/tex/tc-general.png" alt="
+A & \rTo^{g} & A \\ 
+\dTo^{h} & & \dTo_{h} \\ 
+B & \rTo^{f} & B
+"/></center></p><p class="noindent">
+The reason why there is only two sets instead of four is that <var>f</var> and <var>g</var> are required to be <a href="gloss.html#
+endofunction">endofunction</a>s in order to iterate them. The fortunate consequence of this is that you can "stack" these diagrams together in almost any way you want. Thus, from the previous diagram we can form the diagram:
+
+  
+  </p><p><center><img src="img/tex/tc-general2.png" alt="
+A & \rTo^{g} & A & \rTo^{g} & A \\ 
+\dTo^{h} & & \dTo_{h} & & \dTo_{h} \\ 
+B & \rTo^{f} & B & \rTo^{f} & B
+"/></center></p><p class="noindent">
+which also must commute. These kinds of operations can form new equations at every step of the way. Using these diagrams, you can encode <i>dozens</i> of equations in a single expression. This provides an incredible economy of space and economy of thought. It makes dealing with multiple equations much simpler.
+</p>
+</div><hr/><div class="std">
+<h1>Exponential-like Conjugates</h1>
+<p>
+</p>
+<p>
+
+  
+  </p><p><center><img src="img/tex/tc-exponent.png" alt="
+(z+1)h & \rTo^{h^{x/h}} & (h^{z+1}) \\ 
+\dTo^{x/h - 1} & & \dTo_{x/h - 1} \\ 
+(z) & \rTo^{h^x - 1} & (h^{z} - 1)
+"/></center></p><p class="noindent">
+</p>
+</div><hr/><div class="std">
+<h1>Lambert-like Conjugates</h1>
+<p>
+
+  
+  </p><p><center><img src="img/tex/tc-lambert.png" alt="
+\left(\ee^{W(z)} = \frac{z}{W(z)} \right) & & & \rTo^{x^x} & & & \left(\ee^{W(z)\ee^{W(z)}} = \ee^z\right) \\ 
+ & \luTo^{\ee^x} & & & & \ruTo^{\ee^x} & \\
+\dTo^{\frac{1}{x}} & & W(z) & \rTo^{x\ee^x} & (z) & & \dTo_{\frac{1}{x}} \\
+ & \ldTo^{\ee^{-x}} & & & & \rdTo^{\ee^{-x}} & \\
+\left(\ee^{-W(z)} = \frac{W(z)}{z} \right) & & & \rTo{x^{1/x}} & & & \left(\ee^{-W(z)\ee^{W(z)}} = \ee^{-z}\right)
+"/></center></p><p class="noindent">
+</p>
+</div><hr/><div class="footer">
+<table class="footalign">
+  <tr>
+    <td style="text-align: left; width: 90%; color: gray; vertical-align: top;">
+Copyright &copy; 2010 <a href="mailto:and_j_rob@yahoo.com" style="color: gray;">Andrew Robbins</a> <span style="color: black;">(<ISML TYPE="counter"> visits)</span>
+    </td>
+    <td style="text-align: right; width: 10%;">
+	<table>
+	  <tr>
+	    <td>
+<a href="http://www.w3.org/RDF/"><img style="border: 0px;" src="img/rdf_flyer.png" alt="1" /></a>
+	    </td>
+	    <td>
+<a href="http://www.w3.org/"><img style="border: 0px;" src="img/w3c_icon.png" alt="1" /></a>
+	    </td>
+	  </tr>
+	</table>
+    </td>
+  </tr>
+</table>
+</div>
+</body>
+</html>

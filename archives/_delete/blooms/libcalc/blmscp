@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo scp $1 andydude@bloomsxml.net:/usr/local/www/Zope/lib/python/ZPublisher/blooms/transforms/calc/$1
+scp $1 andydude@bloomsxml.net:/usr/local/www/Zope/lib/python/ZPublisher/blooms/transforms/calc/$1
+

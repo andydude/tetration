@@ -1,0 +1,67 @@
+e archive.  GNU
+<CODE>ar</CODE> can not create an archive with a full path name (such archives
+are not POSIX complaint), but other archive creators can.  This option
+will cause GNU <CODE>ar</CODE> to match file names using a complete path
+name, which can be convenient when extracting a single file from an
+archive created by another tool.
+<P>
+
+<DT><SAMP>`s'</SAMP>
+<DD><A NAME="IDX24"></A>
+Write an object-file index into the archive, or update an existing one,
+even if no other change is made to the archive.  You may use this modifier
+flag either with any operation, or alone.  Running <SAMP>`ar s'</SAMP> on an
+archive is equivalent to running <SAMP>`ranlib'</SAMP> on it.
+<P>
+
+<DT><SAMP>`S'</SAMP>
+<DD><A NAME="IDX25"></A>
+Do not generate an archive symbol table.  This can speed up building a
+large library in several steps.  The resulting archive can not be used
+with the linker.  In order to build a symbol table, you must omit the
+<SAMP>`S'</SAMP> modifier on the last execution of <SAMP>`ar'</SAMP>, or you must run
+<SAMP>`ranlib'</SAMP> on the archive.
+<P>
+
+<DT><SAMP>`u'</SAMP>
+<DD><A NAME="IDX26"></A>
+Normally, <SAMP>`ar r'</SAMP><small>...</small> inserts all files
+listed into the archive.  If you would like to insert <EM>only</EM> those
+of the files you list that are newer than existing members of the same
+names, use this modifier.  The <SAMP>`u'</SAMP> modifier is allowed only for the
+operation <SAMP>`r'</SAMP> (replace).  In particular, the combination <SAMP>`qu'</SAMP> is
+not allowed, since checking the timestamps would lose any speed
+advantage from the operation <SAMP>`q'</SAMP>.
+<P>
+
+<DT><SAMP>`v'</SAMP>
+<DD>This modifier requests the <EM>verbose</EM> version of an operation.  Many
+operations display additional information, such as filenames processed,
+when the modifier <SAMP>`v'</SAMP> is appended.
+<P>
+
+<DT><SAMP>`V'</SAMP>
+<DD>This modifier shows the version number of <CODE>ar</CODE>.
+</DL>
+<P>
+
+<CODE>ar</CODE> ignores an initial option spelt <SAMP>`-X32_64'</SAMP>, for
+compatibility with AIX.  The behaviour produced by this option is the
+default for GNU <CODE>ar</CODE>.  <CODE>ar</CODE> does not support any of the other
+<SAMP>`-X'</SAMP> options; in particular, it does not support <SAMP>`-X32'</SAMP>
+which is the default for AIX <CODE>ar</CODE>.
+</P><P>
+
+<A NAME="ar scripts"></A>
+<HR SIZE="6">
+<A NAME="SEC3"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="binutils.html#SEC2"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="binutils.html#SEC4"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="binutils.html#SEC1"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="binutils.html#SEC4"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="binutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="binutils.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="binutils.html#SEC35">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A H

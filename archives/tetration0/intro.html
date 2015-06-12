@@ -1,0 +1,434 @@
+
+<html>
+<head>
+	<title>Home of Tetration - Introduction</title>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<script>
+		sideFrameOff();
+	</script>
+</head>
+<body>
+
+<div class="darkness" style="text-align: center;">
+	<img src="img/taux-head.png"/>
+	<br/>
+	<span style="text-align: center; font-style: italic; font-weight: bold; color: yellow; font-size: 72;">Tetration</span>
+    <br/>
+	<table class="middleone" 
+		style="text-align: center;" cellspacing="15">
+	<tbody>
+	<tr><td width="14%">&nbsp;</td><td width="14%">
+		<a href="index.html">Main</a></td><td width="14%">
+		<a href="ident.html">Identities</a></td><td width="16%">
+		<a href="code.html">Code</a></td><td width="14%">
+		<a href="graph.html">Graphs</a></td><td width="14%">
+		<a href="paper.html">Paper</a>
+		</td><td width="14%">&nbsp;</td></tr>
+		<tr><td width="14%">&nbsp;</td><td width="14%">
+		<a href="hist.html">History</a></td><td width="14%">
+		<a href="defs.html">Definitions</a></td><td width="16%">
+		<a href="error.html">Error</a></td><td width="14%">
+		<a href="tabs.html">Tables</a></td><td width="14%">
+		<a href="links.html">Links</a>
+	</td><td width="14%">&nbsp;</td></tr>
+	</tbody>
+	</table>
+</div>
+
+<div class="darkness">
+<h1>Introduction to Tetration</h1>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>Tetration is the continuously iterated exponential of one.
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+What is a continuously iterated exponential you may ask? Good question.
+Lets break that down into the three words that compose it. For when
+its constituent words are understood, 
+it is easy to understand the whole phrase:
+<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style="color:white;"><b>Continuous</b></span> things are usually contrasted with <span style="color:white;"><b>discrete</b></span> things, 
+and both are analogous to the roles 
+in mathematics that the <span style="color:white;"><b>real numbers</b></span> and the <span style="color:white;"><b>integers</b></span> 
+play respectively. 
+The integers are <b><i>discrete</i></b> because you can't go between them without "jumping".
+With real numbers on the other hand, you can go between any number by going through other
+real numbers, which makes the real numbers <b><i>continuous</i></b>.
+<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style="color:white;"><b>Iteration</b></span> is the process of applying a function to itself. 
+In order for this to happen,
+the output of a function must be the same kind of thing as its input. When you
+iterate a function <var>n</var> times, you are giving its output to its input <var>n</var> times. In
+mathematical notation:
+
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>f</var> <sup><var>n</var></sup>(<var>z</var>) = 
+<var>f</var> &middot; <var>f</var> &middot; 
+<var>f</var> &middot; ... &middot; <var>f</var> &middot; <var>z</var>
+&nbsp;&nbsp;(with <var>n</var>&nbsp;&nbsp;<var>f</var> s)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+where "&middot;" represents composition, or equivalently:
+
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>f</var> <sup>0</sup>(<var>z</var>) = <var>z</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>f</var> <sup>1</sup>(<var>z</var>) = <var>f</var> (<var>z</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>f</var> <sup><var>n</var></sup>(<var>z</var>) = <var>f</var> ( <var>f</var> <sup><var>n</var>&minus;1</sup>(<var>z</var>))
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>f</var> <sup><var>n</var></sup>(<var>z</var>) = <var>f</var> <sup><var>n</var>&minus;1</sup>( <var>f</var> (<var>z</var>))
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+By nature, iteration is discrete, 
+because you can only apply a function once, not half a time. The only way you can  go between iterations is by "jumping" between them. 
+This makes iteration discrete.
+The definition of tetration uses the word <span style="color:white;"><b>continuous</b></span> 
+to mean a different kind
+of iteration that isn't <span style="color:white;"><b>discrete</b></span>. Continuous iteration
+would go between iterations without "jumping" so you can find the iterates between the usual ones. So it is understood that <span style="color:white;"><b>continuous iteration</b></span>
+is a generalization of discrete iteration.
+<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style="color:white;"><b>Exponentiation</b></span> is the process of taking a base and raising it to a power. Usually the following names are used for different ways of doing this,
+depending on which variable you are iterating with respect to:
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>pow<sub><var>n</var></sub>(<var>z</var>) = <var>z</var><sup><var>n</var></sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+a power function
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>exp<sub><var>b</var></sub>(<var>z</var>) = <var>b</var><sup><var>z</var></sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+an exponential function
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Both of which are forms of exponentiation, but taking one to a power isn't very interesting, because
+you always get one in the end. Iterated exponentiation then, would be the iteration of
+an exponential function a certain number of times. Applying all of this to the definition
+of tetration we understand <span style="color:white;"><b>iterated exponential</b></span> to be the function:
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>exp<sup><var>n</var></sup>(<var>z</var>) = <b><i>e</i></b>^<b><i>e</i></b>^<b><i>e</i></b>^...^<var>z</var>
+    &nbsp;&nbsp;(with <var>n</var> <b><i>e</i></b>'s)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+using the base of the natural 
+logarithm <b><i>e</i></b>, or
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>exp<sup><var>n</var></sup><sub><var>b</var></sub>(<var>z</var>) = 
+	   <var>b</var>^<var>b</var>^<var>b</var>^...^<var>z</var> 
+	   &nbsp;&nbsp;(with <var>n</var> <var>b</var>'s)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+using any base b
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+This function is only a discrete iteration, though, and we want continuous iteration, so we
+must somehow(methods) generalize this definition to get continuously iterated exponentials.
+
+Once we have, we can apply the definition, and the definition of tetration
+says to evaluate the "continuously iterated exponential of one", so
+evaluating this function at <var>z</var> = 1 gives tetration:
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>y</var></sup><var>x</var> = exp<sup><var>y</var></sup><sub><var>x</var></sub>(1)
+
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+
+</div>
+<div class="darkness">
+<h1>About Association</h1>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Care must be taken when performing <b><i>iteration</i></b>.
+The difference between power function and exponential functions
+create vastly different <span style="color:white;"><b>iterates</b></span>. If you don't know
+which one you're using, like if you wanted to do "3^3^3",
+make sure you put your parenthesis
+in the correct place, and evaluation will become obvious:
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>Evaluate as ((3)^3)^3 = 27^3 = 19683
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+3-rd power function iterated (3-1) times on 3
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>Evaluate as 3^(3^(3^(1))) = 3^27 = 7625597484987
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+base-3 exponential function iterated 3 times on 1
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The first way of doing it, which is not an iterated exponential function, but
+an iterated power function, has a continuous iterate which is simply expressable
+in terms of exponentiation. The reason why there is no corresponding "1" in the
+first method, is because 1<sup><var>x</var></sup> = 1, so you wouldn't get anything interesting
+if you started with one. There will be more about this in the hyper-operator(hyper) page.
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+When we talk about tetration, we are <i>only</i> talking about iterated exponentials, 
+because this makes a new operation. Of these two operations,
+iterated powers can be expressed by using the notation we used above, and 
+iterated exponentials can be expressed using a new notation used on this website as:
+
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>pow<sup><var>c</var></sup><sub><var>b</var></sub>(<var>a</var>) = <var>a</var>^<var>b</var>^<var>c</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+continuously iterated powers
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>exp<sup><var>c</var></sup><sub><var>b</var></sub>(<var>a</var>) = <sup><var>c</var></sup><var>b</var><sup><var>a</var></sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+continuously iterated exponentials
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+The reason why this notation was chosen for iterated exponentials is due
+to three primary motivations:
+
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><span style="color: silver;">
+The <sup><var>y</var></sup><var>x</var> notation has been around since 1901
+</span>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><span style="color: silver;">
+Assigning <var>a</var> = 1 in <sup><var>c</var></sup><var>b</var><sup><var>a</var></sup> gives <sup><var>c</var></sup><var>b</var><sup>1</sup> = <sup><var>c</var></sup><var>b</var>
+</span>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><span style="color: silver;">
+Assigning <var>c</var> = 1 in <sup><var>c</var></sup><var>b</var><sup><var>a</var></sup> gives <sup>1</sup><var>b</var><sup><var>a</var></sup> = <var>b</var><sup><var>a</var></sup>
+</span>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+As you can see, assigning a one to either of the superscripts, make them dissapear,
+and "collapse" to earlier notations. It is this feature that makes this notation very
+natural, and easy to understand. The only difficulty that could come about is in
+being careful with parentheses, because depending on where you put the parentheses,
+you could get very different expressions, because in general:
+
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>c</var></sup><var>b</var><sup><var>a</var></sup> &ne; <sup><var>c</var></sup>(<var>b</var><sup><var>a</var></sup>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>c</var></sup><var>b</var><sup><var>a</var></sup> &ne; (<sup><var>c</var></sup><var>b</var>)<sup><var>a</var></sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+<br/><br/>
+If you are following the <b><i>flow</i></b>, proceed to the hyper-operations(hyper) page.
+</div>
+
+<div class="lightness">
+<br/>
+Visited: <ISML TYPE="counter"> times, last updated: 2006-02-15, by: Andrew Robbins, contact: and_j_rob(at)yahoo(dot)com
+</div>
+</body>
+</html>
+<!--

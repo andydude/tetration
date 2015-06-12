@@ -1,0 +1,90 @@
+@calc_help
+  new div
+    new input
+      set id [~..helpbtn~]
+      set value Help
+      set type button
+      set onclick
+        help = document.getElementById('[~..helptext~]');
+        if (help.style.display == 'block') {
+          help.style.display = 'none';
+        } else { 
+          help.style.display = 'block';
+        }
+  new div
+    set id [~..helptext~]
+    set style
+      padding: 10px;
+      display: none;
+    new table
+      set style
+        background-color: silver;
+        width: 100%;
+      set border 0
+      set cellpadding 10
+      set cellspacing 0
+      set width 100%
+      new tr
+        new td
+          set style
+            width: 50%;
+            vertical-align: top;
+          html
+            <b>Introduction</b>
+            <p>
+            All constants and variables are Uppercase,
+            and all functions are lowercase.
+            The math engine is still under development,
+            so if you find a bug, please email one
+            of us.
+            One of the quirks is plotting. The auto-min-max
+            feature is not working properly, so please
+            use the "xmin:xmax, ymin:ymax" version if you
+            encounter any problems.
+            </p>
+            <b>Operators</b>
+            <ul>
+            <li>Addition (+, -)</li>
+            <li>Multiplication (*, /)</li>
+            <li>Exponentiation (^)</li>
+            <li>Tetration (^^)</li>
+            </ul>
+            <b>Constants</b>
+            <ul>
+            <li>Pi</li>
+            <li>Phi -- golden ratio</li>
+            <li>E -- base of natural logarithm</li>
+            <li>Gamma -- 0.57721566490153286061</li>
+            <li>Omega -- 0.56714329040978387300</li>
+            </ul>
+        new td
+          set style
+            width: 50%;
+            vertical-align: top;
+          html
+            <b>Plotting</b>
+            <ul>
+            <li>plot(expr | UID=xmin:xmax)</li>
+              example: plot(exp(X) | X=-1:1)
+            <li>plot(expr | UID=xmin:xmax, ymin:ymax)</li>
+              example: plot(exp(X) | X=-1:1, 0:2)
+            </ul>
+            <b>Functions</b>
+            <ul>
+            <li>ln(X) -- natural logarithm</li>
+            <li>exp(X) -- natural exponential</li>
+            <li>sqrt(X) -- square root</li>
+            <li>sln(X) -- natural super-logarithm</li>
+            <li>sqsrt(X) -- second super-root</li>
+            <li>sin(X) -- sine function</li>
+            <li>cos(X) -- cos function</li>
+            <li>tan(X) -- tangent function</li>
+            <li>rt(X, Y) -- root / radical</li>
+            <li>log(X, Y) -- logarithms</li>
+            <li>srt(X, Y) -- super-roots</li>
+            <li>slog(X, Y) -- super-logarithms</li>
+            <li>tet(X, Y) -- tetrational</li>
+            <li>hpr(X, Y) -- hyper-power</li>
+            </ul>
+        
+        

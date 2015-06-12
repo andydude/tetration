@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Home of Tetration - Towers</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+<div class="header">
+
+<center class="logo">
+  <img src="img/tetra-logo.png" alt="Graph"/>
+  <br/>
+  <h1>Home of Tetration</h1>
+  <br/>
+  <div class="nav"> 
+  <a href="index.html">Home</a> &nbsp;|&nbsp;
+  <a href="hyper.html">Hyperops</a> &nbsp;|&nbsp;
+  <a href="funct.html">Functions</a> &nbsp;|&nbsp;
+  <a href="itern.html">Iteration</a> &nbsp;|&nbsp;
+  <a href="tetra.html">Tetration</a> &nbsp;|&nbsp;
+  <a href="tower.html">Towers</a>
+  </div>
+
+</center>
+
+
+<center>
+  <div class="nav">
+  Tower pages :
+      <a href="tw-prmfac.html">Prime Factorization</a> &nbsp;|&nbsp;
+  <a href="tw-serexp.html">Series Expansions</a> 
+  </div>
+</center>
+
+</div><hr/><div class="std">
+<h1>Towers</h1>
+<p>
+
+</p>
+</div><hr/><div class="std">
+<h1>Definitions</h1>
+<p>
+  <ul>
+    <li>
+      A <em><a href="gloss.html#
+nestedexponential">nested exponential</a></em> of <a href="gloss.html#
+height">height</a> 
+      <var>n</var> is the solution <var>b</var><sub>1</sub>
+      of a <a href="gloss.html#
+recurrenceequation">recurrence equation</a> 
+      
+  
+  <img src="img/tex/tw-define-01.png" alt="b_k = a_k^{b_{k-1}}"/>
+      where <var>a</var><sub><var>k</var></sub> = 1 for all <var>k</var> &gt; <var>n</var>.
+    </li>
+    <li>
+      An <em><a href="gloss.html#
+infiniteexponential">infinite exponential</a></em> is the limit of solutions 
+      
+  
+  <img src="img/tex/tw-define-02.png" alt="\lim_{n\to\infty} c_n(1)"/>
+      of a <a href="gloss.html#
+recurrenceequation">recurrence equation</a> 
+      
+  
+  <img src="img/tex/tw-define-03.png" alt="c_k(z) = c_{k-1}(a_k^z)"/>
+      where <var>c</var><sub>0</sub>(<var>z</var>) = <var>z</var>.
+    </li>
+  </ul>
+</p>
+<p>
+  Informally, a <a href="gloss.html#
+nestedexponential">nested exponential</a> is an expression of the form
+  
+  
+  <img src="img/tex/tw-intro-01.png" alt="a^{b^{\cdot^{\cdot^{y^z}}}}"/>
+</p>
+<p>
+  Nested exponentials have also be called: <a href="gloss.html#
+tower">tower</a>s,
+  <a href="gloss.html#
+infiniteexponential">infinite exponential</a>s, heterogeneous towers,
+  exponential towers, <var>n</var>-ary exponentials, and <var>n</var>-ary towers.
+  Here, we use the terms <a href="gloss.html#
+nestedexponential">nested exponential</a> and
+  <var>n</var>-ary tower synonymously.
+</p>
+</div><hr/><div class="std">
+<h1>Notations</h1>
+<p>
+  There are five parts to <em><var>N</var>-ary tower</em> notation:
+</p>
+<table border="0" class="define">
+  <tr><td>
+      
+  
+  <img src="img/tex/tw-notation-01.png" alt="\BigT{k=1}{n}a_k
+      = a_1^{a_2^{\cdot^{\cdot^{a_{n-1}^{a_n}}}}}"/>
+    </td><td>
+      (Barrow's notation) for nested exponentials
+  </td></tr><tr><td>
+      
+  
+  <img src="img/tex/tw-notation-02.png" alt="\BigT{k=1}{n}(a_k; z)
+      = a_1^{a_2^{\cdot^{\cdot^{a_{n}^{z}}}}}"/>
+    </td><td>
+      (Barrow-Shell notation) for nested exponential functions
+  </td></tr><tr><td>
+      
+  
+  <img src="img/tex/tw-notation-03.png" alt="\bigT(a_1, a_2, a_3, \cdots, a_n)
+      = a_1^{a_2^{\cdot^{\cdot^{a_{n-1}^{a_n}}}}}"/>
+    </td><td>
+      (Brunson's notation) for arbitrary nested exponentials
+  </td></tr><tr><td>
+      
+  
+  <img src="img/tex/tw-notation-05.png" alt="{\rm T}^n(a; z) 
+      = \exp_a^{n}(z)
+      = a^{a^{\cdot^{\cdot^{a^z}}}}"/>
+    </td><td>
+      (similar to Galidakis' notation) for iterated exponentials
+  </td></tr><tr><td>
+      
+  
+  <img src="img/tex/tw-notation-04.png" alt="{\rm T}^na 
+      = {}^{n}a
+      = a^{a^{\cdot^{\cdot^{a^a}}}}"/>
+    </td><td>
+      (similar to Maurer's notation) for tetration
+  </td></tr>
+</table>
+<p>
+  for more notations, see the <a href="tetra.html">Tetration Definitions</a> page.
+</p>
+<p>
+  One thing to note is that the last two notations can be implied by the first two,
+  by assuming that <var>k</var> = 1 implicitly. So while it may seem to duplicate what
+  can be expressed with more popular notations, it is much more consistent with
+  tower notation as a whole. Also, tower notation does not have any ambiguity
+  when compared to Maurer's left-superscript notation, since any multiple like
+  
+  
+  <img src="img/tex/tw-notation-06.png" alt="c{\rm T}^na"/> 
+  is clearly delimited by the T (Greek <i>tau</i>).
+</p>
+</div><hr/><div class="footer">
+<table class="footalign">
+  <tr>
+    <td style="text-align: left; width: 90%; color: gray; vertical-align: top;">
+Copyright &copy; 2010 <a href="mailto:and_j_rob@yahoo.com" style="color: gray;">Andrew Robbins</a> <span style="color: black;">(<ISML TYPE="counter"> visits)</span>
+    </td>
+    <td style="text-align: right; width: 10%;">
+	<table>
+	  <tr>
+	    <td>
+<a href="http://www.w3.org/RDF/"><img style="border: 0px;" src="img/rdf_flyer.png" alt="1" /></a>
+	    </td>
+	    <td>
+<a href="http://www.w3.org/"><img style="border: 0px;" src="img/w3c_icon.png" alt="1" /></a>
+	    </td>
+	  </tr>
+	</table>
+    </td>
+  </tr>
+</table>
+</div>
+</body>
+</html>

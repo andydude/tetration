@@ -1,0 +1,251 @@
+
+<html>
+<head>
+	<title>Home of Tetration - Error</title>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<script>
+		sideFrameOff();
+	</script>
+</head>
+<body style="background-color:#111;color:silver;">
+
+<div class="darkness" style="text-align: center;">
+	<img src="img/taux-head.png"/>
+	<br/>
+	<span style="text-align: center; font-style: italic; font-weight: bold; color: yellow; font-size: 72;">Tetration</span>
+
+
+<br/><br/>
+
+<center>
+<span style="color:white;"><b>Featured Pages:</b></span>&nbsp;
+<a href="appl.html">Applications</a> &nbsp;|&nbsp;
+<a href="chaos.html">Chaos</a> &nbsp;|&nbsp;
+<a href="exfac.html">Exp. Factorial</a> &nbsp;|&nbsp;
+<a href="funeq.html">Functional Eq.</a> &nbsp;|&nbsp;
+<a href="hist.html">History</a> &nbsp;|&nbsp;
+<a href="itern.html">Iteration</a> 
+</center>
+
+<br/>
+
+<center>
+Reference:&nbsp;
+<a href="defs.html">Definitions</a> &nbsp;|&nbsp;
+<a href="ident.html">Identities</a> &nbsp;|&nbsp;
+<a href="mthds.html">Methods</a> &nbsp;|&nbsp;
+<a href="code.html">Code</a> &nbsp;|&nbsp;
+<a href="tabs.html">Tables</a> &nbsp;|&nbsp;
+<a href="graph.html">Graphs</a> &nbsp;|&nbsp;
+<a href="gloss.html">Glossary</a> &nbsp;|&nbsp;
+<a href="links.html">Links</a>
+</center>
+
+<br/>
+
+<center>
+Discussion:&nbsp;
+<a href="index.html">Welcome</a> =&gt;
+<a href="basic.html">Basics</a> =&gt;
+<a href="hyper.html">Hyperops</a> =&gt;
+<a href="tetra.html">Tetration</a> =&gt;
+<a href="slog.html">Super-log</a> =&gt;
+<a href="sroot.html">Super-root</a> =&gt;
+<a href="paper.html">Papers</a>
+</center>
+
+</div>
+
+<div class="darkness">
+<h1>About Accuracy and Precision</h1>
+<br/>
+Throughout this section the following letters and names will be used:
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>n</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+the degree of linearization of exponentiation
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>precreq(<var>n</var>, <var>x</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+the working-precision required to perform linearization
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>sigfig(<var>n</var>, <var>x</var>, <var>y</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+the number of significant digits expected from tetration
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>offset(<var>x</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+the ammount of offset, offset(<var>x</var>) = abs(<var>x</var> - round(<var>x</var>))
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The reason why I have not taken the time to find a <span style="color:white;"><b>sigfig</b></span> formula
+for the super-logarithm is that it generally is much more "accurate"
+than tetration. Tetration is also more "steep" than the super-logarithm,
+so its harder to find "accurate" values with tetration. This is why
+I have taken the time to find a <span style="color:white;"><b>sigfig</b></span> formula for tetration.
+<h2>Working Precision</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+These are the formulas I have so far for working-precision. If the
+value of working-precision p is below the output of this function,
+then there is likely to be major round-off accumulation, and
+the resulting solutions of the n-th degree linearization will
+be zero. To prevent this, choose a working-precision
+above the output of this function to perform an n-th degree
+linearization. 
+<br/><br/>
+First, the definition:
+
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>precreq(n, x)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+:= while
+(linearize(n, x, p)[2,2] != linearize(n, x)[2, 2]) { p++ }; return p;
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+<br/>
+And here are some formulas:
+
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>precreq(n, 2)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+= 
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>precreq(n, <b><i>e</i></b>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+= &minus;6.7733 + 1.4314*n + 0.009*n^2
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>precreq(n, 10)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+= 
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>precreq(n, x)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+= 
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+
+Arabic
+Chinese
+Latin
+
+<h2>Significant Figures</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+I am still investigating the dynamics of this function, so I
+don't have any final results, but here are two forms of the
+function that I have some intermediate results about:
+
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>sigfig(2, <b><i>e</i></b>, <var>y</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+= offset(y)*(x^(y - 1)^2 - 1)/(7*y^3)
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>sigfig(<var>n</var>, <b><i>e</i></b>, <b><i>&pi;</i></b>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+= 0.231578 + 1.20731*log(n)
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+<br/><br/>
+Under Construction.
+</div>
+
+<div class="lightness">
+Visited: <ISML TYPE="counter"> times, last updated: 2006-02-15, by: Andrew Robbins, contact: and_j_rob(at)yahoo(dot)com
+</div>
+</body>
+</html>
+<!--

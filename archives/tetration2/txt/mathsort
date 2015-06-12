@@ -1,0 +1,6 @@
+#!/bin/sh
+
+perl presort.pl $1 \
+	| sort -n \
+	| uniq \
+	> $2

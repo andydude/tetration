@@ -1,0 +1,136 @@
+filter body
+    insert xml
+        <base href="[~.thispath~]"/>
+
+filter div.sitehead
+comment
+    The top of every page
+rules
+    xml
+        <div class="darkness">
+            <div style="text-align: center;">
+                <img src="img/taux-head.png"/>
+                <br/>
+                <span class="yell">Tetration</span>
+                <br/>
+                <center>
+                    Main:&nbsp;
+                    <a href="main.html">Welcome</a> ...
+                    <a href="paper.html">Paper</a>
+                </center>
+                <br/>
+                <center>
+                    Reference:&nbsp;
+                    <a href="defs.html">Definitions</a> &nbsp;|&nbsp;
+                    <a href="ident.html">Identities</a> &nbsp;|&nbsp;
+                    <a href="tabs.html">Tables</a> &nbsp;|&nbsp;
+                    <a href="gloss.html">Glossary</a> &nbsp;|&nbsp;
+                    <a href="links.html">Links</a>
+                </center>
+                <br/>
+                <center>
+                    Other:&nbsp;
+                    <a href="appl.html">Application</a> &nbsp;|&nbsp;
+                    <a href="hist.html">History</a> &nbsp;|&nbsp;
+                    <a href="mthds.html">Methods</a> &nbsp;|&nbsp;
+                    <a href="graph.html">Graphs</a> &nbsp;|&nbsp;
+                    <a href="code.html">Code</a> &nbsp;|&nbsp;
+                    <a href="digit.html">Precision</a> 
+                </center>
+                <br/>
+                <center>
+                    Discussion:&nbsp;
+                    <a href="revw.html">Review</a> =&gt;
+                    <a href="intro.html">Introduction</a> =&gt;
+                    <a href="hyper.html">Hyperops</a> =&gt;
+                    <a href="tetra.html">Tetration</a> =&gt;
+                    <a href="slog.html">Superlog</a>
+                </center>
+            </div>
+        </div>
+
+filter div.sitefoot
+comment
+    The bottom of every page
+init
+    import datetime
+rules
+    python
+        datestring = datetime.date.isoformat(datetime.date.today())
+    #init style once
+    #    .[~.mod~]_lightness { color: red }
+    xml
+        <div class="lightness">
+            <br/>
+            Visited: <!--ISML TYPE="counter"--> times, 
+            last updated: [~datestring~],
+            by: Andrew Robbins, 
+            contact: and_j_rob(at)yahoo(dot)com
+        </div>
+
+filter div.graph
+comment
+    A graph with a caption
+rules
+    read contents into buf
+    clear
+    python
+        imw = ARGV[0]
+        imh = ARGV[1]
+        imf = ARGV[2]
+    xml
+        <center>
+            <a href="img/[~imf~]"><img width="[~imw~]" height="[~imh~]" src="img/[~imf~]"/></a>
+            <br/>
+            [~buf~]
+        </center>
+        <br/><br/>
+
+filter div.list
+comment
+    I take internal divs and format them into a list
+    <div tetra.list="true">
+        <div>
+            <div>Bolded</div>
+            <div>Not Bolded</div>
+            <div>Not Bolded</div>
+        </div>
+        <div>
+            <div>Bolded</div>
+            <div>Not Bolded</div>
+            <div>Not Bolded</div>
+        </div>
+        ...
+    </div>
+rules
+    text [~str(TAG.getElementsByTagName('div'))~]
+    python
+        towrite = []
+        for tag in [x for x in TAG.childNodes if x.nodeType == x.ELEMENT_NODE]:
+            buf = [x for x in tag.childNodes if x.nodeType == x.ELEMENT_NODE]
+            towrite.append(map(toxml, buf))
+            #  [buf[0].toxml(), buf[1].toxml()]
+    clear
+    open
+        <ul>
+        <table class="emptiness" cellspacing="15">
+        <tbody>
+    for entry in towrite xml
+        <tr>
+            <td><li>[~entry[0]~]</li>
+            <pre style="display: inline;">    </pre></td>
+            <td>[~entry[1]~]</td>
+        </tr>
+    close
+        </tbody>
+        </table>
+        </ul>
+
+finish
+comment
+    This will look for all <gloss>Word</gloss> tags and convert them into hrefs
+    that point at a glossary data source.    
+    Example:
+    <gloss>WORD</gloss>         -- links to glossary
+    <gloss.dt>WORD</gloss.dt>   -- term being defined
+    <ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ

@@ -1,0 +1,92 @@
+
+:link       { color: #66CCFF; }
+:visited    { color: #9999FF; }
+:active     { color: #FF9999; }
+body {
+    padding: 0;
+    margin: 0;
+}
+strong {
+    color: white;
+    font-weight: bold;
+}
+p {
+    text-indent: 2em;    
+}
+em {
+    font-style: italic;
+    font-weight: bold;    
+}
+h1 {
+    color: white;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+}
+h2 {
+    color: white;
+    font-weight: bold;
+}
+hr {
+    border: solid;
+    border-width: 5px;
+    border-color: white;
+    padding: 0;
+    margin: 0;
+}
+li {
+    color: white;
+}
+.yell {
+    text-align: center; 
+    font-style: italic;  
+    font-weight: bold;  
+    color: yellow; 
+    font-size: 72pt;
+}
+.lightness {
+    display: block;
+    background-color: black;
+    color: gray;
+    padding: 15px;
+}
+.darkness {
+    display: block;
+    background-color: black;
+    color: silver;
+    margin: 0px;
+    padding: 25px;
+}
+.emptiness {
+    display: block;
+    background-color: black;
+    color: silver;
+    border-width: 0;
+    padding: 0;
+    margin: 0;
+}
+.middleone {
+    display: inline;
+    vertical-align: middle;
+    background-color: black;
+    color: silver;
+    border-width: 0;
+    padding: 0;
+    margin: 0;
+}
+
+table.subsup {
+    display: inline;
+    background-color: black;
+    color: silver;
+    font-size: small;
+    border-width: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+td.subsup {
+    height: 4px;
+    width: 2px;
+}
+

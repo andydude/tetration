@@ -1,0 +1,47 @@
+include std, js
+
+filter head
+doc
+  Default head transform.
+rules
+  new title text Open/Math/ML Calculator
+  term_style
+
+filter div.terminal
+doc
+  Default terminal initialization transform.
+  <div libterm.terminal="libterm/query, libterm.css" 
+    iprompt="$" oprompt="=>" />
+rules
+  term_init
+  term_input
+
+server fragment.query
+doc
+  Default terminal query transform.
+error
+  new div
+    set class err
+  python
+    output = _errmsg
+  term_error
+    text
+      [~output~]
+  new hr
+  term_input
+rules
+  python
+    from math import *
+    from urllib import unquote
+    source = unquote(REQ.args['in'])
+    #
+    # put your code here
+    #
+    # This is where eval(source) would be
+    output = eval(source)
+  term_output
+    text
+      [~output~]
+  new hr
+  term_input
+

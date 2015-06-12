@@ -1,0 +1,318 @@
+<html>
+<head>
+	<title>Home of Tetration - Definitions</title>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<script>
+		sideFrameOff();
+	</script>
+</head>
+<body>
+
+<div class="darkness" style="text-align: center;">
+	<img src="img/taux-head.png"/>
+	<br/>
+	<span style="text-align: center; font-style: italic; font-weight: bold; color: yellow; font-size: 72;">Tetration</span>
+    <br/>
+	<table class="middleone" 
+		style="text-align: center;" cellspacing="15">
+	<tbody>
+	<tr><td width="14%">&nbsp;</td><td width="14%">
+		<a href="index.html">Main</a></td><td width="14%">
+		<a href="ident.html">Identities</a></td><td width="16%">
+		<a href="code.html">Code</a></td><td width="14%">
+		<a href="graph.html">Graphs</a></td><td width="14%">
+		<a href="paper.html">Paper</a>
+		</td><td width="14%">&nbsp;</td></tr>
+		<tr><td width="14%">&nbsp;</td><td width="14%">
+		<a href="hist.html">History</a></td><td width="14%">
+		<a href="defs.html">Definitions</a></td><td width="16%">
+		<a href="error.html">Error</a></td><td width="14%">
+		<a href="tabs.html">Tables</a></td><td width="14%">
+		<a href="links.html">Links</a>
+	</td><td width="14%">&nbsp;</td></tr>
+	</tbody>
+	</table>
+</div>
+
+<div class="darkness">
+<h1>About the Definitions</h1>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The following definitions are based on widely available definitions, 
+including 
+<a href="http://home.earthlink.net/~mrob/pub/math/largenum.html">Munafo</a>'s 
+definition of the <i>hyper-operators</i>. The only new definition here is the
+definition of the <i>super-logarithm</i>, which is discussed in more detail
+in my paper. You can access my paper from the menu above.
+</div>
+<div class="darkness">
+<h1>Definitions</h1>
+<br/>
+
+<strong>Definition HY.</strong>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hyper-<var>n</var> Operators
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+<var>x</var><sup>(<var>n</var>)</sup><var>y</var> = "<var>x</var> hyper-<var>n y</var>"
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup>(<var>n</var>)</sup>1 = <var>x</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if <var>n</var> &isin; <b><i>Z</i></b><sup>+</sup>, <var>n</var> &gt; 1
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup>(<var>n</var>)</sup><var>y</var> = <var>x</var><sup>(<var>n</var> &minus; 
+	1)</sup><var>x</var><sup>(<var>n</var>)</sup>(<var>y</var> &minus; 1)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if <var>n</var> &isin; <b><i>Z</i></b><sup>+</sup>, <var>n</var> &gt; 0
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup>(0)</sup><var>y</var> = <var>x</var> &deg; <var>y</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+"zeration" (the successor function, in most cases)
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup>(1)</sup><var>y</var> = <var>x</var> + <var>y</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+"addition"
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup>(2)</sup><var>y</var> = <var>x</var> <var>y</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+"multiplication"
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup>(3)</sup><var>y</var> = <var>x</var><sup><var>y</var></sup> = <sup>1</sup><var>x</var><sup><var>y</var></sup> 
+    = <b><i>e</i></b><sup><var>y</var> log(<var>x</var>)</sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+"exponentiation"
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup>(4)</sup><var>y</var> = <sup><var>y</var></sup><var>x</var> = <sup><var>y</var></sup><var>x</var><sup>1</sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+"tetration"
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+
+<strong>Definition SL.</strong>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Super-logarithm
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+slog<sub><var>x</var></sub>(<var>z</var>) = "base <var>x</var> superlog of <var>z</var>"
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sub><var>x</var></sub>(<var>z</var>) = <var>y</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if <var>z</var> = <sup><var>y</var></sup><var>x</var>
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sub><var>x</var></sub>(<var>z</var>) = slog<sub><var>x</var></sub>(<var>x</var><sup><var>z</var></sup>) &minus; 1
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if <var>x</var> &gt; 1, <var>z</var> &le; 0
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sub><var>x</var></sub>(<var>z</var>) = slog<sub><var>x</var></sub>(log<sub><var>x</var></sub>(<var>z</var>)) + 1
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if <var>x</var> &gt; 1, <var>z</var> &gt; 1
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sub><var>x</var></sub>(<var>z</var>) = &minus;1 + &sum;<sub><var>k</var>=1..&infin;</sub> 
+    <var>v</var><sub><var>k</var></sub>(<var>x</var>) <var>z</var><sup><var>k</var></sup> / <var>k</var>!
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if <var>x</var> &gt; 1, 0 &lt; <var>z</var> &le; 1 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red;">NEW</span><br/><br/>
+    where <var>v</var><sub><var>k</var></sub>(<var>x</var>) is the <var>k</var>-th element of the <br/>
+     first column of the inverse matrix of: <br/>
+    {{ <var>k</var> <sup><var>j</var></sup> / <var>k</var>! &minus; &delta;<sub><var>j</var><var>k</var></sub>
+    log(<var>x</var>)<sup>&minus;<var>j</var></sup> 
+    }<sub><var>k</var>=1..&infin;</sub> }<sub><var>j</var>=0..&infin;</sub>
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+
+
+<strong>Definition T.</strong>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tetration
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+<sup><var>y</var></sup><var>x</var> = "<var>x</var> tetra <var>y</var>"
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup>0</sup><var>x</var> = 1
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>y</var></sup><var>x</var> = <sup><var>y</var></sup><var>x</var><sup>1</sup> = <var>x</var><sup>(4)</sup><var>y</var>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>y</var></sup><var>x</var> = slog<sub><var>x</var></sub><sup>&minus;1</sup>(<var>y</var>)
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if <var>x</var> &gt; 1, <var>y</var> &gt; &minus;2
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>y</var></sup><var>x</var> = log<sub><var>x</var></sub>(<sup><var>y</var>+1</sup><var>x</var>)
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if <var>x</var> &gt; 1, <var>y</var> &lt; &minus;2
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+
+<strong>Definition IE.</strong>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Iterated Exponentiation
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+<sup><var>y</var></sup><var>x</var><sup><var>a</var></sup> = "tetrate <var>x</var> by <var>y</var> to the <var>a</var>"
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup>0</sup><var>x</var><sup><var>a</var></sup> = <var>a</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>y</var></sup><var>x</var><sup><var>a</var></sup> = exp<sub><var>x</var></sub><sup><var>y</var></sup>(<var>a</var>) = <sup><var>y</var> + slog<sub><var>x</var></sub>(<var>a</var>)</sup><var>x</var>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if <var>x</var> &gt; 1
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup>1/2</sup><b><i>e</i></b><sup><var>x</var></sup> = hexp(<var>x</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+satisfies: hexp(hexp(<var>x</var>)) = exp(<var>x</var>)
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup>&minus;1/2</sup><b><i>e</i></b><sup><var>x</var></sup> = hlog(<var>x</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+satisfies: hlog(hlog(<var>x</var>)) = log(<var>x</var>)
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+</div>
+
+<div class="lightness">
+<br/>
+Visited: <ISML TYPE="counter"> times, last updated: 2006-02-15, by: Andrew Robbins, contact: and_j_rob(at)yahoo(dot)com
+</div>
+</body>
+</html>
+<!--

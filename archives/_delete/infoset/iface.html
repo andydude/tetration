@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Information Sets - Fundamental Interfaces</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body xml:base="http://localhost/~ajr/tetra">
+<div class="header">
+<center>
+<img src="/img/nav-circuit.png" alt="Infoset"/>
+<br/>
+<h1 style="color: #CC9999">Information Sets</h1>
+</center>
+
+
+</div><hr/><div class="std">
+<h1>Fundamental Interfaces</h1>
+<p>
+There are many interfaces out there, command-line interfaces, graphical user interfaces,
+scripting, and application programming interfaces. Here we focus on GUIs but not
+in a way thats being done now, but in a way that they could be in the future as well.
+</p>
+
+<ul>
+<li>Canvas Interfaces</li>
+	<ul>
+	<li><em>List-View</em></li> This is implemented differently in different interfaces.
+	For example when organizing bookmarks, there is only one degree of freedom (DOF),
+	and that is linear position so nodes have: (x, icon, title) states. Usually
+	x is not in pixels, but the order in the list a node is.
+	<li><em>Grid-Aligned-View</em></li> Similar to list view only nodes have (x, y, icon, title).
+	<li><em>Grid-View</em></li> One of the most utilized interfaces in file-browsers.
+	In this interface, all nodes have: (x, y, icon, title) where x and y are in pixels.
+	<li><em>Messy-View</em></li> Central idea behind <em>BumpTop</em> and <em>Perceptive Pixel</em>
+	interfaces. All notes have (x, y, z, matrix, icon title). The most
+	generic interface for node viewing.
+	</ul>
+<li>Linear Interfaces</li>
+	<ul>
+	<li><em>Fan-View</em></li> An interface both BumpTop and Perceptive Pixel use
+	where you drag a pile of nodes and they get spread across the path your pointer makes.
+	<li><em>Fisheye-View</em></li> A generic name BumpTop uses to describe the Apple Dock
+	magnification interface.
+	<li><em>Leafer-View</em></li> A generic name BumpTop uses to describe
+	the Apple iTunes flip-thru interface.
+	<li><em>Pile-View</em></li> Any collection of nodes that have been selected and
+	placed in proximity to each other or near the same (x,y) coord if there is
+	a z coord (i.e. in <em>Messy-View</em>).
+	</ul>
+<li>Tree Interfaces</li>
+	<ul>
+	<li><em>Column-View</em></li> Found prominently in the Apple Finder, the default
+	file-browser for Mac OS. Also found in the Mathematica Help broser.
+	<li><em>Graph-View</em></li> Not implemented anywhere.
+	<li><em>Tree-View</em></li> Confusingly called "List-View" by the Apple Finder.
+	Found in wxWidgets in three forms: arrow-icons, folder-icons, plus-icons.
+	<li><em>Menu-View</em></li> Browsing nodes in menu form.
+	</ul>
+</ul>
+
+</div><hr/><div class="std">
+<h1>Apple</h1>
+<p></p>
+
+</div><hr/><div class="std">
+<h1>BumpTop</h1>
+<p></p>
+
+</div><hr/><div class="std">
+<h1>Perceptive Pixel</h1>
+<p></p>
+
+</div><hr/><div class="footer">
+<table class="footalign">
+  <tr>
+    <td style="text-align: left; width: 90%; color: gray; vertical-align: top;">
+Copyright &copy; 2008 <a href="mailto:and_j_rob(AT)yahoo.com" style="color: gray;">Andrew Robbins</a> <span style="color: black;">(<ISML TYPE="counter"> visits)</span>
+    </td>
+    <td style="text-align: right; width: 10%;">
+	<table>
+	  <tr>
+	    <td>
+<a href="http://www.w3.org/RDF/"><img style="border: 0px;" src="/~ajr/www/tetra/img/rdf_flyer.png" alt="1" /></a>
+	    </td>
+	    <td>
+<a href="http://www.w3.org/"><img style="border: 0px;" src="/~ajr/www/tetra/img/w3c_icon.png" alt="1" /></a>
+	    </td>
+	  </tr>
+	</table>
+    </td>
+  </tr>
+</table>
+</div>
+</body>
+</html>

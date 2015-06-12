@@ -1,0 +1,237 @@
+
+<html>
+<head>
+	<title>Home of Tetration - Review</title>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<script>
+		sideFrameOff();
+	</script>
+</head>
+<body style="background-color:#111;color:silver;">
+
+<div class="darkness" style="text-align: center;">
+	<img src="img/taux-head.png"/>
+	<br/>
+	<span style="text-align: center; font-style: italic; font-weight: bold; color: yellow; font-size: 72;">Tetration</span>
+
+
+<br/><br/>
+
+<center>
+<span style="color:white;"><b>Featured Pages:</b></span>&nbsp;
+<a href="appl.html">Applications</a> &nbsp;|&nbsp;
+<a href="?">Chaos</a> &nbsp;|&nbsp;
+<a href="?">Exp. Factorial</a> &nbsp;|&nbsp;
+<a href="?">Functional Eq.</a> &nbsp;|&nbsp;
+<a href="mthds.html">Methods</a> &nbsp;|&nbsp;
+<a href="hist.html">History</a>
+</center>
+
+<br/>
+
+<center>
+Reference:&nbsp;
+<a href="defs.html">Definitions</a> &nbsp;|&nbsp;
+<a href="ident.html">Identities</a> &nbsp;|&nbsp;
+<a href="code.html">Code</a> &nbsp;|&nbsp;
+<a href="tabs.html">Tables</a> &nbsp;|&nbsp;
+<a href="graph.html">Graphs</a> &nbsp;|&nbsp;
+<a href="gloss.html">Glossary</a> &nbsp;|&nbsp;
+<a href="?">Bibliography</a> &nbsp;|&nbsp;
+<a href="links.html">Links</a>
+</center>
+
+<br/>
+
+<center>
+Discussion:&nbsp;
+<a href="index.html">Welcome</a> =&gt;
+<a href="intro.html">Basics</a> =&gt;
+<a href="hyper.html">Hyperops</a> =&gt;
+<a href="tetra.html">Tetration</a> =&gt;
+<a href="slog.html">Super-log</a> =&gt;
+<a href="?">Super-root</a> =&gt;
+<a href="paper.html">Papers</a>
+</center>
+
+</div>
+
+
+<hr/>
+<div class="darkness" style="padding: 10px;">
+<table class="middleone" cellspacing="5" style="width: 100%;">
+<tr style="width: 100%;"><td style="text-align: left; width: 50%;">
+Previous Page: <a href="index.html">Welcome</a>
+</td><td style="text-align: center; width: auto;">
+&nbsp;
+</td><td style="text-align: right; width: 50%;">
+Next Page: <a href="intro.html">Introduction</a>
+</td></tr>
+</table>
+</div>
+<hr/>
+
+<div class="darkness">
+<h1>Review of Exponentiation</h1>
+<p>
+    Exponentiation is the process of raising a base to a power, commonly
+    denoted <var>x</var><sup><var>y</var></sup>. There are many ways of saying this, the most
+    common form is: "<var>x</var> to the <var>y</var>" which comes from the longer
+    way of saying it when <var>y</var> is an integer <var>n</var>: "<var>x</var> to the <var>n</var>-th power."
+</p>
+<p>
+    In the beginning, exponentiation was defined as iterated multiplication.
+    Iteration is the process of repeating a function several times, so this
+    would be a function <var>x</var>*<var>x</var>*<var>x</var>*...*<var>x</var> where there are <var>n</var> <var>x</var>'s.
+    This forms the basis of exponentiation for integers, 
+    but what about real numbers? To define exponentiation for real numbers, 
+    mathematicians had to find
+    certain rules that were satisfied by integer exponentiation, and use
+    them to generalize it to a <b><i>continuously iterated multiplication</i></b>.
+    The rules that were found centuries ago are now known as the
+    laws of exponentiation:
+</p>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>(<var>x</var><sup><var>m</var></sup>)(<var>x</var><sup><var>n</var></sup>) = <var>x</var><sup>(<var>m</var> + <var>n</var>)</sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+additive property of powers
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>(<var>x</var><sup><var>m</var></sup>)<sup><var>n</var></sup> = <var>x</var><sup>(<var>m</var><var>n</var>)</sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+multiplicative property of powers
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+<p>
+    These laws allow exponentiation to be extended to rational numbers
+    fairly easily, and from there to real numbers by choosing rational numbers
+    that are closer and closer to a real number you want to use.
+    For example, if you wanted to find <var>x</var><sup>(3/5)</sup>, then you could
+    use the multiplicative property, and notice that: 
+    (<var>x</var><sup>(3/5)</sup>)<sup>5</sup> = <var>x</var><sup>3</sup>. So <var>x</var><sup>(3/5)</sup> is the value <var>y</var>
+    that satisfies: <var>y</var><sup>5</sup> = <var>x</var><sup>3</sup>, because 
+    (<var>x</var><sup>(3/5)</sup>)<sup>5</sup> = <var>x</var><sup>(3/5)*5</sup> = <var>x</var><sup>3</sup>.
+</p>
+<p>
+    Extending the definition of exponentiation to real numbers allows
+    inverse functions of exponentiation, namely <b><i>roots</i></b> and <b><i>logarithms</i></b>.
+    Eventually, after the investigation of logarithms, the same rules
+    are found to apply to them as well. These rules have become known
+    as the laws of logarithms:
+</p>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>log<sub><var>x</var></sub>(<var>m</var><var>n</var>) = log<sub><var>x</var></sub>(<var>m</var>) + log<sub><var>x</var></sub>(<var>n</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+additive property of logarithms
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>log<sub><var>x</var></sub>(<var>m</var><sup><var>n</var></sup>) = <var>n</var> log<sub><var>x</var></sub>(<var>m</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+multiplicative property of logarithms
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+<p>
+    These properties form the basis of exponential and logarithmic
+    arithmetic and algebraic manipulations. There are sometimes two
+    additional laws that are based on each of the two above, but
+    they are more of a short-cut, because they can be derived from 
+    the properties above:
+</p>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>(<var>x</var><sup><var>m</var></sup>)/(<var>x</var><sup><var>n</var></sup>) = <var>x</var><sup>(<var>m</var> - <var>n</var>)</sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+subtractive property of powers
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>log<sub><var>x</var></sub>(<var>m</var>/<var>n</var>) = log<sub><var>x</var></sub>(<var>m</var>) - log<sub><var>x</var></sub>(<var>n</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+subtractive property of logarithms
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+<p>
+    
+</p>
+<br/>
+Under Construction.
+<br/>
+
+
+<br/>
+Under Construction.
+</div>
+
+<hr/>
+<div class="darkness" style="padding: 10px;">
+<table class="middleone" cellspacing="5" style="width: 100%;">
+<tr style="width: 100%;"><td style="text-align: left; width: 50%;">
+Previous Page: <a href="index.html">Welcome</a>
+</td><td style="text-align: center; width: auto;">
+&nbsp;
+</td><td style="text-align: right; width: 50%;">
+Next Page: <a href="intro.html">Introduction</a>
+</td></tr>
+</table>
+</div>
+<hr/>
+
+
+<div class="lightness">
+Visited: <ISML TYPE="counter"> times, last updated: 2006-02-15, by: Andrew Robbins, contact: and_j_rob(at)yahoo(dot)com
+</div>
+</body>
+</html>
+<!--

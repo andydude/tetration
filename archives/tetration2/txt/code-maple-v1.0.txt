@@ -1,0 +1,15 @@
+## Usage:
+##      prep := superlog_prepare(n, x):
+##      superlog(prep, z);  -- gives n-th approx. of slog_x(z)
+##      tetrate(prep, y);   -- gives n-th approx. of x^^y
+##
+## Copyright 2005 Andrew robbins
+##
+
+with(linalg):
+
+superlog_prepare := proc(n::integer, x)	[x, linsolve(matrix([seq([seq(		k^j/k!-`if`(j=k,1,0)*log(x)^(-j), 		k=1..n)], j=0..(n - 1))]),		[seq(`if`(k=1,1,0),k=1..n)])];end proc;
+
+superlog := proc(v, z) local slog_crit;    if not (z::numeric) then return 'procname'(args); end if;    slog_crit := proc(zc) -1 + sum(v[2][k]*zc^k/k!,         k=1..(vectdim(v[2]))); end proc;    piecewise(z = -infinity, -2,        z < 0, slog_crit(v[1]^z) - 1, z = 0, -1,        0 < z and z < 1, slog_crit(z), z = 1, 0,        z > 1, (proc() local a, i; a := evalf(z);            for i from 0 while (a > 1) do a := evalf(log[v[1]](a)); end do;            slog_crit(a) + i; end proc)());end proc;
+
+tetrate := proc(v, y) local tet_crit;    if not (y::numeric) then return 'procname'(args); end if;    tet_crit := proc(yc) local slog_crit;        slog_crit := proc(zc) -1 + sum(v[2][k]*zc^k/k!, 		k=1..(vectdim(v[2]))); end proc;        select((proc(a) evalb(Im(a) = 0 and 0 <= Re(a) and Re(a) <= 1) 		end proc), [solve(evalf(slog_crit(z)) = yc, z)])[1];    end proc;    piecewise(y = -2, -infinity,        -2 < y and y < -1, log[v[1]](tet_crit(y+1)),        y = -1, 0, -1 < y and y < 0, tet_crit(y),        y = 0, 1, y > 0, (proc () local a, i;            a := tet_crit(y - ceil(y));            for i from 1 to ceil(y) do a := v[1]^a; end do;            evalf(a); end proc)());end proc;

@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Home of Tetration - Identities</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+<div class="header">
+
+<center class="logo">
+  <img src="img/tetra-logo.png" alt="Graph"/>
+  <br/>
+  <h1>Home of Tetration</h1>
+  <br/>
+  <div class="nav"> 
+  <a href="index.html">Home</a> &nbsp;|&nbsp;
+  <a href="hyper.html">Hyperops</a> &nbsp;|&nbsp;
+  <a href="funct.html">Functions</a> &nbsp;|&nbsp;
+  <a href="itern.html">Iteration</a> &nbsp;|&nbsp;
+  <a href="tetra.html">Tetration</a> &nbsp;|&nbsp;
+  <a href="tower.html">Towers</a>
+  </div>
+
+</center>
+
+
+<center>
+  <div class="nav">
+  Home pages :
+  <a href="about.html">About Me</a> &nbsp;|&nbsp;
+  <a href="appli.html">Applications</a> &nbsp;|&nbsp;
+  <a href="ident.html">Identities</a> &nbsp;|&nbsp;
+  <a href="paper.html">Papers</a> &nbsp;|&nbsp;
+  <a href="graph.html">Gallery</a> &nbsp;|&nbsp;
+  <a href="gloss.html">Glossary</a> &nbsp;|&nbsp;
+  <a href="links.html">References</a>
+  </div>
+</center>
+
+</div><hr/><div class="std">
+<h1>Identities</h1>
+<p>
+  This is a complete rewrite of the previous identities page. All of
+  the series expansions have been moved to the <a href="funct.html">Special Functions</a>
+  pages.
+</p>
+</div><hr/><div class="std">
+<h1>Notations</h1>
+<p>
+  There are an unnecessarily large number of notations in common use for functions related
+  to tetration. Ideally, only the most powerful notations would be used,
+  however, as a matter of convinience we use <a href="gloss.html#
+left-superscript">left-superscript</a> notation in preference
+  to <a href="gloss.html#
+arrownotation">arrow notation</a> and <a href="gloss.html#
+towernotation">tower notation</a>. Also, even though <a href="gloss.html#
+boxnotation">box notation</a> is closer
+  to <a href="gloss.html#
+hyper-operation">hyper-operation</a> terminology, <a href="gloss.html#
+arrownotation">arrow notation</a> will be used,
+  because it is more well-known.
+</p>
+<p>
+  <ul>
+    <li>
+      <em>Arrow</em> notation is used to write <a href="gloss.html#
+hyper-operation">hyper-operation</a>s,
+      and looks like 
+  
+  <img src="img/tex/id-notation-01.png" alt="x{\U}{\U}n"/> for tetration.
+      For more information, see the <a href="hyper.html">Hyperops</a> page.
+    </li>
+    <li>
+      <em>Iteration</em> notation is used to write <a href="gloss.html#
+iteratedfunction">iterated function</a>s,
+      and looks like 
+  
+  <img src="img/tex/id-notation-02.png" alt="\iter{f}{n}(x)"/>
+    </li>
+    <li>
+      <em>Quasigroup</em> notation is used to write inverse functions of 
+      <a href="gloss.html#
+binaryoperation">binary operation</a>s, and it looks like
+      
+  
+  <img src="img/tex/id-notation-07.png" alt="(/*)"/> (for hyper-roots) and
+      
+  
+  <img src="img/tex/id-notation-08.png" alt="(*{\backslash{}})"/> (for hyper-logs). 
+    </li>
+    <li>
+      <em>Section</em> notation is used to write <a href="gloss.html#
+binaryoperation">binary operation</a>s
+      applied to only one argument, and it looks like
+      
+  
+  <img src="img/tex/id-notation-03.png" alt="(x*)"/> or
+      
+  
+  <img src="img/tex/id-notation-04.png" alt="(*y)"/>. For more information, see
+      <a href="">Haskell sections</a>.
+    </li>
+    <li>
+      <em>Tower</em> notation is used to write <a href="gloss.html#
+nestedexponential">nested exponential</a>s,
+      and looks like 
+  
+  <img src="img/tex/id-notation-05.png" alt="\bigT_{k=1}^{n}a_k"/>
+    </li>
+    <ul>
+      <li>
+	When all exponents are equal, and the top is 1, this can be written with left-superscript notation for tetration.
+      </li>
+      <li>
+	When all exponents are equal except for the top, then this can be written with iterated exponential notation.
+      </li>
+    </ul>
+  </ul>
+</p>
+<p>
+  When choosing a notation, keep in mind your audience, and familiarity with tetration.
+  In general, tetration should be written with left-superscript notation. 
+  If there is confusion with multiples in front, then use <a href="gloss.html#
+towernotation">tower notation</a>
+  
+  
+  <img src="img/tex/id-not-tow.png" alt="\bigT^{n}a"/>, or if there is a complicated
+  expression in the <a href="gloss.html#
+height">height</a>, then use <a href="gloss.html#
+arrownotation">arrow notation</a>
+  
+  
+  <img src="img/tex/id-notation-01.png" alt="x{\U}{\U}n"/>.
+</p>
+</div><hr/><div class="std">
+<h1>Axioms</h1>
+<p>
+
+  
+  </p><p><center><img src="img/tex/id-axiom-tet.png" alt="a \U\U n = a \U {\left( a \U\U (n-1) \right)}"/></center></p><p class="noindent">
+
+  
+  </p><p><center><img src="img/tex/id-axiom-slog.png" alt="(a{\U\U})^{-1}(a^z) = (a{\U\U})^{-1}(z) + 1"/></center></p><p class="noindent">
+</p>
+</div><hr/><div class="std">
+<h1>Infinite Tetrate and Company</h1>
+<p>
+The <a href="gloss.html#
+infinitetetrate">infinite tetrate</a> is <a href="gloss.html#
+topologicallyconjugate">topologically conjugate</a> to the 2nd super-root and the <a href="gloss.html#
+lambertw-function">Lambert W-function</a>.
+</p>
+<p>
+
+  
+  </p><p><img src="img/tex/id-table-inftet.png" alt="
+{}^{\infty}x & = \frac{W(-\ln(x))}{-\ln(x)} = \exp(-W(-\ln(x))) = \frac{1}{\ssqrt{1/x}} \\\notag
+\frac{1}{{}^{\infty}(1/x)} & = \frac{\ln(x)}{W(\ln(x))} = \exp(W(\ln(x))) = \ssqrt{x} \\\notag
+{}^{\infty}(\ee^{-x})x & = W(x) = x\exp(-W(x)) = \frac{x}{\ssqrt{\ee^x}} \\\notag
+"/></p><p class="noindent">
+for more information see the section on <a href="fn-tconj.html">topological conjugacy</a>.
+</p>
+</div><hr/><div class="std">
+<h1>Table of Tetration</h1>
+<p>
+For integer values:
+
+  
+  </p><p><img src="img/tex/id-table-pos1.png" alt="
+{}^{-2}a & = \frac{-\infty}{\ln(a)} \\\notag
+{}^{-1}a & = 0 \\\notag
+{}^{0}a & = 1 \\\notag
+{}^{1}a & = a \\\notag
+{}^{2}a & = a^a \\\notag
+{}^{3}a & = a^{a^a} \\\notag
+"/></p><p class="noindent">
+</p>
+<p>
+For infinite values:
+
+  
+  </p><p><img src="img/tex/id-table-pminf.png" alt="
+{}^{{-}\infty}x & = \frac{W_{-1}(-\ln(x))}{-\ln(x)} \quad\text{for all } x>\ee^{1/\ee}\\\notag
+{}^{{-}\infty}x & = \frac{W(-\ln(x))}{-\ln(x)} \quad\quad\text{for all } x<\ee^{-\ee} \\\notag
+{}^{\infty}x & = \frac{W(-\ln(x))}{-\ln(x)} \quad\quad\text{for all } \ee^{-\ee} \le x \le \ee^{1/\ee}
+"/></p><p class="noindent">
+</p>
+</div><hr/><div class="std">
+<h1>Table of Iterated Exponentials</h1>
+<p>
+For integer values from any <var>x</var>:
+
+  
+  </p><p><img src="img/tex/id-table-anyx.png" alt="
+\exp_a^{-2}(z) & = \log_a(\log_a(z)) \\\notag
+\exp_a^{-1}(z) & = \log_a(z) \\\notag
+\exp_a^{0}(z) & = z \\\notag
+\exp_a^{1}(z) & = a^z \\\notag
+\exp_a^{2}(z) & = a^{a^z} \\\notag
+\exp_a^{3}(z) & = a^{a^{a^z}} \\\notag
+"/></p><p class="noindent">
+</p>
+<p>
+For integer values from -1:
+
+  
+  </p><p><img src="img/tex/id-table-neg1.png" alt="
+\exp_a^{-2}({-}1) & = \log_a(\log_a(-1)) \\\notag
+\exp_a^{-1}({-}1) & = \frac{\ii \pi}{\ln(a)} \\\notag
+\exp_a^{0}({-}1) & = -1 \\\notag
+\exp_a^{1}({-}1) & = \frac{1}{a} \\\notag
+\exp_a^{2}({-}1) & = a^{1/a} \\\notag
+\exp_a^{3}({-}1) & = a^{a^{1/a}} \\\notag
+"/></p><p class="noindent">
+</p>
+</div><hr/><div class="std">
+<h1>Inverse Functions</h1>
+<p>
+Notations for super-roots
+
+  
+  </p><p><img src="img/tex/id-inverse-srt.png" alt="({\U\U}n)^{-1}(z) = \boxhyperroot{4}{n}{z} = \srt_n(z)"/></p><p class="noindent">
+</p>
+<p>
+Notations for super-logs
+
+  
+  </p><p><img src="img/tex/id-inverse-slog.png" alt="(a{\U\U})^{-1}(z) = \boxhyperlog{4}{a}{z} = \slog_a(z)"/></p><p class="noindent">
+</p>
+</div><hr/><div class="std">
+<h1>Miscellaneous</h1>
+<p>
+Exponentiation can be expressed in terms of <em>exp</em> and <em>log</em>:
+
+  
+  </p><p><center><img src="img/tex/id-exp-hy3.png" alt="a^z = \ee^{z\ln(a)}"/></center></p><p class="noindent">
+</p>
+<p>
+Exponentiation can be expressed in terms of <em>tet</em> and <em>slog</em>:
+
+  
+  </p><p><center><img src="img/tex/id-exp-hy4.png" alt="a^z = a \U\U \left(\slog_a(z) + 1\right)"/></center></p><p class="noindent">
+</p>
+<p>
+Iterated exponentials can be expressed in terms of <em>tet</em> and <em>slog</em>:
+
+  
+  </p><p><center><img src="img/tex/id-iterexp-hy4.png" alt="\exp_a^y(z) = a \U\U \left(\slog_a(z) + y\right)"/></center></p><p class="noindent">
+</p>
+
+</div><hr/><div class="footer">
+<table class="footalign">
+  <tr>
+    <td style="text-align: left; width: 90%; color: gray; vertical-align: top;">
+Copyright &copy; 2010 <a href="mailto:and_j_rob@yahoo.com" style="color: gray;">Andrew Robbins</a> <span style="color: black;">(<ISML TYPE="counter"> visits)</span>
+    </td>
+    <td style="text-align: right; width: 10%;">
+	<table>
+	  <tr>
+	    <td>
+<a href="http://www.w3.org/RDF/"><img style="border: 0px;" src="img/rdf_flyer.png" alt="1" /></a>
+	    </td>
+	    <td>
+<a href="http://www.w3.org/"><img style="border: 0px;" src="img/w3c_icon.png" alt="1" /></a>
+	    </td>
+	  </tr>
+	</table>
+    </td>
+  </tr>
+</table>
+</div>
+</body>
+</html>

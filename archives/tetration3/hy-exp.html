@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Home of Tetration - Hyper-operators - Exponentiation</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+<div class="header">
+
+<center class="logo">
+  <img src="img/tetra-logo.png" alt="Graph"/>
+  <br/>
+  <h1>Home of Tetration</h1>
+  <br/>
+  <div class="nav"> 
+  <a href="index.html">Home</a> &nbsp;|&nbsp;
+  <a href="hyper.html">Hyperops</a> &nbsp;|&nbsp;
+  <a href="funct.html">Functions</a> &nbsp;|&nbsp;
+  <a href="itern.html">Iteration</a> &nbsp;|&nbsp;
+  <a href="tetra.html">Tetration</a> &nbsp;|&nbsp;
+  <a href="tower.html">Towers</a>
+  </div>
+
+</center>
+
+
+<center>
+  <div class="nav">
+  Hyperop pages (<span style="color: orange;">under construction</span>) :
+  <a href="hy-exp.html">Exponentiation</a> &nbsp;|&nbsp;
+  <a href="hist.html">History</a>
+  </div>
+</center>
+
+</div><hr/><div class="std">
+<h1>Review of Exponentiation</h1>
+<p>
+  Since tetration is iterated exponentials, we must have a firm understanding of exponentiation before we can begin to fully understand tetration. Exponentiation can be viewed as iterated multiples, so we will start be assuming a complete understanding of multiplication. Although there are definitions of multiplication and exponentiation to more general spaces, we will confine our discussion to multiplication and exponentiation defined over complex numbers.
+</p>
+<p>
+  Multiplication of two complex numbers is defined as 
+  
+  <img src="img/tex/exp-mul-def.png" alt="(a + \ii b)(c + \ii d) = (ac - bd) + \ii (ad + bc)"/>. Exponentiation is defined as <var>a</var><sup>0</sup> = 1, <var>a</var><sup>1</sup> = <var>a</var>, <var>a</var><sup><var>n</var>+1</sup> = <var>a</var> &times; <var>a</var><sup><var>n</var></sup>. Using this together with complex multiplication we can evaluate exponentiation for complex bases and positive integer exponents.
+  For negative exponents, we notice that <var>a</var><sup><var>n</var></sup>/<var>a</var> = <var>a</var><sup><var>n</var> - 1</sup>, which we can use recursively. But this depends on the knowledge of complex division, which is defined as 
+  
+  <img src="img/tex/exp-div-def.png" alt="\frac{(a + \ii b)}{(c + \ii d)} = \frac{ac + bd}{c^2 + d^2} + \ii \frac{bc - ad}{c^2 + d^2}"/>
+</p>
+<p>
+</p>
+</div><hr/><div class="std">
+<h1>Quasigroups</h1>
+<p>
+  Complex numbers and complex multiplication forms an Abelian group, which allows exponentiation to have some nice properties, but the closest algebraic structure exponentiation forms with complex numbers would be a quasigroup, if it werent for the fact that roots and logarithms are not single-valued. Despite this ambiguity, there are two ways to coerce exponentiation into satisfying the quasigroup structure.
+<ul>
+  <li>Define a new algebraic structure called a "restricted quasigroup" (<var>Q</var>, ^) such that there exists left-division uniquely defined over a subset <var>Q</var><sub>L</sub> of <var>Q</var>, and a right-division uniquely defined over another subset <var>Q</var><sub>R</sub> of <var>Q</var>, which allow for the multiple-valued nature of roots and logarithms.</li>
+  <li>Consider exponentiation defined over <em>sets</em> of complex numbers, such that exponentiation is a binary operation over 2<sup><var>C</var></sup>. With this point of view, (2<sup><var>C</var></sup>, ^) forms a quasigroup in the strict sense of the term.</li>
+</ul>
+</p>
+<p class="noindent">
+The second option is more in line with the intuitive sense of roots and logarithms, where 
+  
+  <img src="img/tex/exp-roots.png" alt="\sqrt{4} = \pm 2"/>. However, set-valued functions are more difficult to calculate with, since during computation, the traditional function must be applied multiple times to obtain the set, and anytime a single value is obtained, one must prove that there are no other values to show that the output has only one element.
+</p>
+<p>
+Show
+Plot[Re[ExpFacApprox[x]Zeta[2x](x - 1/2)], {x, -8, 4}, PlotRange->{-1,1}, PlotStyle->Hue[2/3]],
+Plot[Im[ExpFacApprox[x]Zeta[2x](x - 1/2)], {x, -8, 4}, PlotRange->{-4,4}, PlotStyle->Hue[0]]
+
+</p>
+</div><hr/><div class="footer">
+<table class="footalign">
+  <tr>
+    <td style="text-align: left; width: 90%; color: gray; vertical-align: top;">
+Copyright &copy; 2010 <a href="mailto:and_j_rob@yahoo.com" style="color: gray;">Andrew Robbins</a> <span style="color: black;">(<ISML TYPE="counter"> visits)</span>
+    </td>
+    <td style="text-align: right; width: 10%;">
+	<table>
+	  <tr>
+	    <td>
+<a href="http://www.w3.org/RDF/"><img style="border: 0px;" src="img/rdf_flyer.png" alt="1" /></a>
+	    </td>
+	    <td>
+<a href="http://www.w3.org/"><img style="border: 0px;" src="img/w3c_icon.png" alt="1" /></a>
+	    </td>
+	  </tr>
+	</table>
+    </td>
+  </tr>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,349 @@
+
+<html>
+<head>
+	<title>Home of Tetration - Hyper-operators</title>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<script>
+		sideFrameOff();
+	</script>
+</head>
+<body style="background-color:#111;color:silver;">
+
+<div class="darkness" style="text-align: center;">
+	<img src="img/taux-head.png"/>
+	<br/>
+	<span style="text-align: center; font-style: italic; font-weight: bold; color: yellow; font-size: 72;">Tetration</span>
+
+
+<br/><br/>
+
+<center>
+<span style="color:white;"><b>Featured Pages:</b></span>&nbsp;
+<a href="appl.html">Applications</a> &nbsp;|&nbsp;
+<a href="chaos.html">Chaos</a> &nbsp;|&nbsp;
+<a href="exfac.html">Exp. Factorial</a> &nbsp;|&nbsp;
+<a href="funeq.html">Functional Eq.</a> &nbsp;|&nbsp;
+<a href="hist.html">History</a> &nbsp;|&nbsp;
+<a href="itern.html">Iteration</a> 
+</center>
+
+<br/>
+
+<center>
+Reference:&nbsp;
+<a href="defs.html">Definitions</a> &nbsp;|&nbsp;
+<a href="ident.html">Identities</a> &nbsp;|&nbsp;
+<a href="mthds.html">Methods</a> &nbsp;|&nbsp;
+<a href="code.html">Code</a> &nbsp;|&nbsp;
+<a href="tabs.html">Tables</a> &nbsp;|&nbsp;
+<a href="graph.html">Graphs</a> &nbsp;|&nbsp;
+<a href="gloss.html">Glossary</a> &nbsp;|&nbsp;
+<a href="links.html">Links</a>
+</center>
+
+<br/>
+
+<center>
+Discussion:&nbsp;
+<a href="index.html">Welcome</a> =&gt;
+<a href="basic.html">Basics</a> =&gt;
+<a href="hyper.html">Hyperops</a> =&gt;
+<a href="tetra.html">Tetration</a> =&gt;
+<a href="slog.html">Super-log</a> =&gt;
+<a href="sroot.html">Super-root</a> =&gt;
+<a href="paper.html">Papers</a>
+</center>
+
+</div>
+
+
+<hr/>
+<div class="darkness" style="padding: 10px;">
+<table class="middleone" cellspacing="5" style="width: 100%;">
+<tr style="width: 100%;"><td style="text-align: left; width: 50%;">
+Previous Page: <a href="basic.html">Basics</a>
+</td><td style="text-align: center; width: auto;">
+&nbsp;
+</td><td style="text-align: right; width: 50%;">
+Next Page: <a href="tetra.html">Tetration</a>
+</td></tr>
+</table>
+</div>
+<hr/>
+
+<div class="darkness">
+<h1>About Hyper-operators</h1>
+<p>
+    Hyper-operators or <span style="color:white;"><b>hyper-operations</b></span>, are members of the
+    hyper-operation sequence, of which the first few members are:
+    addition, multiplication, exponentiation, tetration, pentation,
+    hexation, and so on. The first three are very well understood,
+    but the later operations are not so well understood, but since
+    they are defined in terms of the previous operation, at least
+    we know integer values.
+</p>
+<p>
+    The hyper-operation sequence has also been known as the
+    <span style="color:white;"><b>Ackermann</b></span> function and the <span style="color:white;"><b>Grzegorczyk</b></span> hierarchy.
+    The most notable sources that use this terminology are
+    Daniel Geisler's 
+    <a href="http://www.tetration.org">Tetration.org</a>
+    and Rubstov and Romerio's paper:
+    <a href="http://www.rotarysaluzzo.it/filePDF/Iperoperazioni%20(1).pdf"
+    >Ackermann's function and New Arithmetical Operations</a>
+    respectively.
+    Since "<b><i>hyper-operations</i></b>" is the generic name for
+    this sequence, it is the terminology that is used here.
+    Rubstov and Romerio's paper is also where I got the terms
+    <b><i>super-logarithm</i></b> and <b><i>super-root</i></b>.
+</p>
+<p>
+</p>
+</div>
+<hr/>
+<div class="darkness">
+<h1>Values of Hyper-operators</h1>
+<p>
+    The hyper-operations sequence is denoted by <var>x</var><sup>(<var>n</var>)</sup><var>y</var>,
+    and although there is ongoing research into extending it
+    to all real arguments, the domain of the ternary function
+    associated with it is <span style="color:white;"><b>Z</b></span><sup>3</sup> (all integers). Even
+    with this definition, there are quite a few properties
+    that can be gleaned. Most of the time, only <var>n</var> is considered
+    as an integer, because extensions to complex (which includes real) 
+    <var>x</var>, <var>y</var> have been defined for <var>n</var> = 1, <var>n</var> = 2, and <var>n</var> = 3. 
+    Here are some values at fixed <var>n</var>:
+</p>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup>(0)</sup><var>y</var> = <var>x</var> &deg; <var>y</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+"zeration" (the successor function in most cases, see Rubstov's paper at the top)
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup>(1)</sup><var>y</var> = <var>x</var> + <var>y</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+"addition"
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup>(2)</sup><var>y</var> = <var>x</var> <var>y</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+"multiplication"
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup>(3)</sup><var>y</var> = <var>x</var><sup><var>y</var></sup> = <sup>1</sup><var>x</var><sup><var>y</var></sup> 
+    = <b><i>e</i></b><sup><var>y</var> log(<var>x</var>)</sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+"exponentiation"
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup>(4)</sup><var>y</var> = <sup><var>y</var></sup><var>x</var> = <sup><var>y</var></sup><var>x</var><sup>1</sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+"tetration"
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+<p>
+    There are also more interesting properties at fixed values
+    of <var>x</var> and <var>y</var>. Some of these properties could possibly
+    be used to extend hyper-operations to real <var>n</var>:
+</p>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup>(<var>n</var>)</sup>0 = 1
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+for <var>n</var> &ge; 3
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup>(<var>n</var>)</sup>1 = <var>x</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+for <var>n</var> &ge; 2
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>2<sup>(<var>n</var>)</sup>2 = 4
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+for <var>n</var> &ge; 1
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>x</var><sup>(<var>n</var>)</sup><var>x</var> = <var>x</var><sup>(<var>n</var>+1)</sup>2
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+for <var>n</var> &ge; 1
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+</div>
+<hr/>
+<div class="darkness">
+<h1>Hyper-operator Derivatives</h1>
+<p>
+    Since hyper-operators are all binary operators (2 arguments),
+    I will be using the gradient (written "&nabla;") for the derivatives
+    instead of partial derivatives with respect to each argument.
+    The gradient is just a vector that denotes the partial
+    derivatives with respect to all the arguments of a scalar function.
+</p>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>&nabla; <var>f </var>(<var>x</var>, <var>y</var>)
+= [ &part;/&part;<var>x</var>, &part;/&part;<var>y</var> ] 
+    <var>f </var>(<var>x</var>, <var>y</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+the gradient of a binary function
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+    These are the gradients of the first few hyper-operators:
+
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>&nabla; (<var>x</var><sup>(1)</sup><var>y</var>)
+= &nabla; (<var>x</var> + <var>y</var>)
+= [ 1, 1 ] 
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+the gradient of addition
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>&nabla; (<var>x</var><sup>(2)</sup><var>y</var>)
+= &nabla; <var>x</var><var>y</var>
+= [ <var>y</var>, <var>x</var> ] 
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+the gradient of multiplication
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>&nabla; (<var>x</var><sup>(3)</sup><var>y</var>)
+= &nabla; <var>x</var><sup><var>y</var></sup>
+= [ <var>y</var> <var>x</var><sup><var>y</var>-1</sup>, <var>x</var><sup><var>y</var></sup> log(<var>x</var>) ] 
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+the gradient of exponentiation
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>&nabla; (<var>x</var><sup>(4)</sup><var>y</var>)
+= &nabla; <sup><var>y</var></sup><var>x</var>
+= [ <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <sup><var>y</var></sup><var>x</var> (<sup><var>y</var>-1</sup><var>x</var>/<var>x</var> 
+    + log(<var>x</var>) &part;/&part;<var>x</var> (<sup><var>y</var>-1</sup><var>x</var>)), <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <sup><var>y</var></sup><var>x</var> (log(<var>x</var>) &part;/&part;<var>y</var> (<sup><var>y</var>-1</sup><var>x</var>)) <br/>
+] 
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+the gradient of tetration
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+</div>
+
+<hr/>
+<div class="darkness" style="padding: 10px;">
+<table class="middleone" cellspacing="5" style="width: 100%;">
+<tr style="width: 100%;"><td style="text-align: left; width: 50%;">
+Previous Page: <a href="basic.html">Basics</a>
+</td><td style="text-align: center; width: auto;">
+&nbsp;
+</td><td style="text-align: right; width: 50%;">
+Next Page: <a href="tetra.html">Tetration</a>
+</td></tr>
+</table>
+</div>
+<hr/>
+
+
+<div class="lightness">
+Visited: <ISML TYPE="counter"> times, last updated: 2006-02-15, by: Andrew Robbins, contact: and_j_rob(at)yahoo(dot)com
+</div>
+</body>
+</html>
+<!--

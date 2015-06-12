@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Home of Tetration - Special Functions - Self-root Function</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+<div class="header">
+
+<center class="logo">
+  <img src="img/tetra-logo.png" alt="Graph"/>
+  <br/>
+  <h1>Home of Tetration</h1>
+  <br/>
+  <div class="nav"> 
+  <a href="index.html">Home</a> &nbsp;|&nbsp;
+  <a href="hyper.html">Hyperops</a> &nbsp;|&nbsp;
+  <a href="funct.html">Functions</a> &nbsp;|&nbsp;
+  <a href="itern.html">Iteration</a> &nbsp;|&nbsp;
+  <a href="tetra.html">Tetration</a> &nbsp;|&nbsp;
+  <a href="tower.html">Towers</a>
+  </div>
+
+</center>
+
+
+<center>
+  <div class="nav">
+  Function pages (<span style="color: orange;">under construction</span>) :
+  <a href="fn-sqtow.html"><var>x</var><sup><var>x</var></sup></a> &nbsp;|&nbsp;
+  <a href="fn-rctow.html"><var>x</var><sup>1/<var>x</var></sup></a> &nbsp;|&nbsp;
+  <a href="fn-tconj.html">Topological Conjugacy</a> 
+  </div>
+</center>
+
+</div><hr/><div class="std">
+<h1>Self-root (<var>x</var><sup>1/<var>x</var></sup>)</h1>
+<p>
+  The <em>self-root</em> function is a simple function related to tetration. 
+  It is the inverse function of the <a href="gloss.html#
+infinitetetrate">infinite tetrate</a>, and thus
+  it corresponds to the infinite <a href="gloss.html#
+super-root">super-root</a>.
+</p>
+<p>
+  
+</p>
+</div><hr/><div class="std">
+<h1>Series for <var>x</var><sup>1/<var>x</var></sup></h1>
+<p>
+Since <var>x</var><sup>1/<var>x</var></sup> is such a simple function, we can expand it directly
+using the series expansion of the exponential function:
+
+
+  
+  </p><p><center><img src="img/tex/xrootx-simple.png" alt="x^{1/x} = 
+\ee^{\log(x)/x} = \sum_{k=0}^{\infty} \frac{\log(x)^k x^{-k}}{k!}"/></center></p><p class="noindent">
+
+The direct function gives the exponential coefficients (1, 1, -2, 3, 4, -90, 786, ...) or (<a href="http://www.research.att.com/~njas/sequences/Ax">Ax</a>)
+
+
+  
+  </p><p><center><img src="img/tex/xrootx-taylor.png" alt="x^{1/x} = 
+\sum_{k=0}^{\infty}\frac{(x-1)^k}{k!}
+\sum_{j=0}^{k}\stirfirst{k}{j}
+\sum_{i=0}^{j}\binom{j}{i}(-i)^{(j-i)}
+"/></center></p><p class="noindent">
+
+If we were to substitute <var>x</var> with <b><i>e</i></b><sup><var>x</var></sup> expanding about 0 gives the exponential coefficients (1, 1, -1, -2, 9, -4, -95, 414, ...) or (<a href="http://www.research.att.com/~njas/sequences/Ax">Ax</a>).
+
+
+  
+  </p><p><center><img src="img/tex/xrootx-puiseux.png" alt="x^{1/x} = 
+\sum_{k=0}^{\infty}\frac{\log(x)^k}{k!}
+\sum_{j=0}^{k}\binom{k}{j}(-j)^{(k-j)}
+"/></center></p><p class="noindent">
+
+
+</p>
+</div><hr/><div class="footer">
+<table class="footalign">
+  <tr>
+    <td style="text-align: left; width: 90%; color: gray; vertical-align: top;">
+Copyright &copy; 2010 <a href="mailto:and_j_rob@yahoo.com" style="color: gray;">Andrew Robbins</a> <span style="color: black;">(<ISML TYPE="counter"> visits)</span>
+    </td>
+    <td style="text-align: right; width: 10%;">
+	<table>
+	  <tr>
+	    <td>
+<a href="http://www.w3.org/RDF/"><img style="border: 0px;" src="img/rdf_flyer.png" alt="1" /></a>
+	    </td>
+	    <td>
+<a href="http://www.w3.org/"><img style="border: 0px;" src="img/w3c_icon.png" alt="1" /></a>
+	    </td>
+	  </tr>
+	</table>
+    </td>
+  </tr>
+</table>
+</div>
+</body>
+</html>

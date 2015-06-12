@@ -1,0 +1,201 @@
+
+<html>
+<head>
+	<title>Home of Tetration - Error</title>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<script>
+		sideFrameOff();
+	</script>
+</head>
+<body>
+
+<div class="darkness" style="text-align: center;">
+	<img src="img/taux-head.png"/>
+	<br/>
+	<span style="text-align: center; font-style: italic; font-weight: bold; color: yellow; font-size: 72;">Tetration</span>
+
+
+<br/><br/>
+
+<center>
+Main:&nbsp;
+<a href="main.html">Welcome</a> ...
+<a href="paper.html">Paper</a>
+</center>
+
+<br/>
+
+<center>
+Reference:&nbsp;
+<a href="defs.html">Definitions</a> &nbsp;|&nbsp;
+<a href="ident.html">Identities</a> &nbsp;|&nbsp;
+<a href="tabs.html">Tables</a> &nbsp;|&nbsp;
+<a href="gloss.html">Glossary</a> &nbsp;|&nbsp;
+<a href="links.html">Links</a>
+</center>
+
+<br/>
+
+<center>
+Other:&nbsp;
+<a href="appl.html">Application</a> &nbsp;|&nbsp;
+<a href="hist.html">History</a> &nbsp;|&nbsp;
+<a href="mthds.html">Methods</a> &nbsp;|&nbsp;
+<a href="graph.html">Graphs</a> &nbsp;|&nbsp;
+<a href="code.html">Code</a> &nbsp;|&nbsp;
+<a href="digit.html">Precision</a> 
+</center>
+
+<br/>
+
+<center>
+Discussion:&nbsp;
+<a href="revw.html">Review</a> =&gt;
+<a href="intro.html">Introduction</a> =&gt;
+<a href="hyper.html">Hyperops</a> =&gt;
+<a href="tetra.html">Tetration</a> =&gt;
+<a href="slog.html">Superlog</a>
+</center>
+
+</div>
+
+<div class="darkness">
+<h1>About Accuracy and Precision</h1>
+<br/>
+Throughout this section the following letters and names will be used:
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>n</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+the degree of linearization of exponentiation
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>precreq(<var>n</var>, <var>x</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+the working-precision required to perform linearization
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>sigfig(<var>n</var>, <var>x</var>, <var>y</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+the number of significant digits expected from tetration
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>offset(<var>x</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+the ammount of offset, offset(<var>x</var>) = abs(<var>x</var> - round(<var>x</var>))
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The reason why I have not taken the time to find a <span style="color:white;"><b>sigfig</b></span> formula
+for the super-logarithm is that it generally is much more "accurate"
+than tetration. Tetration is also more "steep" than the super-logarithm,
+so its harder to find "accurate" values with tetration. This is why
+I have taken the time to find a <span style="color:white;"><b>sigfig</b></span> formula for tetration.
+<h2>Working Precision</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+These are the formulas I have so far for working-precision. If the
+value of working-precision p is below the output of this function,
+then there is likely to be major round-off accumulation, and
+the resulting solutions of the n-th degree linearization will
+be zero. To prevent this, choose a working-precision
+above the output of this function to perform an n-th degree
+linearization. 
+<br/><br/>
+First, the definition:
+
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>precreq(n, x)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+:= while
+(linearize(n, x, p)[2,2] != linearize(n, x)[2, 2]) { p++ }; return p;
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+<br/>
+And here are some formulas:
+
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>precreq(n, 2)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbso</A>
+</UL>
+<LI><A NAME="TOC20" HREF="libmatheval.html#SEC20"><CODE>evaluator_get_string()</CODE></A>
+<UL>
+<LI><A NAME="TOC21" HREF="libmatheval.html#SEC21">Synopsis</A>
+<LI><A NAME="TOC22" HREF="libmatheval.html#SEC22">Description</A>
+<LI><A NAME="TOC23" HREF="libmatheval.html#SEC23">Return value</A>
+<LI><A NAME="TOC24" HREF="libmatheval.html#SEC24">See also</A>
+</UL>
+<LI><A NAME="TOC25" HREF="libmatheval.html#SEC25"><CODE>evaluator_get_variables()</CODE></A>
+<UL>
+<LI><A NAME="TOC26" HREF="libmatheval.html#SEC26">Synopsis</A>
+<LI><A NAME="TOC27" HREF="libmatheval.html#SEC27">Description</A>
+<LI><A NAME="TOC28" HREF="libmatheval.html#SEC28">Return value</A>
+<LI><A NAME="TOC29" HREF="libmatheval.html#SEC29">See also</A>
+</UL>
+<LI><A NAME="TOC30" HREF="libmatheval.html#SEC30"><CODE>evaluator_derivative()</CODE></A>
+<UL>
+<LI><A NAME="TOC31" HREF="libmatheval.html#SEC31">Synopsis</A>
+<LI><A NAME="TOC32" HREF="libmatheval.html#SEC32">Description</A>
+<LI><A NAME="TOC33" HREF="libmatheval.html#SEC33">Return value</A>
+<LI><A NAME="TOC34" HREF="libmatheval.html#SEC34">See also</A>
+</UL>
+</UL>
+<LI><A NAME="TOC35" HREF="libmatheval.html#SEC35">Convenience procedures</A>
+<UL>
+<LI><A NAME="TOC36" HREF="libmatheval.html#SEC36"><CODE>evaluator_evaluate_x()</CODE></A>
+<UL>
+<LI><A NAME="TOC37" HREF="libmatheval.html#SEC37">Synopsis</A>
+<LI><A NAME="TOC38" HREF="libmatheval.html#SEC38">Description</A>
+<LI><A NAME="TOC39" HREF="libmatheval.html#SEC39">Return value</A>
+<LI><A NAME="TOC40" HREF="libmatheval.html#SEC40">See also</A>
+</UL>
+<LI><A NAME="TOC41" HREF="libmatheval.html#SEC41"><CODE>evaluator_evaluate_x_y()</CODE></A>
+<UL>
+<LI><A NAME="TOC42" HREF="libmatheval.html#SEC42">Synopsis</A>
+<LI><A NAME="TOC43" HREF="libmatheval.html#SEC43">Description</A>
+<LI><A NAM

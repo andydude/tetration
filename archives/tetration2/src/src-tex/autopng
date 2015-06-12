@@ -1,0 +1,44 @@
+#!/bin/sh
+
+# autopng filename-base tex-expression
+
+BASE="$1"
+EXPR="$2"
+
+TEX="pdflatex"
+#GIMP="/Applications/Gimp.app/Contents/Resources/bin/gimp"
+GIMP="/usr/bin/gimp"
+WSDIR="/var/www/tetration"
+CWD="`pwd`"
+
+SCMFILE="$WSDIR/src/src-tex/tex-temp/$BASE.scm"
+AUXFILE="$WSDIR/src/src-tex/tex-temp/$BASE.aux"
+TEXFILE="$WSDIR/src/src-tex/tex-temp/$BASE.tex"
+PDFFILE="$WSDIR/src/src-tex/tex-temp/$BASE.pdf"
+PNGFILE="$WSDIR/img/auto/$BASE.png"
+
+cd "$WSDIR/src/src-tex"
+
+cat tex-pre.tex > "$TEXFILE"
+echo "$EXPR" >> "$TEXFILE"
+cat tex-post.tex >> "$TEXFILE"
+
+#thumbpdf
+#osascript
+
+cd tex-temp
+
+touch "$AUXFILE"
+"$TEX" "$TEXFILE"
+
+cd ..
+
+echo "(begin" > "$SCMFILE"
+echo "(set! ifile \"$PDFFILE\")" >> "$SCMFILE"
+echo "(set! ofile \"$PNGFILE\")" >> "$SCMFILE"
+cat tex-png.scm >> "$SCMFILE"
+echo ")" >> "$SCMFILE"
+
+"$GIMP" -i -b "`cat $SCMFILE`"  
+ 
+cd "$CWD"

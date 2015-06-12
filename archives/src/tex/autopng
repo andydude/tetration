@@ -1,0 +1,59 @@
+#!/bin/bash
+
+# autopng filename-base tex-expression
+
+BASE="$1"
+EXPR="$2"
+
+# i never needed these tools:
+#thumbpdf
+#osascript
+
+TEX="/opt/local/bin/pdflatex"
+GIMP="/opt/local/bin/gimp"
+#GIMP="/Applications/GIMP.app/Contents/Resources/bin/gimp"
+#GIMP="/usr/bin/gimp"
+#WSDIR="/Users/ajr/Sites/www"
+WSDIR="/Users/ajr/Sites/_5GIG/tetration.co.cc"
+CWD="`pwd`"
+
+SCMFILE="$WSDIR/src/tex/tex-temp/$BASE.scm"
+AUXFILE="$WSDIR/src/tex/tex-temp/$BASE.aux"
+TEXFILE="$WSDIR/src/tex/tex-temp/$BASE.tex"
+PDFFILE="$WSDIR/src/tex/tex-temp/$BASE.pdf"
+PSFILE="$WSDIR/src/tex/tex-temp/$BASE.ps"
+PNGFILE="$WSDIR/htdocs/img/tex/$BASE.png"
+
+cd "$WSDIR/src/tex"
+
+printf "File $(basename $PNGFILE) ... "
+
+if [ -e "$PNGFILE" ] ; then
+  echo "exists. Skipping."
+else
+  printf "does not exist. Rendering ... "
+
+  cat tex-pre.tex > "$TEXFILE"
+  echo "$EXPR" >> "$TEXFILE"
+  cat tex-post.tex >> "$TEXFILE"
+  
+  cd tex-temp
+  touch "$AUXFILE"
+  "$TEX" "$TEXFILE" 
+  # 2>&1 > /dev/null
+  pdf2ps "$PDFFILE"
+  cd ..
+
+  
+  echo "(begin" > "$SCMFILE"
+  echo "    (define ifile \"$PSFILE\")" >> "$SCMFILE"
+  echo "    (define ofile \"$PNGFILE\")" >> "$SCMFILE"
+  cat tex-png.scm >> "$SCMFILE"
+  echo ")" >> "$SCMFILE"
+  
+  "$GIMP" -i -b "`cat $SCMFILE`"
+
+  echo "done."
+fi
+ 
+cd "$CWD"

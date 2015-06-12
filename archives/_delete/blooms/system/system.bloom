@@ -1,0 +1,65 @@
+
+define div.listmodules
+  new div
+    python
+      import os
+      ds = os.listdir("/home/me/bloomsInstance/transforms")
+      ret = []
+      for d in ds:
+        if not d[0] == ".":
+          ret.append(d)
+    loop dir in ret
+      new h2
+        new a
+          set href
+            [~BASEURL~][~dir~]/index
+          text [~dir~]
+      new div using system.listmodule [~dir~]
+    
+define div.listmodule
+  python
+    import os
+    fs = os.listdir("/home/me/bloomsInstance/transforms/%s"%(ARGV))
+    ret = []
+    for f in fs:
+      if f[-5:] == ".html" or f[-4:] == ".htm":
+        ret.append(f)
+  test ret
+    new ul
+      loop fil in ret
+        new li
+          new a
+            set href
+              [~BASEURL~][~ARGV~]/[~fil~]
+            text [~fil~]
+  else
+    pass
+
+filter body.default
+  new h1
+    set style
+      text-align: center;
+    text
+      Site Map
+  new hr
+    pass
+  new div using system.listmodules
+
+start
+  python
+    head = DOC.getElementsByTagName('head')[0]
+  context now head
+  new title text Andrew's Site Map
+
+page div.index
+  new h1
+    set style
+      text-align: center;
+    text
+      Site Map
+  new hr
+    pass
+  new div using system.listmodules
+    
+
+

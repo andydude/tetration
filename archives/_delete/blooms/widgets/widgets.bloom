@@ -1,0 +1,224 @@
+
+# Filename: widgets.bloom
+# Copyright: 2005-2007 James Robey
+# Project: Blooms (please reference the Blooms.license file for copyright details.)
+  
+filter div.shadowbox
+default
+  background='#ddddff', shadow='#333333', border='#bbbbbb', depth='3px', padding="10px"
+rules
+  contents into _buf
+  clear  
+  set style background: [~ARGV['shadow']~];
+  new div
+    set style 
+      border: 1px solid [~ARGV['border']~]; 
+      background: [~ARGV['background']~];
+      position: relative;
+      padding: [~ARGV['padding']~];
+      top: -[~ARGV['depth']~];
+      left: -[~ARGV['depth']~]; 
+    xml [~_buf~]
+    
+        
+#alias td.metalbox from widgets.td.metalbox
+filter div.metalbox
+  load script widgets/nifty/niftycube.js
+  py
+    id = ATTR['id']
+    if not id: id = AUTO
+  + id [~id~]
+  + style
+    padding: [~ARGV[0]~]px;
+    margin: [~ARGV[0]~]px;
+    background-image: url('[~BASEURL~]admin/texture1.jpg');
+  n js x Nifty('div#[~id~]','big');
+
+
+
+filter base.rounded
+default
+  background='grey'
+rules
+  load script widgets/nifty/niftycube.js
+  py if not ATTR['id']: TAG.setAttribute('id', AUTO)
+  + style
+    padding: [~ARGV[0]~]px;
+    margin: [~ARGV[0]~]px;
+    background: ARGV['background'];
+    
+filter td.rounded after widgets.base.rounded
+  n js x Nifty('td#[~ATTR['id']~]','big');
+  
+filter div.rounded after widgets.base.rounded
+  n js x Nifty('div#[~ATTR['id']~]','big');
+    
+
+filter div.slider
+  load script widgets/slider/js/range.js
+  load script widgets/slider/js/timer.js
+  load script widgets/slider/js/slider.js
+  load style widgets/slider/css/swing/swing.css
+  init style tag once
+    .[~MOD~]_range{
+      font-size: 0.8em;
+    } 
+    .[~MOD~]_number{
+      font-size: 1.2em;
+    }
+
+  > style width: [~?ATTR['size']|'200px'~];
+  n span  
+    + class [~MOD~]_number
+    + id [~AUTO~]_value
+    t Val
+    
+  n span  
+    + class [~MOD~]_range
+    + id [~AUTO~]_min
+    t Min
+    
+  #so this is a "min to max" label on the slider widget
+  t to
+  n span
+    + class [~MOD~]_range
+    + id [~AUTO~]_max
+    
+  n div
+    + class slider
+    + id [~AUTO~]_slider
+    n input
+      + class slider-input
+      + id [~ARGV[0]~]
+      + name [~ARGV[0]~]
+      + onchange
+        document.getElementById('[~AUTO~]_value').value = parseInt(this.value);
+    
+  n js
+    xml      
+      var [~AUTO~] = new Slider(document.getElementById('[~AUTO~]_slider'), document.getElementById('[~ARGV[0]~]'));
+      [~AUTO~].setValue([~?ATTR['val']|0~]);
+      [~AUTO~].setMaximum([~?ATTR['max']|100~]);
+      [~AUTO~].setMinimum([~?ATTR['min']|0~]);
+      
+      document.getElementById('[~AUTO~]_min').innerHTML = [~AUTO~].getMinimum();
+      document.getElementById('[~AUTO~]_max').innerHTML = [~AUTO~].getMaximum();
+      document.getElementById('[~AUTO~]_value').innerHTML = [~AUTO~].getValue();
+      
+      [~AUTO~].onchange = function () 
+      {
+        document.getElementById('[~AUTO~]_min').innerHTML = [~AUTO~].getMinimum();
+        document.getElementById('[~AUTO~]_max').innerHTML = [~AUTO~].getMaximum();
+        document.getElementById('[~AUTO~]_value').innerHTML = [~AUTO~].getValue();
+      };
+
+  - min
+  - max
+  - val
+  
+  
+filter div.portlet
+doc
+  <div mod.portlet="color" label="portlet name" collapse="True if box collapsed">...content...</div>
+rules
+  load script widgets/nifty/niftycube.js
+  contents into buf
+  clear
+  #if no id then give it one.
+  py if not ATTR['id']: TAG.setAttribute('id', AUTO)
+  
+  + style padding: 5px;
+  
+  n div
+    n h3
+      + id [~AUTO~]_header
+      + style
+        background: [~ARGV[0]~];
+        margin: 0px;
+        padding: 5px 2px 5px 10px;
+      + onmouseover document.getElementById('[~AUTO~]openclose').innerHTML = '(open/close)';
+      + onmouseout document.getElementById('[~AUTO~]openclose').innerHTML = '';
+      + onclick
+        if( [~AUTO~]_hider == false ){
+          document.getElementById('[~AUTO~]_body').style.display = 'none';
+          Nifty("h3#[~AUTO~]_header");
+          [~AUTO~]_hider = true;
+        }else{
+          document.getElementById('[~AUTO~]_body').style.display = 'block';
+          Nifty("h3#[~AUTO~]_header","top");
+          [~AUTO~]_hider = false;
+        };
+      n div
+        t [~ATTR['label']~]
+        n div 
+          + id [~AUTO~]openclose
+          + style 
+            float: right;
+            font-size: 0.8em;
+    
+    #the portlet
+    n div
+      + align left
+      + id [~AUTO~]_body
+      + style 
+        margin: 3px 0px 0px 0px;
+        background-image: url('[~BASEURL~]admin/texture1.jpg');
+        padding: 5px;
+      xml [~buf~]
+    
+    #the javascript to alter the two above.
+    n js
+      xml        
+        [~AUTO~]_hider = false;
+        Nifty("h3#[~AUTO~]_header");
+        Nifty("div#[~AUTO~]_body");
+      #if the collapse attr is set, hide the panel on start up
+      ? ATTR['collapse']
+        xml          
+          document.getElementById('[~AUTO~]_body').style.display = 'none';
+          [~AUTO~]_hider = true;
+  
+  - label
+  
+define input.showhide
+doc
+  n input u widgets.showhide id_to_hide, id_to_expand_out, full_view_button_text, collapse_view_button_text
+rules
+  n js x try { [~ATTR['id']~]state == 'test' } catch(e) { [~ATTR['id']~]state = 'hide'; [~ATTR['id']~]width = 0; };
+  + type button
+  + value [~ARGV[2]~]
+  + onclick
+    if( [~ATTR['id']~]state == 'hide'){
+      [~ATTR['id']~]width = $('[~ARGV[1]~]').style.width;
+      $('[~ARGV[1]~]').style.width = '100%';
+      $('[~ARGV[0]~]').style.display = 'none';
+      $('[~ATTR['id']~]').value = '[~ARGV[3]~]';
+      [~ATTR['id']~]state = 'show';
+    }
+    else{
+      $('[~ARGV[1]~]').style.width = [~ATTR['id']~]width;
+      $('[~ARGV[0]~]').style.display = 'block';
+      $('[~ATTR['id']~]').value = '[~ARGV[2]~]';
+      [~ATTR['id']~]state = 'hide';
+    }
+    return false;
+    
+define input.plainbutton
+doc
+  Makes a plain button quickly
+  n input u plainbutton id, value
+rules
+  + type button
+  + id [~ARGV[0]~]
+  + value [~ARGV[1]~]
+
+alias span.rollover from widgets.td.rollover
+alias div.rollover from widgets.td.rollover
+define td.rollover
+doc
+  sets onmouseover and onmouseout attributes quickly
+  n div|td u widgets.rollover over_color, [out_color] 
+rules
+  + onmouseover this.style.background = '[~ARGV[0]~]';
+  + onmouseout  this.style.background = '[~?ARGV[1]|'transparent'~]';
+              

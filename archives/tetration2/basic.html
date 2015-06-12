@@ -1,0 +1,629 @@
+
+<html>
+<head>
+	<title>Home of Tetration - Basics</title>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<script>
+		sideFrameOff();
+	</script>
+</head>
+<body style="background-color:#111;color:silver;">
+
+<div class="darkness" style="text-align: center;">
+	<img src="img/taux-head.png"/>
+	<br/>
+	<span style="text-align: center; font-style: italic; font-weight: bold; color: yellow; font-size: 72;">Tetration</span>
+
+
+<br/><br/>
+
+<center>
+<span style="color:white;"><b>Featured Pages:</b></span>&nbsp;
+<a href="appl.html">Applications</a> &nbsp;|&nbsp;
+<a href="chaos.html">Chaos</a> &nbsp;|&nbsp;
+<a href="exfac.html">Exp. Factorial</a> &nbsp;|&nbsp;
+<a href="funeq.html">Functional Eq.</a> &nbsp;|&nbsp;
+<a href="hist.html">History</a> &nbsp;|&nbsp;
+<a href="itern.html">Iteration</a> 
+</center>
+
+<br/>
+
+<center>
+Reference:&nbsp;
+<a href="defs.html">Definitions</a> &nbsp;|&nbsp;
+<a href="ident.html">Identities</a> &nbsp;|&nbsp;
+<a href="mthds.html">Methods</a> &nbsp;|&nbsp;
+<a href="code.html">Code</a> &nbsp;|&nbsp;
+<a href="tabs.html">Tables</a> &nbsp;|&nbsp;
+<a href="graph.html">Graphs</a> &nbsp;|&nbsp;
+<a href="gloss.html">Glossary</a> &nbsp;|&nbsp;
+<a href="links.html">Links</a>
+</center>
+
+<br/>
+
+<center>
+Discussion:&nbsp;
+<a href="index.html">Welcome</a> =&gt;
+<a href="basic.html">Basics</a> =&gt;
+<a href="hyper.html">Hyperops</a> =&gt;
+<a href="tetra.html">Tetration</a> =&gt;
+<a href="slog.html">Super-log</a> =&gt;
+<a href="sroot.html">Super-root</a> =&gt;
+<a href="paper.html">Papers</a>
+</center>
+
+</div>
+
+
+<hr/>
+<div class="darkness" style="padding: 10px;">
+<table class="middleone" cellspacing="5" style="width: 100%;">
+<tr style="width: 100%;"><td style="text-align: left; width: 50%;">
+Previous Page: <a href="index.html">Welcome</a>
+</td><td style="text-align: center; width: auto;">
+&nbsp;
+</td><td style="text-align: right; width: 50%;">
+Next Page: <a href="hyper.html">Hyperops</a>
+</td></tr>
+</table>
+</div>
+<hr/>
+
+<div class="darkness">
+<h1>Review of Exponentiation</h1>
+<p>
+    Exponentiation is the process of raising a base to a power, commonly
+    denoted <var>x</var><sup><var>y</var></sup>. There are many ways of saying this, the most
+    common form is: "<var>x</var> to the <var>y</var>" which comes from the longer
+    way of saying it when <var>y</var> is an integer <var>n</var>: "<var>x</var> to the <var>n</var>-th power."
+</p>
+<p>
+    In the beginning, exponentiation was defined as iterated multiplication.
+    Iteration is the process of repeating a function several times, so this
+    would be a function <var>x</var>*<var>x</var>*<var>x</var>*...*<var>x</var> where there are <var>n</var> <var>x</var>'s.
+    This forms the basis of exponentiation for integers, 
+    but what about real numbers? To define exponentiation for real numbers, 
+    mathematicians had to find
+    certain rules that were satisfied by integer exponentiation, and use
+    them to generalize it to a <b><i>continuously iterated multiplication</i></b>.
+    The rules that were found centuries ago are now known as the
+    laws of exponentiation:
+</p>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>(<var>x</var><sup><var>m</var></sup>)(<var>x</var><sup><var>n</var></sup>) = <var>x</var><sup>(<var>m</var> + <var>n</var>)</sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+additive property of powers
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>(<var>x</var><sup><var>m</var></sup>)<sup><var>n</var></sup> = <var>x</var><sup>(<var>m</var><var>n</var>)</sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+multiplicative property of powers
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+<p>
+    These laws allow exponentiation to be extended to rational numbers
+    fairly easily, and from there to real numbers by choosing rational numbers
+    that are closer and closer to a real number you want to use.
+    For example, if you wanted to find <var>x</var><sup>(3/5)</sup>, then you could
+    use the multiplicative property, and notice that: 
+    (<var>x</var><sup>(3/5)</sup>)<sup>5</sup> = <var>x</var><sup>3</sup>. So <var>x</var><sup>(3/5)</sup> is the value <var>y</var>
+    that satisfies: <var>y</var><sup>5</sup> = <var>x</var><sup>3</sup>, because 
+    (<var>x</var><sup>(3/5)</sup>)<sup>5</sup> = <var>x</var><sup>(3/5)*5</sup> = <var>x</var><sup>3</sup>.
+</p>
+<p>
+    Extending the definition of exponentiation to real numbers allows
+    inverse functions of exponentiation, namely <b><i>roots</i></b> and <b><i>logarithms</i></b>.
+    Eventually, after the investigation of logarithms, the same rules
+    are found to apply to them as well. These rules have become known
+    as the laws of logarithms:
+</p>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>log<sub><var>x</var></sub>(<var>m</var><var>n</var>) = log<sub><var>x</var></sub>(<var>m</var>) + log<sub><var>x</var></sub>(<var>n</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+additive property of logarithms
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>log<sub><var>x</var></sub>(<var>m</var><sup><var>n</var></sup>) = <var>n</var> log<sub><var>x</var></sub>(<var>m</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+multiplicative property of logarithms
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+<p>
+    These properties form the basis of exponential and logarithmic
+    arithmetic and algebraic manipulations. There are sometimes two
+    additional laws that are based on each of the two above, but
+    they are more of a short-cut, because they can be derived from 
+    the properties above:
+</p>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>(<var>x</var><sup><var>m</var></sup>)/(<var>x</var><sup><var>n</var></sup>) = <var>x</var><sup>(<var>m</var> - <var>n</var>)</sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+subtractive property of powers
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>log<sub><var>x</var></sub>(<var>m</var>/<var>n</var>) = log<sub><var>x</var></sub>(<var>m</var>) - log<sub><var>x</var></sub>(<var>n</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+subtractive property of logarithms
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+<p>
+    
+</p>
+<br/>
+Under Construction.
+<br/>
+
+
+<br/>
+Under Construction.
+</div>
+<hr/>
+<div class="darkness">
+<h1>Introduction to Tetration</h1>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>Tetration is the analytic iteration of an exponential function evaluated at one.
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+What is the analytic iteration of an exponential function you may ask? Good question.
+Lets break that down into the words that compose it. For when
+its constituent words are understood, 
+it is easy to understand the whole phrase:
+<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style="color:white;"><b>Analytic</b></span> is a fancy way of saying infinitely smooth, which is also a special case of the term <b><i>continuous</i></b>. <span style="color:white;"><b>Continuous</b></span> things are usually contrasted with <span style="color:white;"><b>Discrete</b></span> things, 
+and both are analogous to the roles 
+in mathematics that the <b><i>real numbers</i></b> and the <b><i>integers</i></b> 
+play respectively. 
+The integers are <b><i>discrete</i></b> because you can't go between them without "jumping".
+With real numbers on the other hand, you can go between any number by going through other
+real numbers, which makes the real numbers <b><i>continuous</i></b>.
+<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style="color:white;"><b>Iteration</b></span> is the process of applying a function to itself. 
+In order for this to happen,
+the output of a function must be the same kind of thing as its input. When you
+iterate a function <var>n</var> times, you are giving its output to its input <var>n</var> times. In
+mathematical notation:
+
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>f</var> <sup><var>n</var></sup>(<var>z</var>) = 
+<var>f</var> &middot; <var>f</var> &middot; 
+<var>f</var> &middot; ... &middot; <var>f</var> &middot; <var>z</var>
+&nbsp;&nbsp;(with <var>n</var>&nbsp;&nbsp;<var>f</var> s)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+where "&middot;" represents composition, or equivalently:
+
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>f</var> <sup>0</sup>(<var>z</var>) = <var>z</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>f</var> <sup>1</sup>(<var>z</var>) = <var>f</var> (<var>z</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>f</var> <sup><var>n</var></sup>(<var>z</var>) = <var>f</var> ( <var>f</var> <sup><var>n</var>&minus;1</sup>(<var>z</var>))
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>f</var> <sup><var>n</var></sup>(<var>z</var>) = <var>f</var> <sup><var>n</var>&minus;1</sup>( <var>f</var> (<var>z</var>))
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+By nature, iteration is discrete, 
+because you can only apply a function once, not half a time. The only way you can  go between iterations is by "jumping" between them. 
+This makes iteration discrete.
+The definition of tetration uses the word <b><i>continuous</i></b> 
+to mean a different kind
+of iteration that isn't <b><i>discrete</i></b>. Continuous iteration
+would go between iterations without "jumping" so you can find the iterates between the usual ones. So it is understood that <span style="color:white;"><b>continuous iteration</b></span>
+is a generalization of discrete iteration.
+<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style="color:white;"><b>Exponentiation</b></span> is the process of taking a base and raising it to a power. Usually the following names are used for different ways of doing this,
+depending on which variable you are iterating with respect to:
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>pow<sub><var>n</var></sub>(<var>z</var>) = <var>z</var><sup><var>n</var></sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+a power function
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>exp<sub><var>b</var></sub>(<var>z</var>) = <var>b</var><sup><var>z</var></sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+an exponential function
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Both of which are forms of exponentiation, but taking one to a power isn't very interesting, because
+you always get one in the end. Iterated exponentiation then, would be the iteration of
+an exponential function a certain number of times. Applying all of this to the definition
+of tetration we understand <span style="color:white;"><b>iterated exponential</b></span> to be the function:
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>exp<sup><var>n</var></sup>(<var>z</var>) = <b><i>e</i></b>^<b><i>e</i></b>^<b><i>e</i></b>^...^<var>z</var>
+    &nbsp;&nbsp;(with <var>n</var> <b><i>e</i></b>'s)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+using the base of the natural 
+logarithm <b><i>e</i></b>, or
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>exp<sup><var>n</var></sup><sub><var>b</var></sub>(<var>z</var>) = 
+	   <var>b</var>^<var>b</var>^<var>b</var>^...^<var>z</var> 
+	   &nbsp;&nbsp;(with <var>n</var> <var>b</var>'s)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+using any base b
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+This function is only a discrete iteration, though, and we want continuous iteration, so we
+must somehow
+<a href="mthds.html">generalize</a>
+this definition to get analytic iterated exponentials.
+
+Once we have, we can apply the definition, and the definition of tetration
+says to evaluate the "analytic iteration of an exponential function" at 1, so
+evaluating this function at <var>z</var> = 1 gives tetration:
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>y</var></sup><var>x</var> = exp<sup><var>y</var></sup><sub><var>x</var></sub>(1)
+
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+where <var>f</var> <sup><var>n</var></sup>(<var>z</var>) = <var>f</var>(<var>f</var> <sup><var>n</var> - 1</sup>(<var>z</var>)) and  exp<sub><var>x</var></sub>(a) = <var>x</var><sup>a</sup> and exp<sup><var>y</var></sup><sub><var>x</var></sub>(a) = (exp<sub><var>x</var></sub>)<sup><var>y</var></sup>(a)
+
+</div>
+<hr/>
+<div class="darkness">
+<h1>About Association</h1>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Care must be taken when performing <b><i>iteration</i></b>.
+The difference between power functions and exponential functions
+manifest in their vastly different <span style="color:white;"><b>iterates</b></span>. If you don't know
+which one you're using, for example, if you wanted to do "3^3^3",
+make sure you put your parentheses
+in the correct place, and evaluation will become obvious:
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>((3)^3)^3 = 27^3 = 19683
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+the "bottom-up" method
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>3^(3^(3)) = 3^27 = 7625597484987
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+the "top-down" method
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The first way of doing it, or the "bottom-up" method, which is not an iterated exponential function, but
+an iterated power function, has a continuous iterate which is simply expressible
+in terms of exponentiation. There will be more about this in the 
+<a href="hyper.html">hyper-operator</a>
+page.
+When we talk about tetration, we are <i>only</i> talking about iterated exponentials, or the "top-down" method,
+because this makes a new operation. Of these two operations,
+iterated powers can be expressed by using the notation we used above, and 
+iterated exponentials can be expressed using a new notation used on this website as:
+
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>pow<sup><var>c</var></sup><sub><var>b</var></sub>(<var>a</var>) = <var>a</var>^<var>b</var>^<var>c</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+iterated powers
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>exp<sup><var>c</var></sup><sub><var>b</var></sub>(<var>a</var>) = <sup><var>c</var></sup><var>b</var><sup><var>a</var></sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+iterated exponentials
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+The reason why this notation was chosen for iterated exponentials is due
+to three primary motivations:
+
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><span style="color: silver;">
+The <sup><var>y</var></sup><var>x</var> notation has been around since 1901
+</span>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+(see <a href="hist.html">history</a>)
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><span style="color: silver;">
+Assigning <var>a</var> = 1 in <sup><var>c</var></sup><var>b</var><sup><var>a</var></sup> gives <sup><var>c</var></sup><var>b</var><sup>1</sup> = <sup><var>c</var></sup><var>b</var>
+</span>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+standard tetration notation
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><span style="color: silver;">
+Assigning <var>c</var> = 1 in <sup><var>c</var></sup><var>b</var><sup><var>a</var></sup> gives <sup>1</sup><var>b</var><sup><var>a</var></sup> = <var>b</var><sup><var>a</var></sup>
+</span>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+standard exponentiation notation
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+As you can see, assigning one to either of the superscripts, makes them disappear,
+and "collapse" to earlier notations. It is this feature that makes this notation very
+natural, and easy to understand. The only difficulty that could come about is in
+being careful with parentheses, because depending on where you put the parentheses,
+you could get very different expressions, because in general:
+
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>c</var></sup><var>b</var><sup><var>a</var></sup> &ne; <sup><var>c</var></sup>(<var>b</var><sup><var>a</var></sup>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><sup><var>c</var></sup><var>b</var><sup><var>a</var></sup> &ne; (<sup><var>c</var></sup><var>b</var>)<sup><var>a</var></sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+So take care when using this notation, and when necessary, use parentheses.
+</div>
+<hr/>
+
+<hr/>
+<div class="darkness" style="padding: 10px;">
+<table class="middleone" cellspacing="5" style="width: 100%;">
+<tr style="width: 100%;"><td style="text-align: left; width: 50%;">
+Previous Page: <a href="revw.html">Review</a>
+</td><td style="text-align: center; width: auto;">
+&nbsp;
+</td><td style="text-align: right; width: 50%;">
+Next Page: <a href="hyper.html">Hyperops</a>
+</td></tr>
+</table>
+</div>
+<hr/>
+
+
+<div class="lightness">
+Visited: <ISML TYPE="counter"> times, last updated: 2006-02-15, by: Andrew Robbins, contact: and_j_rob(at)yahoo(dot)com
+</div>
+</body>
+</html>
+<!--

@@ -1,0 +1,49 @@
+div         { display: none; }
+:link       { color: #66CCFF; }
+:visited    { color: #9999FF; }
+:active     { color: #FF9999; }
+strong {
+    color: white;
+}
+h1 {
+    color: white;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+}
+h2 {
+    color: white;
+    font-weight: bold;
+}
+li {
+    color: white;
+}
+.lightness {
+    display: inline;
+    background-color: white;
+    color: gray;
+}
+.darkness {
+    display: block;
+    background-color: black;
+    color: silver;
+    margin: 5;
+    padding: 25;
+}
+.emptiness {
+    display: block;
+    background-color: black;
+    color: silver;
+    border-width: 0;
+    padding: 0;
+    margin: 0;
+}
+.middleone {
+    display: inline;
+    vertical-align: middle;
+    background-color: black;
+    color: silver;
+    border-width: 0;
+    padding: 0;
+    margin: 0;
+}

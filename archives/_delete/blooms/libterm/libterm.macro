@@ -1,0 +1,126 @@
+
+@term_init
+  python
+    iocount = 0
+    if len(ARGV.array) > 0: 
+      argQueryPath = ARGV[0]
+    else: 
+      argQueryPath = "libterm/query"
+    if len(ARGV.array) > 1: 
+      argStylesheet = BASEURLREL + ARGV[1]
+    else: 
+      argStylesheet = BASEURLREL + "libterm/libterm.css"
+    if ATTR.has_key('iprompt'): 
+      argPromptIn = ATTR['iprompt']
+    else: 
+      argPromptIn  = "In(%s): "
+    if ATTR.has_key('oprompt'): 
+      argPromptOut = ATTR['oprompt']
+    else:
+      argPromptOut = "Out(%s): "
+    if ATTR.has_key('eprompt'): 
+      argPromptErr = ATTR['eprompt']
+    else:
+      argPromptErr = "Err(%s): "
+  remove iprompt, oprompt, eprompt
+
+@term_style
+  new link
+    set rel stylesheet
+    set href [~BASEURLREL~]libterm/libterm.css
+    set type text/css
+
+@term_line
+  new table
+    set border 0
+    set cellpadding 0
+    set cellspacing 0
+    set width 100%
+    new tr
+      new td
+        set id [=id=]
+        set width 10%
+        set class [=class=]
+        text [=prompt=]
+      new td
+        pass
+
+@term_input
+  python
+    iocount += 1
+  new div
+    python
+      pmt = argPromptIn
+      try:
+        pmt.index('%')
+        pmt = pmt%iocount
+      except:
+        pass
+    term_line
+      class: in
+      prompt: [~pmt~]
+      number: [~iocount~]
+      id: [~..inhead~][~iocount~]
+      new span
+        text
+          &nbsp;
+        set id [~..inread~][~iocount~]
+        set style display: none;
+      new input
+        set type text
+        set id [~..intext~][~iocount~]
+        set size 80
+        set onchange
+          label = document.getElementById('[~..inhead~][~iocount~]');
+          query = document.getElementById('[~..inquery~][~iocount~]');
+          button = document.getElementById('[~..ineval~][~iocount~]');
+          field = document.getElementById('[~..intext~][~iocount~]');
+          rofield = document.getElementById('[~..inread~][~iocount~]');
+          rofield.childNodes[0].replaceData(0, 2, field.value);
+          rofield.style.display = 'inline';
+          fieldlen = field.value.length;
+          fieldstr = String(field.value);
+          fieldstr = fieldstr.replace(' ', '%20');
+          fieldstr = fieldstr.replace('+', '%2B');
+          field.setAttribute('value', fieldstr);
+          field.type = 'hidden';
+          button.onclick();
+      ajax
+        tag: input
+        path: [~argQueryPath~]
+        send: in=?[~..intext~][~iocount~]
+        replace: [~..next~]
+        set value Eval
+        set type hidden
+        set id [~..ineval~][~iocount~]
+  new div
+    set id [~..next~]
+  new js text
+    field = document.getElementById('[~..intext~][~iocount~]');
+    field.focus();
+  pass
+
+@term_outlike
+  new div
+    python
+      pmt = [=1=]
+      try:
+        pmt.index('%')
+        pmt = pmt%iocount
+      except:
+        pass
+    term_line
+      class: [=0=]
+      prompt: [~pmt~]
+      number: [~iocount~]
+      id: [~..outhead~][~iocount-1~]
+      set id [~..outbody~][~iocount-1~]
+      pass
+
+@term_output
+  term_outlike out, argPromptOut
+    pass
+
+@term_error
+  term_outlike err, argPromptErr
+    pass

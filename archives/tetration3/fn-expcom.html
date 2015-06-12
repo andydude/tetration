@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Home of Tetration - Special Functions - Exponential Commutator</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+<div class="header">
+
+<center class="logo">
+  <img src="img/tetra-logo.png" alt="Graph"/>
+  <br/>
+  <h1>Home of Tetration</h1>
+  <br/>
+  <div class="nav"> 
+  <a href="index.html">Home</a> &nbsp;|&nbsp;
+  <a href="hyper.html">Hyperops</a> &nbsp;|&nbsp;
+  <a href="funct.html">Functions</a> &nbsp;|&nbsp;
+  <a href="itern.html">Iteration</a> &nbsp;|&nbsp;
+  <a href="tetra.html">Tetration</a> &nbsp;|&nbsp;
+  <a href="tower.html">Towers</a>
+  </div>
+
+</center>
+
+
+<center>
+  <div class="nav">
+  Function pages (<span style="color: orange;">under construction</span>) :
+  <a href="fn-sqtow.html"><var>x</var><sup><var>x</var></sup></a> &nbsp;|&nbsp;
+  <a href="fn-rctow.html"><var>x</var><sup>1/<var>x</var></sup></a> &nbsp;|&nbsp;
+  <a href="fn-tconj.html">Topological Conjugacy</a> 
+  </div>
+</center>
+
+</div><hr/><div class="std">
+<h1>Exponential Commutator</h1>
+<p>
+  The function <var>H</var><sup>-1</sup>(<var>x</var>) = <var>x</var><sup>1/<var>x</var></sup> is the inverse function of the <a href="gloss.html#
+infinitetetrate">infinite tetrate</a>. So naturally, this means that over some domain, the composition 
+  
+  <img src="img/tex/ec-comp-all.png" alt="H^{-1} \circ H"/> will be equal to the identity function, and this domain is all real numbers (for the principal branch of the <a href="gloss.html#
+infinitetetrate">infinite tetrate</a>). However, the other composition that should also be the identity is not. Namely 
+  
+  <img src="img/tex/ec-comp-some.png" alt="H \circ H^{-1}"/> is only equal to the identity function for <var>x</var> &lt; <b><i>e</i></b>, which means this composition yields a value that is different from the identity function for values <var>x</var> &gt; <b><i>e</i></b>. This can be used to find answers to the age old question of what are the solutions of:
+  
+  
+  </p><p><center><img src="img/tex/ec-formal.png" alt="
+  EC(x) = \{ y \text{ where } x^y = y^x \text{ and } x \ne y \}
+  "/></center></p><p class="noindent">
+</p>
+<p>
+  This can be written in <a href="gloss.html#
+closedform">closed form</a> with the use of the <a href="gloss.html#
+infinitetetrate">infinite tetrate</a> <var>H</var>(<var>x</var>) as follows:
+  
+  
+  </p><p><center><img src="img/tex/ec-closed.png" alt="
+EC(x) = \begin{cases}
+H_{-1}(\sqrt[x]{x})& \text{if }x < \boldsymbol{e}, \\
+H_{0}(\sqrt[x]{x}) & \text{if }x > \boldsymbol{e}.
+\end{cases}
+  "/></center></p><p class="noindent">
+but it is debatable whether or not <b><i>e</i></b> can be included in the definition. If it is included, then the function is continuous, if it is not included, then the function is discontinuous, but satisfies the more formal definition.
+</p>
+<p>
+Using this definition of the exponential commutator, we can find a sequence of derivatives. From these we can form the Taylor series at <var>x</var> = <b><i>e</i></b>:
+
+  
+  </p><p><center><img src="img/tex/ec-taylor.png" alt="
+EC(x) 
+& = \ee - (x-\ee) 
++ \frac{5}{3\ee} (x-\ee)^2 
+- \frac{25}{9\ee^2} (x-\ee)^3
++ \frac{1243}{270\ee^3} (x-\ee)^4 \\\notag 
+&- \frac{1229}{162\ee^4} (x-\ee)^5 
+ + \frac{14107}{1134\ee^5} (x-\ee)^6 
+- \frac{575927}{28350\ee^6} (x-\ee)^7 \\\notag 
+& + \frac{4217764}{127575\ee^7} (x-\ee)^8 
+- \frac{1408003}{26244\ee^8} (x-\ee)^9 
++ \cdots
+"/></center></p><p class="noindent">
+
+
+  
+  </p><p><center><img src="img/tex/ec-at2-taylor.png" alt="
+EC(x) 
+& = 4 
++ \frac{4(\log(2)-1)}{2\log(2)-1}(x-2) 
+- \frac{2\log(2)^2 - 6\log(2) + 3}{(2\log(2)-1)^3} (x-2)^2 \\\notag
+& + \frac{8\log(2)^4 - 16 \log(2)^3 - 36 \log(2)^2 + 60 \log(2) - 21}{6(2\log(2)-1)^5} (x-2)^3
++ \cdots
+"/></center></p><p class="noindent">
+
+  
+  </p><p><center><img src="img/tex/ec-at4-taylor.png" alt="
+EC(x) 
+& = 2
++ \frac{\log(2)-1}{4(\log(2)-1}(x-4) 
++ \frac{2\log(2)^2 - 6\log(2) + 3}{64(\log(2)-1)^3} (x-4)^2 \\\notag
+& - \frac{4\log(2)^4 - 16 \log(2)^3 + 18 \log(2)^2 - 15 \log(2) + 6}{1536(\log(2)-1)^5} (x-4)^3
++ \cdots
+"/></center></p><p class="noindent">
+</p>
+<p>
+Using the analytic definition again, we find that the first derivative is:
+
+  
+  </p><p><center><img src="img/tex/ec-deriv.png" alt="
+EC\prime(x) 
+= \frac{EC(x)^2 (1 - \log(x))}{x^2 (1 - EC(x) \log(x^{1/x}))}
+"/></center></p><p class="noindent">
+which we can use repeatedly to find series expansions about any point. This along with the fact that <i>EC</i>(<i>x</i>) is its own inverse function, is all you need to solve for the coefficients of this series.
+</p>
+</div><hr/><div class="footer">
+<table class="footalign">
+  <tr>
+    <td style="text-align: left; width: 90%; color: gray; vertical-align: top;">
+Copyright &copy; 2010 <a href="mailto:and_j_rob@yahoo.com" style="color: gray;">Andrew Robbins</a> <span style="color: black;">(<ISML TYPE="counter"> visits)</span>
+    </td>
+    <td style="text-align: right; width: 10%;">
+	<table>
+	  <tr>
+	    <td>
+<a href="http://www.w3.org/RDF/"><img style="border: 0px;" src="img/rdf_flyer.png" alt="1" /></a>
+	    </td>
+	    <td>
+<a href="http://www.w3.org/"><img style="border: 0px;" src="img/w3c_icon.png" alt="1" /></a>
+	    </td>
+	  </tr>
+	</table>
+    </td>
+  </tr>
+</table>
+</div>
+</body>
+</html>

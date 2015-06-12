@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Home of Tetration - Tetration - Super-logarithms</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+<div class="header">
+
+<center class="logo">
+  <img src="img/tetra-logo.png" alt="Graph"/>
+  <br/>
+  <h1>Home of Tetration</h1>
+  <br/>
+  <div class="nav"> 
+  <a href="index.html">Home</a> &nbsp;|&nbsp;
+  <a href="hyper.html">Hyperops</a> &nbsp;|&nbsp;
+  <a href="funct.html">Functions</a> &nbsp;|&nbsp;
+  <a href="itern.html">Iteration</a> &nbsp;|&nbsp;
+  <a href="tetra.html">Tetration</a> &nbsp;|&nbsp;
+  <a href="tower.html">Towers</a>
+  </div>
+
+</center>
+
+
+<center>
+  <div class="nav">
+  Tetration pages :
+    <a href="te-spow.html">Tetrates</a> &nbsp;|&nbsp;
+  <a href="te-sexp.html">Tetrationals</a> &nbsp;|&nbsp;
+  <a href="te-srt.html">Super-roots</a> &nbsp;|&nbsp;
+  <a href="te-slog.html">Super-logs</a> &nbsp;|&nbsp;
+  <a href="te-methds.html">Methods</a>
+  </div>
+</center>
+
+</div><hr/><div class="std">
+<h1>Super-logarithms</h1>
+<p>
+Super-logarithms are inverse functions of tetrational functions.
+Super-logarithms are variously written using the following notations
+
+  
+  </p><p><center><img src="img/tex/id-inverse-slog.png" alt="(a{\U\U})^{-1}(z) = \boxhyperlog{4}{a}{z} = \slog_a(z)"/></center></p><p class="noindent">
+but on this page, we use the mnemonic notation <em>slog</em> exclusively.
+</p>
+<p>
+Super-logarithm functions were originally defined over a sparse domain, which consisted of {0, 1, <var>a</var>, <var>a</var><sup><var>a</var></sup>, ...} and so on, because these are the only points defined for integer tetration. 
+In order to extend this definition to real numbers or complex numbers, 
+advanced mathematics is required to find a function that satisfies both 
+infinite differentiability and the definition of super-logarithms:
+
+  
+  </p><p><center><img src="img/tex/te-slog-def.png" alt="\slog_a(a^z) = \slog_a(z) + 1"/></center></p><p class="noindent">
+</p>
+</div><hr/><div class="std">
+<h1>Power Series</h1>
+<p>
+
+  
+  </p><p><center><img src="img/tex/te-slog-taylor.png" alt="\slog_a(z) = \sum_{k=0}^{\infty} s_k(a) (z - z_0)^k"/></center></p><p class="noindent">
+
+  
+  </p><p><center><img src="img/tex/te-slog-taylog.png" alt="\slog_a(z) = \frac{1}{L}\log(z - L) + \frac{1}{L^{*}}\log(z - L^{*}) + \sum_{k=0}^{\infty} r_k(a) (z - z_0)^k"/></center></p><p class="noindent">
+where
+
+  
+  <img src="img/tex/fix-hi.png" alt="L = H_{-1}(\ee)"/> and
+
+  
+  <img src="img/tex/fix-lo.png" alt="L^{*} = H_{0}(\ee)"/>.
+</p>
+
+</div><hr/><div class="footer">
+<table class="footalign">
+  <tr>
+    <td style="text-align: left; width: 90%; color: gray; vertical-align: top;">
+Copyright &copy; 2010 <a href="mailto:and_j_rob@yahoo.com" style="color: gray;">Andrew Robbins</a> <span style="color: black;">(<ISML TYPE="counter"> visits)</span>
+    </td>
+    <td style="text-align: right; width: 10%;">
+	<table>
+	  <tr>
+	    <td>
+<a href="http://www.w3.org/RDF/"><img style="border: 0px;" src="img/rdf_flyer.png" alt="1" /></a>
+	    </td>
+	    <td>
+<a href="http://www.w3.org/"><img style="border: 0px;" src="img/w3c_icon.png" alt="1" /></a>
+	    </td>
+	  </tr>
+	</table>
+    </td>
+  </tr>
+</table>
+</div>
+</body>
+</html>

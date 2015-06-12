@@ -1,0 +1,86 @@
+all: all-pages
+
+make:
+	m4 -P m4/make.m4 makefile.m4 > Makefile
+
+images:
+	cd tex ; . autopng-script.sh ; cd ..
+
+all-pages:
+	rm -f /Users/andrew/Sites/www/src/tex/autopng-script.sh
+	m4 -P -DTITLE="Andrew Robbins' Sites" m4/inc.m4 m4/pre.m4 index.m4 m4/post.m4 > ../index.html
+	m4 -P -DTITLE="About Andrew Robbins" m4/inc.m4 m4/pre.m4 author/index.m4 m4/post.m4 > ../author/index.html
+
+
+	m4 -P -DTITLE="Information Sets -" m4/inc.m4 m4/pre.m4 infoset/index.m4 m4/post.m4 > ../infoset/index.html
+	m4 -P -DTITLE="Information Sets - Fundamental Interfaces" m4/inc.m4 m4/pre.m4 infoset/iface.m4 m4/post.m4 > ../infoset/iface.html
+	m4 -P -DTITLE="Information Sets - Fundamental Structures" m4/inc.m4 m4/pre.m4 infoset/struct.m4 m4/post.m4 > ../infoset/struct.html
+	m4 -P -DTITLE="A Stray Mind" m4/inc.m4 m4/pre.m4 mind/index.m4 m4/post.m4 > ../mind/index.html
+
+
+
+
+
+
+
+
+
+
+
+	m4 -P -DTITLE="Home of Tetration" m4/inc.m4 m4/pre.m4 tetra/index.m4 m4/post.m4 > ../tetra/index.html
+	m4 -P -DTITLE="Home of Tetration - About Me" m4/inc.m4 m4/pre.m4 tetra/about.m4 m4/post.m4 > ../tetra/about.html
+	m4 -P -DTITLE="Home of Tetration - Applications" m4/inc.m4 m4/pre.m4 tetra/appli.m4 m4/post.m4 > ../tetra/appli.html
+	m4 -P -DTITLE="Home of Tetration - Identities" m4/inc.m4 m4/pre.m4 tetra/ident.m4 m4/post.m4 > ../tetra/ident.html
+	m4 -P -DTITLE="Home of Tetration - Papers" m4/inc.m4 m4/pre.m4 tetra/paper.m4 m4/post.m4 > ../tetra/paper.html
+	m4 -P -DTITLE="Home of Tetration - Gallery" m4/inc.m4 m4/pre.m4 tetra/graph.m4 m4/post.m4 > ../tetra/graph.html
+	m4 -P -DTITLE="Home of Tetration - Glossary" m4/inc.m4 m4/pre.m4 tetra/gloss.m4 m4/post.m4 > ../tetra/gloss.html
+	m4 -P -DTITLE="Home of Tetration - References" m4/inc.m4 m4/pre.m4 tetra/links.m4 m4/post.m4 > ../tetra/links.html
+
+	m4 -P -DTITLE="Home of Tetration - Hyper-operators" m4/inc.m4 m4/pre.m4 tetra/hyper.m4 m4/post.m4 > ../tetra/hyper.html
+	m4 -P -DTITLE="Home of Tetration - Hyper-operators - Zeration" m4/inc.m4 m4/pre.m4 tetra/hy-zer.m4 m4/post.m4 > ../tetra/hy-zer.html
+	m4 -P -DTITLE="Home of Tetration - Hyper-operators - Addition" m4/inc.m4 m4/pre.m4 tetra/hy-add.m4 m4/post.m4 > ../tetra/hy-add.html
+	m4 -P -DTITLE="Home of Tetration - Hyper-operators - Multiplication" m4/inc.m4 m4/pre.m4 tetra/hy-mul.m4 m4/post.m4 > ../tetra/hy-mul.html
+	m4 -P -DTITLE="Home of Tetration - Hyper-operators - Exponentiation" m4/inc.m4 m4/pre.m4 tetra/hy-exp.m4 m4/post.m4 > ../tetra/hy-exp.html
+	m4 -P -DTITLE="Home of Tetration - Hyper-operators - Extensions" m4/inc.m4 m4/pre.m4 tetra/hy-extn.m4 m4/post.m4 > ../tetra/hy-extn.html
+	m4 -P -DTITLE="Home of Tetration - Hyper-operators - History" m4/inc.m4 m4/pre.m4 tetra/hy-hist.m4 m4/post.m4 > ../tetra/hy-hist.html
+
+	m4 -P -DTITLE="Home of Tetration - Special Functions" m4/inc.m4 m4/pre.m4 tetra/funct.m4 m4/post.m4 > ../tetra/funct.html
+	m4 -P -DTITLE="Home of Tetration - Special Functions - Decremented Exponentials" m4/inc.m4 m4/pre.m4 tetra/fn-decexp.m4 m4/post.m4 > ../tetra/fn-decexp.html
+	m4 -P -DTITLE="Home of Tetration - Special Functions - Exponential Commutator" m4/inc.m4 m4/pre.m4 tetra/fn-expcom.m4 m4/post.m4 > ../tetra/fn-expcom.html
+	m4 -P -DTITLE="Home of Tetration - Special Functions - Exponential Factorial" m4/inc.m4 m4/pre.m4 tetra/fn-expfac.m4 m4/post.m4 > ../tetra/fn-expfac.html
+	m4 -P -DTITLE="Home of Tetration - Special Functions - Product Exponential" m4/inc.m4 m4/pre.m4 tetra/fn-prdexp.m4 m4/post.m4 > ../tetra/fn-prdexp.html
+	m4 -P -DTITLE="Home of Tetration - Special Functions - Infinite Tetrate" m4/inc.m4 m4/pre.m4 tetra/fn-intow.m4 m4/post.m4 > ../tetra/fn-intow.html
+	m4 -P -DTITLE="Home of Tetration - Special Functions - Square Tetrate" m4/inc.m4 m4/pre.m4 tetra/fn-sqtow.m4 m4/post.m4 > ../tetra/fn-sqtow.html
+	m4 -P -DTITLE="Home of Tetration - Special Functions - Self-root Function" m4/inc.m4 m4/pre.m4 tetra/fn-rctow.m4 m4/post.m4 > ../tetra/fn-rctow.html
+	m4 -P -DTITLE="Home of Tetration - Special Functions - Lambert W Function" m4/inc.m4 m4/pre.m4 tetra/fn-lmbrt.m4 m4/post.m4 > ../tetra/fn-lmbrt.html
+	m4 -P -DTITLE="Home of Tetration - Special Functions - Topological Conjugacy" m4/inc.m4 m4/pre.m4 tetra/fn-tconj.m4 m4/post.m4 > ../tetra/fn-tconj.html
+
+	m4 -P -DTITLE="Home of Tetration - Iteration" m4/inc.m4 m4/pre.m4 tetra/itern.m4 m4/post.m4 > ../tetra/itern.html
+	m4 -P -DTITLE="Home of Tetration - Iteration - Abel Function" m4/inc.m4 m4/pre.m4 tetra/it-abel.m4 m4/post.m4 > ../tetra/it-abel.html
+	m4 -P -DTITLE="Home of Tetration - Iteration - Bell Matrix" m4/inc.m4 m4/pre.m4 tetra/it-bell.m4 m4/post.m4 > ../tetra/it-bell.html
+	m4 -P -DTITLE="Home of Tetration - Iteration - Chaos" m4/inc.m4 m4/pre.m4 tetra/it-chaos.m4 m4/post.m4 > ../tetra/it-chaos.html
+	m4 -P -DTITLE="Home of Tetration - Iteration - Dynamical Systems" m4/inc.m4 m4/pre.m4 tetra/it-dynsys.m4 m4/post.m4 > ../tetra/it-dynsys.html
+	m4 -P -DTITLE="Home of Tetration - Iteration - Functional Equations" m4/inc.m4 m4/pre.m4 tetra/it-funceq.m4 m4/post.m4 > ../tetra/it-funceq.html
+	m4 -P -DTITLE="Home of Tetration - Iteration - Methods" m4/inc.m4 m4/pre.m4 tetra/it-methds.m4 m4/post.m4 > ../tetra/it-methds.html
+
+	m4 -P -DTITLE="Home of Tetration - Tetration" m4/inc.m4 m4/pre.m4 tetra/tetra.m4 m4/post.m4 > ../tetra/tetra.html
+	m4 -P -DTITLE="Home of Tetration - Tetration - Definitions" m4/inc.m4 m4/pre.m4 tetra/te-defs.m4 m4/post.m4 > ../tetra/te-defs.html
+	m4 -P -DTITLE="Home of Tetration - Tetration - Tetrates" m4/inc.m4 m4/pre.m4 tetra/te-spow.m4 m4/post.m4 > ../tetra/te-spow.html
+	m4 -P -DTITLE="Home of Tetration - Tetration - Tetrationals" m4/inc.m4 m4/pre.m4 tetra/te-sexp.m4 m4/post.m4 > ../tetra/te-sexp.html
+	m4 -P -DTITLE="Home of Tetration - Tetration - Super-logarithms" m4/inc.m4 m4/pre.m4 tetra/te-slog.m4 m4/post.m4 > ../tetra/te-slog.html
+	m4 -P -DTITLE="Home of Tetration - Tetration - Super-roots" m4/inc.m4 m4/pre.m4 tetra/te-srt.m4 m4/post.m4 > ../tetra/te-srt.html
+	m4 -P -DTITLE="Home of Tetration - Tetration - Methods" m4/inc.m4 m4/pre.m4 tetra/te-methds.m4 m4/post.m4 > ../tetra/te-methds.html
+
+	m4 -P -DTITLE="Home of Tetration - Towers" m4/inc.m4 m4/pre.m4 tetra/tower.m4 m4/post.m4 > ../tetra/tower.html
+	m4 -P -DTITLE="Home of Tetration - Towers - Definitions" m4/inc.m4 m4/pre.m4 tetra/tw-defs.m4 m4/post.m4 > ../tetra/tw-defs.html
+	m4 -P -DTITLE="Home of Tetration - Towers - Nested Exponentials" m4/inc.m4 m4/pre.m4 tetra/tw-nstexp.m4 m4/post.m4 > ../tetra/tw-nstexp.html
+	m4 -P -DTITLE="Home of Tetration - Towers - Prime Factorization" m4/inc.m4 m4/pre.m4 tetra/tw-prmfac.m4 m4/post.m4 > ../tetra/tw-prmfac.html
+	m4 -P -DTITLE="Home of Tetration - Towers - Series Expansions" m4/inc.m4 m4/pre.m4 tetra/tw-serexp.m4 m4/post.m4 > ../tetra/tw-serexp.html
+
+	m4 -P -DTITLE="Home of Tetration - Sorry!" m4/inc.m4 m4/pre.m4 tetra/404.m4 m4/post.m4 > ../tetra/404.html
+	m4 -P -DTITLE="Home of Tetration - Sorry! - old main page" m4/inc.m4 m4/pre.m4 tetra/main.m4 m4/post.m4 > ../tetra/main.html
+	m4 -P -DTITLE="Home of Tetration - Sorry! - old history page" m4/inc.m4 m4/pre.m4 tetra/hist.m4 m4/post.m4 > ../tetra/hist.html
+	m4 -P -DTITLE="Home of Tetration - Sorry! - old definitions page" m4/inc.m4 m4/pre.m4 tetra/defs.m4 m4/post.m4 > ../tetra/defs.html
+	m4 -P -DTITLE="Home of Tetration - Sorry! - old error page" m4/inc.m4 m4/pre.m4 tetra/error.m4 m4/post.m4 > ../tetra/error.html
+	m4 -P -DTITLE="Home of Tetration - Sorry! - old tables page" m4/inc.m4 m4/pre.m4 tetra/tabs.m4 m4/post.m4 > ../tetra/tabs.html
+	m4 -P -DTITLE="Home of Tetration - Sorry! - old code page" m4/inc.m4 m4/pre.m4 tetra/code.m4 m4/post.m4 > ../tetra/code.html

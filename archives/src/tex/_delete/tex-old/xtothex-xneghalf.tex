@@ -1,0 +1,65 @@
+\documentclass[12pt]{amsart}
+\usepackage{geometry}
+\geometry{letterpaper}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{amscd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+%\usepackage{epstopdf}
+\usepackage{diagrams}
+
+\oddsidemargin=18pt
+\evensidemargin=18pt
+
+\theoremstyle{plain} %% This is the default, anyway 
+\newtheorem{thm}[equation]{Theorem}
+\newtheorem{cor}[equation]{Corollary} 
+\newtheorem{lem}[equation]{Lemma}
+\newtheorem{prop}[equation]{Proposition}
+\newtheorem{conj}[equation]{Conjecture}
+\newtheorem{series}[equation]{Series}
+\theoremstyle{definition} 
+\newtheorem{defn}[equation]{Definition} 
+\newtheorem{post}[equation]{Postulate} 
+\theoremstyle{remark} 
+\newtheorem{rem}[equation]{Remark} 
+\newtheorem{ex}[equation]{Example} 
+\newtheorem{notation}[equation]{Notation} 
+\newtheorem{terminology}[equation]{Terminology} 
+
+\DeclareMathSymbol{\CC}{\mathalpha}{AMSb}{"43}
+\DeclareMathSymbol{\NN}{\mathalpha}{AMSb}{"4E}
+\DeclareMathSymbol{\RR}{\mathalpha}{AMSb}{"52}
+\DeclareMathSymbol{\ZZ}{\mathalpha}{AMSb}{"5A}
+\DeclareMathOperator{\pow}{pow}
+\DeclareMathOperator{\plog}{plog}
+\DeclareMathOperator{\slog}{slog}
+\DeclareMathOperator{\srt}{srt}
+\DeclareMathOperator{\tet}{tet}
+\DeclareMathOperator{\exprev}{rev}
+\DeclareMathOperator{\dd}{\boldsymbol{d}}
+\DeclareMathOperator{\ee}{\boldsymbol{e}}
+\DeclareMathOperator{\ii}{\boldsymbol{i}}
+
+\newcommand{\stirfirst}[2]{\genfrac{[}{]}{0pt}{}{#1}{#2}}
+\newcommand{\stirsec}[2]{\genfrac{\{}{\}}{0pt}{}{#1}{#2}}
+\newcommand{\bigT}{\parbox[c]{9pt}{\Large {\rm T}}}
+\newcommand{\BigT}[2]{\overset{#2}{\underset{#1}{\parbox[c]{14pt}{\Huge {\rm T}}}}{\:}}
+\newcommand{\Trans}[3]{{\rm #1}_{#2}[{#3}]}
+
+\newcommand{\boxhyper}[3]{{#2}\,\boxed{\!{#1}\!}\,{#3}}
+\newcommand{\boxhyperlog}[3]{{}_{#2}^{#1}{\begin{tabular}{|c}$\!\!{#3}\!\!$\\\hline\end{tabular}}}
+\newcommand{\boxhyperroot}[3]{{}^{#2}_{#1}{\begin{tabular}{|c}\hline\!\!$#3$\!\!\end{tabular}}}
+
+\newcommand{\tower}{\text{\rm T}}
+\newcommand{\towerlarge}{\parbox[c]{9pt}{\Large {\rm T}}}
+\newcommand{\towerhuge}[2]{{\:}\overset{#2}{\underset{#1}{\parbox[c]{14pt}{\Huge {\rm T}}}}{\:}}
+
+\begin{document}
+\title{}
+\author{Andrew Robbins}
+\date{}
+\begin{align}\notag \left(-\frac{1}{2}\right)^{\left(-\frac{1}{2}\right)} = -I\sqrt{2} \end{align}
+\end{document} 

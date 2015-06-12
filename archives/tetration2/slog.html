@@ -1,0 +1,187 @@
+
+<html>
+<head>
+	<title>Home of Tetration - Super-logarithms</title>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<script>
+		sideFrameOff();
+	</script>
+</head>
+<body style="background-color:#111;color:silver;">
+
+<div class="darkness" style="text-align: center;">
+	<img src="img/taux-head.png"/>
+	<br/>
+	<span style="text-align: center; font-style: italic; font-weight: bold; color: yellow; font-size: 72;">Tetration</span>
+
+
+<br/><br/>
+
+<center>
+<span style="color:white;"><b>Featured Pages:</b></span>&nbsp;
+<a href="appl.html">Applications</a> &nbsp;|&nbsp;
+<a href="chaos.html">Chaos</a> &nbsp;|&nbsp;
+<a href="exfac.html">Exp. Factorial</a> &nbsp;|&nbsp;
+<a href="funeq.html">Functional Eq.</a> &nbsp;|&nbsp;
+<a href="hist.html">History</a> &nbsp;|&nbsp;
+<a href="itern.html">Iteration</a> 
+</center>
+
+<br/>
+
+<center>
+Reference:&nbsp;
+<a href="defs.html">Definitions</a> &nbsp;|&nbsp;
+<a href="ident.html">Identities</a> &nbsp;|&nbsp;
+<a href="mthds.html">Methods</a> &nbsp;|&nbsp;
+<a href="code.html">Code</a> &nbsp;|&nbsp;
+<a href="tabs.html">Tables</a> &nbsp;|&nbsp;
+<a href="graph.html">Graphs</a> &nbsp;|&nbsp;
+<a href="gloss.html">Glossary</a> &nbsp;|&nbsp;
+<a href="links.html">Links</a>
+</center>
+
+<br/>
+
+<center>
+Discussion:&nbsp;
+<a href="index.html">Welcome</a> =&gt;
+<a href="basic.html">Basics</a> =&gt;
+<a href="hyper.html">Hyperops</a> =&gt;
+<a href="tetra.html">Tetration</a> =&gt;
+<a href="slog.html">Super-log</a> =&gt;
+<a href="sroot.html">Super-root</a> =&gt;
+<a href="paper.html">Papers</a>
+</center>
+
+</div>
+
+
+<hr/>
+<div class="darkness" style="padding: 10px;">
+<table class="middleone" cellspacing="5" style="width: 100%;">
+<tr style="width: 100%;"><td style="text-align: left; width: 50%;">
+Previous Page: <a href="tetra.html">Tetration</a>
+</td><td style="text-align: center; width: auto;">
+&nbsp;
+</td><td style="text-align: right; width: 50%;">
+Next Page: <a href="sroot.html">Super-root</a>
+</td></tr>
+</table>
+</div>
+<hr/>
+
+<div class="darkness">
+<h1>About Super-logarithms</h1>
+<p>
+A <b><i>super-logarithm</i></b> is an inverse function of tetration, 
+specifically the inverse of a tetrational function. Some have called super-logarithms <b><i>anti-tetrational</i></b> functions [?] because of this relationship. There are several interpretations of super-logarithms that stem from this definition:
+</p>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sub><var>x</var></sub>(<var>z</var>) = <var>y</var> if and only if <var>z</var> = <sup><var>y</var></sup><var>x</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+A super-logarithm is an inverse of a tetrational function.
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>slog<sub><var>x</var></sub>(<var>z</var>) = <var>A</var><sub><var>z</var></sub>[<var>x</var><sup><var>z</var></sup>](<var>z</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+A super-logarithm is the Abel function of an exponential function.
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>log<sup>[slog(<var>z</var>)]</sup>(<var>z</var>) = 1
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+A super-logarithm represents how many times a logarithm must be applied to a number before a result of one is obtained.
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>C</var>(<var>n</var>) = ceiling( slog<sub>10</sub>(<var>n</var>) - slog<sub>10</sub>(6) )
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+Super-logarithms are related to Munafo's <a href="#munafo">number class system</a>.
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+</div>
+<hr/>
+<div class="darkness">
+<h1>Integer Super-logarithms</h1>
+<p>
+</p>
+</div>
+<hr/>
+<div class="darkness">
+<a name="munafo"/>
+<h1>Munafo's number class system</h1>
+<p>
+In Munafo's website about
+<a href="http://home.earthlink.net/~mrob/pub/math/largenum.html"
+>Large Numbers</a>,
+he describes a number class system. Munafo's <b><i>number class system</i></b> begins with defining class-0 numbers as 1 through 6. He then gives an upper-bound for class-1 at about 10<sup>6</sup>, and for class-2 numbers at about 10^(10^6). This is a super-logarithmic scale, so we can use the super-logarithm to simplify this description. 
+</p>
+<p>
+Let the <span style="color:white;"><b>Munafo number</b></span> of <var>n</var> be denoted <var>C</var>(<var>n</var>).
+All numbers in the class <var>C</var>(<var>n</var>) satisfy:
+\begin{equation}
+\exp^{C(n) - 1}_{10}(6) < n \le \exp^{C(n)}_{10}(6)
+\end{equation}
+Replace 6 with $\exp^{\slog_{10}(6)}_{10}(1)$, and add hyper-exponents:
+\begin{align}
+\exp^{C(n) - 1}_{10}{\left(\exp^{\slog_{10}(6)}_{10}(1)\right)}
+& < n \le \exp^{C(n)}_{10}{\left(\exp^{\slog_{10}(6)}_{10}(1)\right)} \\
+\exp^{C(n) - 1 + \slog_{10}(6)}_{10}(1) 
+& < n \le \exp^{C(n) + \slog_{10}(6)}_{10}(1)
+\end{align}
+Take the super-logarithm of each side, then subtract $C(n) + \slog_{10}(6)$ from each side:
+\begin{align}
+C(n) - 1 + \slog_{10}(6) < \slog_{10}(n) \le C(n) &{} + \slog_{10}(6) \\
+- 1 < \slog_{10}(n) -  \slog_{10}(6) - C(n) &{} \le 0 \\
+\lceil \slog_{10}(n) -  \slog_{10}(6) - C(n) &{} \rceil = 0
+\end{align}
+</p>
+</div>
+
+<hr/>
+<div class="darkness" style="padding: 10px;">
+<table class="middleone" cellspacing="5" style="width: 100%;">
+<tr style="width: 100%;"><td style="text-align: left; width: 50%;">
+Previous Page: <a href="tetra.html">Tetration</a>
+</td><td style="text-align: center; width: auto;">
+&nbsp;
+</td><td style="text-align: right; width: 50%;">
+Next Page: <a href="sroot.html">Super-root</a>
+</td></tr>
+</table>
+</div>
+<hr/>
+
+
+<div class="lightness">
+Visited: <ISML TYPE="counter"> times, last updated: 2006-02-15, by: Andrew Robbins, contact: and_j_rob(at)yahoo(dot)com
+</div>
+</body>
+</html>
+<!--

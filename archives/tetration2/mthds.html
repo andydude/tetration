@@ -1,0 +1,230 @@
+
+<html>
+<head>
+	<title>Home of Tetration - Application</title>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<script>
+		sideFrameOff();
+	</script>
+</head>
+<body style="background-color:#111;color:silver;">
+
+<div class="darkness" style="text-align: center;">
+	<img src="img/taux-head.png"/>
+	<br/>
+	<span style="text-align: center; font-style: italic; font-weight: bold; color: yellow; font-size: 72;">Tetration</span>
+
+
+<br/><br/>
+
+<center>
+<span style="color:white;"><b>Featured Pages:</b></span>&nbsp;
+<a href="appl.html">Applications</a> &nbsp;|&nbsp;
+<a href="chaos.html">Chaos</a> &nbsp;|&nbsp;
+<a href="exfac.html">Exp. Factorial</a> &nbsp;|&nbsp;
+<a href="funeq.html">Functional Eq.</a> &nbsp;|&nbsp;
+<a href="hist.html">History</a> &nbsp;|&nbsp;
+<a href="itern.html">Iteration</a> 
+</center>
+
+<br/>
+
+<center>
+Reference:&nbsp;
+<a href="defs.html">Definitions</a> &nbsp;|&nbsp;
+<a href="ident.html">Identities</a> &nbsp;|&nbsp;
+<a href="mthds.html">Methods</a> &nbsp;|&nbsp;
+<a href="code.html">Code</a> &nbsp;|&nbsp;
+<a href="tabs.html">Tables</a> &nbsp;|&nbsp;
+<a href="graph.html">Graphs</a> &nbsp;|&nbsp;
+<a href="gloss.html">Glossary</a> &nbsp;|&nbsp;
+<a href="links.html">Links</a>
+</center>
+
+<br/>
+
+<center>
+Discussion:&nbsp;
+<a href="index.html">Welcome</a> =&gt;
+<a href="basic.html">Basics</a> =&gt;
+<a href="hyper.html">Hyperops</a> =&gt;
+<a href="tetra.html">Tetration</a> =&gt;
+<a href="slog.html">Super-log</a> =&gt;
+<a href="sroot.html">Super-root</a> =&gt;
+<a href="paper.html">Papers</a>
+</center>
+
+</div>
+
+<hr/>
+<div class="darkness">
+<h1>Methods of Extending Tetration</h1>
+<p>
+This page consists of two major sections, <span style="color:white;"><b>analytic iteration methods</b></span> which allow "nice" functions to be iterated non-integer number of times in such a way that the general iterate is real-analytic or complex-analytic with respect to <var>t</var> in <var>f</var> <sup><var>t</var></sup>(<var>x</var>), and <span style="color:white;"><b>non-integer tetration methods</b></span> which only apply to tetration (and iterated exponentials), not the iteration of any function. Before we get to these sections, however, it should be noted that one approach is not covered in these sections, namely <span style="color:white;"><b>continuous iteration</b></span>. Continuous iteration is the approach of finding a continuous bivariate function that describes the iterates of a univariate continuous function such that the bivariate function is also continuous. This is very easy to do, and can be done with line segments or Lagrange interpolating polynomials. Continuous iteration is by no means unique to a given function, but in many cases a unique analytic iterate exists for a given function, which also makes it harder to find. One such method for interpolating integer iterates (but not obeying the functional equation <var>f</var> <sup><var>n</var></sup>(<var>x</var>) = <var>f</var>(<var>f</var> <sup><var>n</var>-1</sup>(<var>x</var>)), which is fundamental to the concept of iteration) is S. C. Woon's formula:
+</p>
+
+
+    
+    <center>
+	<img src="img/auto/woon.png" alt="f^t(x) 
+= w^t\left(x + \sum^{\infty}_{n=1}\frac{(-1)^n}{n!}
+	\left[\prod^{n-1}_{k=0} (t-k)\right]
+	\left[x + \sum^{n}_{m=1} \left(\frac{-1}{w}\right)^m 
+	{n \choose m} f^m(x)\right]\right)"/>
+    </center>
+
+<p>
+Since S. C. Woon's formula does not satisfy the functional equation of iteration in general, one could say that it can't be called "iteration" at all. His formula is certainly analytic, and it corresponds to integer iterates, but together it does not constitute analytic iteration, because although it is "analytic" it is not "iteration". There is a posibility, however, that there exists a <var>w</var> such that S. C. Woon's formula does satisfy the functional equation of iteration, but how such a <var>w</var> could be found is unknown.
+</p>
+<p>
+The other continuous iteration methods described earlier can also suffer from this problem of only satisfying "analicity" or "iteration" requirements but not both. For example for a piecewise defined function with a line-segment between <var>x</var> and <var>f</var>(<var>x</var>) and defined elsewhere by <var>f</var> <sup><var>n</var></sup>(<var>x</var>) = <var>f</var>(<var>f</var> <sup><var>n</var>-1</sup>(<var>x</var>)) will of course satisfy this "iteration" requirement, but it will fail to be analytic in general. This theme is prevalent thoughout all methods discussed here, where the best methods are the ones that produce what seems to be a unique solution are those that are both "analytic" and "iteration". 
+</p>
+ 
+</div>
+<hr/>
+<div class="darkness">
+<h1>Analytic Iteration Methods</h1>
+<br/>
+Before discussing methods of analytic iteration and 
+solving functional equations (FE), lets overview them:
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>embedding matrices
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+Turns composition M[ <var>f </var>&middot;<var>g</var>] into matrix multiplication M[ <var>f </var>] M[<var>g</var>].
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>fractional iteration
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+Solve the FE: <var>f</var>(<var>x</var>) = <var>g</var><sup><var>n</var></sup>(<var>x</var>) (for g).
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>Abel's functional equation
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+Solve the FE: A[<var>f</var>](<var>f</var>(<var>x</var>)) = A[<var>f</var>](<var>x</var>) + 1 (for A).
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>Schr&ouml;der's functional equation
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+Solve the FE: S[<var>f</var>](<var>f</var>(<var>x</var>)) = c S[<var>f</var>](<var>x</var>) (for S).
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>Boettcher's functional equation
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+Solve the FE: B[<var>f</var>](<var>f</var>(<var>x</var>)) = (B[<var>f</var>](<var>x</var>))<sup><var>c</var></sup> (for B).
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+
+</div>
+<hr/>
+<div class="darkness">
+<h1>Non-integer Tetration Methods</h1>
+<br/>
+Before we start discussing the different methods available
+for continuous iteration, lets overview them:
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>Abel linearization
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+Solve the Abel linearization equation
+    (used in my <a href="paper.html">paper</a>).
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>Bell matrices (Schr&ouml;der polynomials)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+Turn the composition B[ <var>f </var>&middot;<var>g</var>] into B[<var>g</var>] B[ <var>f </var>].
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>Carleman embedding matrices
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+Turn the composition M[ <var>f </var>&middot;<var>g</var>] into M[ <var>f </var>] M[<var>g</var>].
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>fractional iterate interpolation
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+Interpolate points of the form: 
+    (<var>x</var><sub>0</sub>, <var>x</var><sub>1</sub>) ... 
+    (<var>x</var><sub><var>n</var></sub>, &nbsp;<var>f </var>(<var>x</var><sub>0</sub>)).
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li>Woon's nested series expansion
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+Iterates any operator complex-<var>s</var> times.
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+
+
+</div>
+<hr/>
+
+<div class="lightness">
+Visited: <ISML TYPE="counter"> times, last updated: 2006-02-15, by: Andrew Robbins, contact: and_j_rob(at)yahoo(dot)com
+</div>
+</body>
+</html>
+<!--

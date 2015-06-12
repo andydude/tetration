@@ -1,0 +1,98 @@
+include js
+include std
+include libterm
+
+
+#filter div.plot
+#doc
+#    Trying to graph stuff...
+#error
+#    xml
+#        [~basedir~]<br/>
+#        [~_errmsg~]
+#        [~__file__~]
+#rules
+#    python
+#        import sys
+#        basedir = CONF.transpath+'calc'
+#        if basedir not in sys.path:
+#            sys.path.append(basedir)
+#        from HyperMathCalc import HyperMathCalc
+#        expr = '0'
+#        if ARGS['expr']: expr = ARGS['expr']
+#        calc = HyperMathCalc(basedir)
+#        filename = calc.run("plot(X|X=0:1)")
+#        del calc
+#    xml
+#        [~filename~]
+#        <div>
+#            <input id="[~.auto~]_txt" type="text" size="50"/>
+#            <input id="[~.auto~]_btn" type="button"
+#                js.ajax="calc.plot" send="expr=[~.auto~]_txt"/><br/>
+#            <input id="[~.auto~]_out" type="text" size="50"/><br/>
+#            <img id="[~.auto~]_img" src="[~.thispath~][~filename~]" />
+#        </div>
+
+filter head
+doc
+  Head transform.
+rules
+  new title text Calculator
+  term_style
+
+filter div.calculator
+doc
+  Default terminal initialization transform.
+  <div libterm.terminal="libterm/query, libterm/libterm.css" 
+    iprompt="?" oprompt="=" oprompt="!" />
+rules
+  term_init
+  calc_help
+  new hr
+  term_input
+  
+start
+  python
+    import sys
+    basedir = CONF.basePath+'libcalc'
+    if basedir not in sys.path:
+        sys.path.append(basedir)
+    from HyperMathCalc import HyperMathCalc
+    calc = HyperMathCalc(basedir)
+    filename = calc.run("plot(X|X=0:1)")
+    
+server fragment.query
+doc
+  Default terminal query transform.
+error
+  new div
+    set class err
+  python
+    output = _errmsg
+  term_error
+    text
+      [~output~]
+  #new hr
+  term_input
+rules
+  python
+    from math import *
+    from urllib import unquote
+    from HyperMathCalc import HyperMathCalc
+    calc = HyperMathCalc(basedir)
+    source = unquote(REQ.args['in'])
+    output = calc.run(source)
+    del calc
+  term_output
+    xml
+      [~output~]
+  #new hr
+  term_input
+
+server div.index
+  new html
+    new body
+      new div using libcalc.calculator libcalc/query
+        set iprompt in:
+        set oprompt out:
+        set eprompt err:

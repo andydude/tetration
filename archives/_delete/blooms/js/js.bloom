@@ -1,0 +1,143 @@
+
+include std
+
+start
+doc
+  this contains the function to eval javascript inside of <js> tags pulled from an arbitrary xmlhttp source
+rules
+  load script js/prototype.js
+  init script tag below
+    function [~..update~]()
+    {
+      [~..js~] = document.getElementsByTagName('js');
+      for( var index_js = [~..js~].length - 1 ; index_js != -1 ; index_js -= 1 )
+      {
+        var currobj = [~..js~][index_js];
+        try {
+          eval(currobj.innerHTML);
+        }
+        catch (e) {
+          alert(e.name + ': ' + e.message + ': ' + currobj.innerHTML);
+        }
+        try {
+          currobj.parentNode.removeChild(currobj);
+        }
+        catch (e) {
+          ;
+        }
+      }
+      document.getElementById('js_loading').style.visibility = 'hidden';
+    };
+    
+    [~..update~]();
+    
+filter body
+  insert new div using js.loading
+  
+  
+define div.loading
+  set id [~..loading~]
+  set style 
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: #882222;
+    padding: 5px;
+    visibility: hidden;
+    z-Index: 999999;
+    color: white;
+  text loading...
+  
+  
+###################################################################################################################
+alias img.ajax from js.input.ajax
+alias textarea.ajax from js.input.ajax
+alias div.ajax from js.input.ajax
+alias td.ajax from js.input.ajax
+alias tr.ajax from js.input.ajax
+alias a.ajax from js.input.ajax
+filter input.ajax
+doc
+  A base method of calling a server transform source with args.
+  <input type="button" js.ajax="mod.trans" send="argN=?id AND/OR argN=string (|)" replace="id of elem"/>
+rules
+  python
+    #)create the query string requested, respecting INST and + on the url
+    #extract base part (top level)
+    path = ARGV.split('/')
+    #insert the instance tag (so the server calls reflect instances set)
+    newpath = "%s/%s+%s"%(path[0],path[1], INST)
+    #if more path is given then the base part append it.
+    if len(newpath)>2:
+      newpath = "%s/%s"%(newpath, '/'.join(path[2:]))
+    #set path to the now made path
+    path = newpath
+    
+    #)parse out the send attribute, if present
+    pairs = ATTR['send'].split('|')
+    sendlist = []
+    sendcode = []
+    for entry in pairs:
+      sendlist.append(entry.split('='))
+    
+    #)make the javascript code the send attribute specifies
+    if len(sendlist) > 0 and len(sendlist[0]) > 1:
+      for entry in sendlist:
+        if entry[1].startswith('$'):
+          valueorid = entry[1][1:]
+          sendcode.append("""pars = pars + "%s=" + escape(%s) +"&";"""%(entry[0], valueorid))
+        elif entry[1].startswith('?'):
+          valueorid = entry[1][1:]
+          sendcode.append("""pars = pars + "%s=" + escape(document.getElementById('%s').value) +"&";"""%(entry[0], valueorid))
+        else:
+          sendcode.append("""pars = pars + "%s=" + escape('%s') +"&";"""%(entry[0], entry[1]))
+  
+  #)Create an onclick attribute
+  prepend onclick
+    document.getElementById('[~..loading~]').style.visibility = 'visible';
+    url = '[~BASEURLREL~][~path~]';
+    pars = "";
+    [~''.join(sendcode)~]
+    [~.myajax~] = new Ajax.Request( url, { method: 'get', 
+                          parameters: pars, 
+                          onComplete: self.[~.response~] });
+  append onclick return false;
+    
+  new js
+    text
+      self.[~.response~] = function(originalRequest)
+      { 
+        document.getElementById('[~..loading~]').style.visibility = 'hidden';
+        document.getElementById('[~ATTR['replace']~]').innerHTML = originalRequest.responseText;
+        [~..update~]();
+        [~ATTR['js']~]
+      };
+  
+  remove js, replace, send
+
+
+
+
+
+eof
+###################################################################################################################    
+filter fragment.xmlhttp
+doc
+  generate the code needed to do light weight xmlhttp.
+  <fragment js.xmlhttp="mod.trans" send="var=value&..." replace="id to replace"/>
+init
+  import string
+rules
+  py
+    path = '/'.join(ARGV[0].split('.'))
+    send = ATTR['send'].replace("|", "&")
+  text
+    pars = '[~send~]';
+    document.getElementById('js_loading').style.visibility = 'visible';
+    var myAjax = new Ajax.Updater( '[~ATTR['replace']~]', '[~BASEURLREL~][~path~]', { method: 'get', parameters: pars, onComplete: [~?ARGV['complete']|'js_update'~] });
+    return false;
+error
+  text [~_err~]
+  
+    
+  

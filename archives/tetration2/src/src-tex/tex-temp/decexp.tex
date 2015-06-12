@@ -1,0 +1,67 @@
+\documentclass[10pt]{amsart}
+\usepackage{geometry}
+\geometry{letterpaper}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{amscd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{epstopdf}
+
+\oddsidemargin=18pt
+\evensidemargin=18pt
+
+\theoremstyle{plain} %% This is the default, anyway 
+\newtheorem{thm}[equation]{Theorem}
+\newtheorem{cor}[equation]{Corollary} 
+\newtheorem{lem}[equation]{Lemma}
+\newtheorem{prop}[equation]{Proposition}
+\newtheorem{conj}[equation]{Conjecture}
+\newtheorem{series}[equation]{Series}
+\theoremstyle{definition} 
+\newtheorem{defn}[equation]{Definition} 
+\newtheorem{post}[equation]{Postulate} 
+\theoremstyle{remark} 
+\newtheorem{rem}[equation]{Remark} 
+\newtheorem{ex}[equation]{Example} 
+\newtheorem{notation}[equation]{Notation} 
+\newtheorem{terminology}[equation]{Terminology} 
+
+\DeclareMathSymbol{\setC}{\mathalpha}{AMSb}{"43}
+\DeclareMathSymbol{\setN}{\mathalpha}{AMSb}{"4E}
+\DeclareMathSymbol{\setR}{\mathalpha}{AMSb}{"52}
+\DeclareMathSymbol{\setZ}{\mathalpha}{AMSb}{"5A}
+\DeclareMathOperator{\pow}{pow}
+\DeclareMathOperator{\plog}{plog}
+\DeclareMathOperator{\slog}{slog}
+\DeclareMathOperator{\srt}{srt}
+\DeclareMathOperator{\tet}{tet}
+\DeclareMathOperator{\exprev}{rev}
+\DeclareMathOperator{\dd}{\boldsymbol{d}}
+\DeclareMathOperator{\ee}{\boldsymbol{e}}
+\DeclareMathOperator{\ii}{\boldsymbol{i}}
+\DeclareMathOperator{\CC}{\boldsymbol{C}}
+\DeclareMathOperator{\DD}{\boldsymbol{D}}
+
+\newcommand{\stirfirst}[2]{\genfrac{[}{]}{0pt}{}{#1}{#2}}
+\newcommand{\stirsec}[2]{\genfrac{\{}{\}}{0pt}{}{#1}{#2}}
+\newcommand{\bigT}{\parbox[c]{9pt}{\Large {\rm T}}}
+\newcommand{\BigT}[2]{\overset{#2}{\underset{#1}{\parbox[c]{14pt}{\Huge {\rm T}}}}{\:}}
+\newcommand{\Trans}[3]{{\rm #1}_{#2}[{#3}]}
+
+\begin{document}
+
+\title{}
+\author{Andrew Robbins}
+\date{2006-MM-DD}
+\begin{align}\notag  & x      \\
++\ & x^2    \left(\frac{1}{2}t\right) \notag\\
++\ & x^3    \left( -\frac{1}{12}t + \frac{1}{4}t^2\right) \notag\\
++\ & x^4    \left( \frac{1}{48}t - \frac{5}{48}t^2 + \frac{1}{8}t^3\right) \notag\\
++\ & x^5    \left( -\frac{1}{180}t + \frac{1}{24}t^2 - \frac{13}{144}t^3
++ \frac{1}{16}t^4 \right) \notag\\
++\ & x^6    \left( \frac{211}{1728}t + \frac{89}{5760}t^2 - 
+\frac{1}{1728}t^3 - \frac{41}{1152}t^4 + \frac{1}{40}t^5\right) \notag\\
++\ & \cdots \notag \end{align}
+\end{document} 

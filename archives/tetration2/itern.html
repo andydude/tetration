@@ -1,0 +1,226 @@
+
+<html>
+<head>
+	<title>Home of Tetration - Iteration</title>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<script>
+		sideFrameOff();
+	</script>
+</head>
+<body style="background-color:#111;color:silver;">
+
+<div class="darkness" style="text-align: center;">
+	<img src="img/taux-head.png"/>
+	<br/>
+	<span style="text-align: center; font-style: italic; font-weight: bold; color: yellow; font-size: 72;">Tetration</span>
+
+
+<br/><br/>
+
+<center>
+<span style="color:white;"><b>Featured Pages:</b></span>&nbsp;
+<a href="appl.html">Applications</a> &nbsp;|&nbsp;
+<a href="chaos.html">Chaos</a> &nbsp;|&nbsp;
+<a href="exfac.html">Exp. Factorial</a> &nbsp;|&nbsp;
+<a href="funeq.html">Functional Eq.</a> &nbsp;|&nbsp;
+<a href="hist.html">History</a> &nbsp;|&nbsp;
+<a href="itern.html">Iteration</a> 
+</center>
+
+<br/>
+
+<center>
+Reference:&nbsp;
+<a href="defs.html">Definitions</a> &nbsp;|&nbsp;
+<a href="ident.html">Identities</a> &nbsp;|&nbsp;
+<a href="mthds.html">Methods</a> &nbsp;|&nbsp;
+<a href="code.html">Code</a> &nbsp;|&nbsp;
+<a href="tabs.html">Tables</a> &nbsp;|&nbsp;
+<a href="graph.html">Graphs</a> &nbsp;|&nbsp;
+<a href="gloss.html">Glossary</a> &nbsp;|&nbsp;
+<a href="links.html">Links</a>
+</center>
+
+<br/>
+
+<center>
+Discussion:&nbsp;
+<a href="index.html">Welcome</a> =&gt;
+<a href="basic.html">Basics</a> =&gt;
+<a href="hyper.html">Hyperops</a> =&gt;
+<a href="tetra.html">Tetration</a> =&gt;
+<a href="slog.html">Super-log</a> =&gt;
+<a href="sroot.html">Super-root</a> =&gt;
+<a href="paper.html">Papers</a>
+</center>
+
+</div>
+
+<hr/>
+<div class="darkness">
+<h1>Iteration Classification</h1>
+<p>
+Iteration is fundamental to dynamics, chaos, analysis, recursive functions, and number theory. In most cases the kind of iteration required in these subjects is <span style="color:white;"><b>integer iteration</b></span>, i.e. where the iteration parameter is an integer. However, in the study of dynamical systems <span style="color:white;"><b>continuous iteration</b></span> is paramount to the solution of some systems. Different kinds of iteration can be classified as follows:
+</p>
+<ul>
+    <li><span style="color:white;"><b>Discrete Iteration</b></span></li>
+    <ul>
+        <li><span style="color:white;"><b>Integer Iteration</b></span></li>
+        The usual definition of  iteration, 
+        where the functional equation:
+        <br/>
+        <var>f</var> <sup><var>n</var></sup>(<var>x</var>) = <var>f</var>(<var>f</var> <sup><var>n</var>-1</sup>(<var>x</var>))
+        <br/>
+        is used to generate the sequence:
+        <br/>
+        {<var>f</var>(<var>x</var>), <var>f</var> <sup>2</sup>(<var>x</var>), <var>f</var> <sup>3</sup>(<var>x</var>), ...}
+        <br/>
+        known as the <b><i>natural iterates</i></b> of <var>f</var>(<var>x</var>),
+        which forms a <b><i>monoid</i></b> under composition.
+        <br/>
+        For invertible functions <var>f</var>(<var>x</var>), the inverses are also
+        considered iterates, and form the sequence:
+        <br/>
+        {..., <var>f</var> <sup>-2</sup>(<var>x</var>), 
+        <var>f</var> <sup>-1</sup>(<var>x</var>), <var>x</var>, <var>f</var>(<var>x</var>), 
+        <var>f</var> <sup>2</sup>(<var>x</var>), ...}
+        <br/>
+        known as the <b><i>integer iterates</i></b> of <var>f</var>(<var>x</var>),
+        which forms a <b><i>group</i></b> under composition.
+        <li><span style="color:white;"><b>Fractional Iteration</b></span> 
+        or <span style="color:white;"><b>Rational Iteration</b></span></li>
+        Solving the functional equation: 
+        <var>f</var>(<var>x</var>) = <var>g</var><sup><var>n</var></sup>(<var>x</var>). 
+        Once this functional equation is solved, 
+        <br/>
+        then the rational iterates
+        <var>f</var> <sup>(<var>m</var>/<var>n</var>)</sup>(<var>x</var>) are the integer iterates of <var>g</var>(<var>x</var>).
+        <ul>
+            <li><span style="color:white;"><b>Non-analytic Fractional Iteration</b></span></li>
+            By chosing a non-analytic fractional iterate, there is no
+            uniqueness of the solutions obtained.
+            (Iga's <a href="mthds.html">method</a>)
+            <li><span style="color:white;"><b>Analytic Fractional Iteration</b></span></li>
+            By solving for an analytic fractional iterate, there is
+            a unique solution obtained in this way.
+            (Dahl's <a href="mthds.html">method</a>)
+        </ul>
+    </ul>
+    <li><span style="color:white;"><b>Continuous Iteration</b></span></li>
+    A generalization of the usual notion of iteration,
+    where the functional equation (FE):
+    <br/>
+    <var>f</var> <sup><var>n</var></sup>(<var>x</var>) = <var>f</var>(<var>f</var> <sup><var>n</var>-1</sup>(<var>x</var>))
+    <br/>
+    <b><i>must</i></b> be satisfied <b><i>for all</i></b> <var>n</var> in the domain (real or complex).
+    If this is not the case, then to discuss these kinds of "iteration" (even though they are not technically "iteration" since they do not obey the FE of iteration), we will talk about them as though they were expressions for <var>f</var> <sup><var>n</var></sup>(<var>x</var>) where 0 &le; Re(<var>n</var>) &le; 1 and defined elsewhere by the FE of iteration. So even though a method is analytic, if it doesn't satisfy this fundamental FE, then by this re-definition, it is non-analytic.
+    <ul>
+        <li><span style="color:white;"><b>Non-analytic Continuous Iteration</b></span></li>
+        By choosing a non-analytic continuous iterate, there is no uniqueness of the solutions obtained.
+        (Galidakis' and Woon's <a href="mthds.html">methods</a>)
+        <li><span style="color:white;"><b>Analytic Continuous Iteration</b></span> 
+        or just <span style="color:white;"><b>Analytic Iteration</b></span></li>
+        By solving for an analytic continuous iterate, there is a unique solution obtained in this way. 
+        <ul>
+            <li><span style="color:white;"><b>Real-analytic Iteration</b></span></li>
+            <li><span style="color:white;"><b>Complex-analytic Iteration</b></span> 
+            or <span style="color:white;"><b>Holomorphic Iteration</b></span></li>
+        </ul>
+    </ul>
+</ul>
+
+
+</div>
+<hr/>
+<div class="darkness">
+<h1>Known Analytic Iterates</h1>
+<p>
+bla
+</p>
+
+	<ul>
+	<table class="emptiness" cellspacing="15">
+	<tbody>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>f</var> <sup><var>n</var></sup>(<var>x</var>) = <var>x</var> + <var>c</var><var>n</var>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if <var>f</var>(<var>x</var>) = <var>x</var> + <var>c</var> (addition)
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>f</var> <sup><var>n</var></sup>(<var>x</var>) = <var>x</var><var>c</var><sup><var>n</var></sup>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if <var>f</var>(<var>x</var>) = <var>x</var><var>c</var> (multiplication)
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>f</var> <sup><var>n</var></sup>(<var>x</var>) = <var>x</var>^(<var>c</var>^<var>n</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if <var>f</var>(<var>x</var>) = <var>x</var><sup><var>c</var></sup> (powers)
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>f</var> <sup><var>n</var></sup>(<var>x</var>) = (<var>A</var><var>x</var> + <var>B</var>)/(<var>C</var><var>x</var> + <var>D</var>)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if <var>f</var>(<var>x</var>) = (<var>a</var><var>x</var> + <var>b</var>)/(<var>c</var><var>x</var> + <var>d</var>) 
+(linear fractional transformations) where:
+<br/>
+
+		</td>
+	</tr>
+
+	<tr>
+		<td style="vertical-align: top;">
+			<li><var>f</var> <sup><var>n</var></sup>(<var>x</var>) = de(n, x)
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</td>
+		<td style="vertical-align: top;">
+if <var>f</var>(<var>x</var>) = <b><i>e</i></b><sup><var>x</var></sup> - 1 
+(decremented exponential) where de(<var>t</var>, <var>x</var>) = 
+<br/>
+<br/>
+
+    
+    <center>
+	<img src="img/auto/decexp.png" alt=" & x      \\
++\ & x^2    \left(\frac{1}{2}t\right) \notag\\
++\ & x^3    \left( -\frac{1}{12}t + \frac{1}{4}t^2\right) \notag\\
++\ & x^4    \left( \frac{1}{48}t - \frac{5}{48}t^2 + \frac{1}{8}t^3\right) \notag\\
++\ & x^5    \left( -\frac{1}{180}t + \frac{1}{24}t^2 - \frac{13}{144}t^3
++ \frac{1}{16}t^4 \right) \notag\\
++\ & x^6    \left( \frac{211}{1728}t + \frac{89}{5760}t^2 - 
+\frac{1}{1728}t^3 - \frac{41}{1152}t^4 + \frac{1}{40}t^5\right) \notag\\
++\ & \cdots \notag"/>
+    </center>
+
+		</td>
+	</tr>
+
+	</tbody>
+	</table>
+	</ul>
+</div>
+<hr/>
+
+<div class="lightness">
+Visited: <ISML TYPE="counter"> times, last updated: 2006-02-15, by: Andrew Robbins, contact: and_j_rob(at)yahoo(dot)com
+</div>
+</body>
+</html>
+<!--
