@@ -1,0 +1,663 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+<html class="no-js" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8"/>
+        <title></title>
+        <meta name="description" content=""/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <style>
+            math { font-size: large; }
+            * { font-family: Times New Roman,serif; }
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="jumbotron">
+            <div class="container">
+                <h1><samp>superroot_2</samp></h1>
+                <p>About the self-power function</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Definition</h3>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        For any complex number <i>x</i>, this function is defined as
+                    </p>
+                    <p>
+                        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                            <mrow>
+                                <mi mathvariant="monospace">superroot_2</mi>
+                                <mo>&#x2061;<!--FUNCTION APPLICATION--></mo>
+                                <mfenced>
+                                    <mi>x</mi>
+                                </mfenced>
+                            </mrow>
+                            <mo>:=</mo>
+                                <mrow>
+                                    <mi>exp</mi>
+                                    <mo>&#x2061;<!--FUNCTION APPLICATION--></mo>
+                                    <mfenced>
+                                <mrow>
+                                    <mi>W</mi>
+                                    <mo>&#x2061;<!--FUNCTION APPLICATION--></mo>
+                                    <mfenced>
+                                <mrow>
+                                    <mi>log</mi>
+                                    <mo>&#x2061;<!--FUNCTION APPLICATION--></mo>
+                                    <mfenced>
+                                        <mi>x</mi>
+                                    </mfenced>
+                                </mrow>
+                                    </mfenced>
+                                </mrow>
+                                    </mfenced>
+                                </mrow>
+                            
+                            <mo>=</mo>
+                            <mfrac>
+                                <mrow>
+                                    <mi>log</mi>
+                                    <mo>&#x2061;<!--FUNCTION APPLICATION--></mo>
+                                    <mfenced>
+                                        <mi>x</mi>
+                                    </mfenced>
+                                </mrow>
+                                <mrow>
+                                    <mi>W</mi>
+                                    <mo>&#x2061;<!--FUNCTION APPLICATION--></mo>
+                                    <mfenced>
+                                <mrow>
+                                    <mi>log</mi>
+                                    <mo>&#x2061;<!--FUNCTION APPLICATION--></mo>
+                                    <mfenced>
+                                        <mi>x</mi>
+                                    </mfenced>
+                                </mrow>
+                                    </mfenced>
+                                </mrow>
+                            </mfrac>
+                        </math>
+                    </p>
+                    <p>
+                        See <a href="lambert_w.xhtml">lambert_w</a> for more information.
+                    </p>
+                </div><!--/.panel-body-->
+            </div><!--/.panel-->
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Relations</h3>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        Equivalent definitions
+                        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                            <mrow>
+                                <mi mathvariant="monospace">superroot_2</mi>
+                                <mo>&#x2061;<!--FUNCTION APPLICATION--></mo>
+                                <mfenced>
+                                    <mi>x</mi>
+                                </mfenced>
+                            </mrow>
+                            <mo>=</mo>
+                            <mrow>
+                                <msubsup>
+                                    <mi>exp</mi>
+                                    <mi>x</mi>
+                                    <mn>2</mn>
+                                </msubsup>
+                                <mo>&#x2061;<!--FUNCTION APPLICATION--></mo>
+                                <mfenced>
+                                    <mn>1</mn>
+                                </mfenced>
+                            </mrow>
+                            <mo>=</mo>
+                            <mmultiscripts>
+                                <mi>x</mi>
+                                <mprescripts/>
+                                <none/>
+                                <mi>2</mi>
+                            </mmultiscripts>
+                            <mo>=</mo>
+                            <mrow>
+                                <msup>
+                                    <mi>x</mi>
+                                    <mi>x</mi>
+                                </msup>
+                            </mrow>
+                        </math>
+                    </p>
+                    <p>
+                        For any positive integer <i>n</i>,
+                        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                            <mrow>
+                                <mi mathvariant="monospace">superroot_2</mi>
+                                <mo>&#x2061;<!--FUNCTION APPLICATION--></mo>
+                                <mfenced>
+                                    <mi>n</mi>
+                                </mfenced>
+                            </mrow>
+                            <mo>=</mo>
+                            <mrow>
+                                <mi>n</mi>
+                                <mo>&#x2191;&#x2191;</mo>
+                                <mn>2</mn>
+                            </mrow>
+                        </math>
+                    </p>
+                </div><!--/.panel-body-->
+            </div><!--/.panel-->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Examples</h3>
+                </div>
+                <div class="panel-body">
+                    For more values, see <a href="superroot_2.csv">superroot_2.csv</a>.
+                </div><!--/.panel-body-->
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th width="30%">x</th>
+                            <th width="30%"><samp>superroot_2(x)</samp></th>
+                            <th width="40%">Comment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>
+                                <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                                    <mrow>
+                                        <munder>
+                                            <mi>lim</mi>
+                                            <mrow><mi>x</mi><mo>&#x2192;<!--RIGHTWARDS ARROW--></mo><mn>0</mn></mrow>
+                                        </munder>
+                                        <msup>
+                                            <mi>x</mi>
+                                            <mi>x</mi>
+                                        </msup>
+                                    </mrow>
+                                    <mo>=</mo>
+                                    <mn>1</mn>
+                                </math>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>1</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>4</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>27</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table><!--/.table-->
+            </div><!--/.panel-->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Series of
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mrow>
+                                <mi mathvariant="monospace">superroot_2</mi>
+                                <mo>&#x2061;<!--FUNCTION APPLICATION--></mo>
+                                <mfenced>
+                                    <mrow>
+                                        <mi>x</mi>
+                                        <mo>+</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                            </mrow>
+                        </math>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    For all real number
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mi>x</mi>
+                        <mo>&#x2208;<!--ELEMENT OF--></mo>
+                        <mfenced>
+                            <mn>0</mn>
+                            <mn>2</mn>
+                        </mfenced>
+                    </math>
+                    the formal power series 
+                    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                            <mrow>
+                                <mi mathvariant="monospace">superroot_2</mi>
+                                <mo>&#x2061;<!--FUNCTION APPLICATION--></mo>
+                                <mfenced>
+                                    <mrow>
+                                        <mi>x</mi>
+                                        <mo>+</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                            </mrow>
+                            <mo>=</mo>
+                            <mrow>
+                                <munderover>
+                                    <mo>&#x2211;<!--N-ARY SUMMATION--></mo>
+                                    <mrow><mi>k</mi><mo>=</mo><mi>0</mi></mrow>
+                                    <mi>&#x221e;<!--INFINITY--></mi>
+                                </munderover>
+                                <mfrac>
+                                    <mrow>
+                                        <msub>
+                                            <mi>A</mi>
+                                            <mi>k</mi>
+                                        </msub>
+                                        <mo>&#x2062;<!--INVISIBLE TIMES--></mo>
+                                        <msup>
+                                            <mi>x</mi>
+                                            <mi>k</mi>
+                                        </msup>
+                                    </mrow>
+                                    <mrow><mi>k</mi><mo>!</mo></mrow>
+                                </mfrac>
+                            </mrow>
+                            <mo>=</mo>
+                            <mrow>
+                                <munderover>
+                                    <mo>&#x2211;<!--N-ARY SUMMATION--></mo>
+                                    <mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow>
+                                    <mi>&#x221e;<!--INFINITY--></mi>
+                                </munderover>
+                                <mfrac>
+                                    <msup>
+                                        <mi>x</mi>
+                                        <mi>k</mi>
+                                    </msup>
+                                    <mrow><mi>k</mi><mo>!</mo></mrow>
+                                </mfrac>
+                                <mo>&#x2062;<!--INVISIBLE TIMES--></mo>
+                                <mrow>
+                                    <munderover>
+                                        <mo>&#x2211;<!--N-ARY SUMMATION--></mo>
+                                        <mrow><mi>j</mi><mo>=</mo><mn>0</mn></mrow>
+                                        <mi>k</mi>
+                                    </munderover>
+                                    <mfenced open="[" close="]">
+                                        <mfrac linethickness="0em">
+                                            <mi>k</mi>
+                                            <mi>j</mi>
+                                        </mfrac>
+                                    </mfenced>
+                                    <msup>
+                                        <mfenced>
+                                            <mrow>
+                                                <mn>1</mn>
+                                                <mo>-</mo>
+                                                <mi>j</mi>
+                                            </mrow>
+                                        </mfenced>
+                                        <mrow>
+                                            <mi>j</mi>
+                                            <mo>-</mo>
+                                            <mn>1</mn>
+                                        </mrow>
+                                    </msup>
+                                </mrow>
+                            </mrow>
+                    </math>
+                    <p>In Mathematica, these coefficients are</p>
+                    <pre>A[k_] := Sum[StirlingS1[k, j]*Sum[Binomial[j, i]*i^(j - i), {i, 0, j}], {j, 1, k}]</pre>
+                </div><!--/.panel-body-->
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th width="20%">k</th>
+                            <th width="20%"><samp>A_k</samp></th>
+                            <th width="20%">Term</th>
+                            <th width="40%">Comment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0</td>
+                            <td>1</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>1</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>3</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>8</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>10</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>54</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>-42</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>944</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>-5112</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table><!--/.table-->
+            </div><!--/.panel-->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Series of
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mrow>
+                                <mi mathvariant="monospace">superroot_2</mi>
+                                <mo>&#x2061;<!--FUNCTION APPLICATION--></mo>
+                                <mfenced>
+                                    <msup>
+                                        <mi>&#x2147;<!--DOUBLE-STRUCK ITALIC SMALL E--></mi>
+                                        <mi>x</mi>
+                                    </msup>
+                                </mfenced>
+                            </mrow>
+                        </math>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                            <mrow>
+                                <mi mathvariant="monospace">superroot_2</mi>
+                                <mo>&#x2061;<!--FUNCTION APPLICATION--></mo>
+                                <mfenced>
+                                    <msup>
+                                        <mi>&#x2147;<!--DOUBLE-STRUCK ITALIC SMALL E--></mi>
+                                        <mi>x</mi>
+                                    </msup>
+                                </mfenced>
+                            </mrow>
+                            <mo>=</mo>
+                            <mrow>
+                                <munderover>
+                                    <mo>&#x2211;<!--N-ARY SUMMATION--></mo>
+                                    <mrow><mi>k</mi><mo>=</mo><mi>0</mi></mrow>
+                                    <mi>&#x221e;<!--INFINITY--></mi>
+                                </munderover>
+                                <mfrac>
+                                    <mrow>
+                                        <msub>
+                                            <mi>A</mi>
+                                            <mi>k</mi>
+                                        </msub>
+                                        <mo>&#x2062;<!--INVISIBLE TIMES--></mo>
+                                        <msup>
+                                            <mi>x</mi>
+                                            <mi>k</mi>
+                                        </msup>
+                                    </mrow>
+                                    <mrow><mi>k</mi><mo>!</mo></mrow>
+                                </mfrac>
+                            </mrow>
+                            <mo>=</mo>
+                            <mrow>
+                                <munderover>
+                                    <mo>&#x2211;<!--N-ARY SUMMATION--></mo>
+                                    <mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow>
+                                    <mi>&#x221e;<!--INFINITY--></mi>
+                                </munderover>
+                                <mfrac>
+                                    <msup>
+                                        <mi>x</mi>
+                                        <mi>k</mi>
+                                    </msup>
+                                    <mrow><mi>k</mi><mo>!</mo></mrow>
+                                </mfrac>
+                                <mo>&#x2062;<!--INVISIBLE TIMES--></mo>
+                                <msup>
+                                    <mfenced>
+                                        <mrow>
+                                            <mn>1</mn>
+                                            <mo>-</mo>
+                                            <mi>k</mi>
+                                        </mrow>
+                                    </mfenced>
+                                    <mrow>
+                                        <mi>k</mi>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </msup>
+                            </mrow>
+                    </math>
+                </div><!--/.panel-body-->
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th width="20%">k</th>
+                            <th width="20%"><samp>A_k</samp></th>
+                            <th width="20%">Term</th>
+                            <th width="40%">Comment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>
+                                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <mn>1</mn>
+                                </math>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>
+                                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <mi>x</mi>
+                                </math>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>
+                                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <mfrac>
+                                        <mn>3</mn>
+                                        <mn>2</mn>
+                                    </mfrac>
+                                    <mo>&#x2062;<!--INVISIBLE TIMES--></mo>
+                                    <msup>
+                                        <mi>x</mi>
+                                        <mn>2</mn>
+                                    </msup>
+                                </math>
+                            </td>
+                           <td></td>
+                         </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>10</td>
+                            <td>
+                                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <mfrac>
+                                        <mn>5</mn>
+                                        <mn>3</mn>
+                                    </mfrac>
+                                    <mo>&#x2062;<!--INVISIBLE TIMES--></mo>
+                                    <msup>
+                                        <mi>x</mi>
+                                        <mn>3</mn>
+                                    </msup>
+                                </math>
+                            </td>
+                           <td></td>
+                         </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>41</td>
+                            <td>
+                                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <mfrac>
+                                        <mn>41</mn>
+                                        <mn>24</mn>
+                                    </mfrac>
+                                    <mo>&#x2062;<!--INVISIBLE TIMES--></mo>
+                                    <msup>
+                                        <mi>x</mi>
+                                        <mn>4</mn>
+                                    </msup>
+                                </math>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>196</td>
+                            <td>
+                                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <mfrac>
+                                        <mn>49</mn>
+                                        <mn>30</mn>
+                                    </mfrac>
+                                    <mo>&#x2062;<!--INVISIBLE TIMES--></mo>
+                                    <msup>
+                                        <mi>x</mi>
+                                        <mn>5</mn>
+                                    </msup>
+                                </math>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>6607</td>
+                            <td>
+                                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <mfrac>
+                                        <mn>6607</mn>
+                                        <mn>720</mn>
+                                    </mfrac>
+                                    <mo>&#x2062;<!--INVISIBLE TIMES--></mo>
+                                    <msup>
+                                        <mi>x</mi>
+                                        <mn>6</mn>
+                                    </msup>
+                                </math>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>65794</td>
+                            <td>
+                                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <mfrac>
+                                        <mn>32897</mn>
+                                        <mn>2520</mn>
+                                    </mfrac>
+                                    <mo>&#x2062;<!--INVISIBLE TIMES--></mo>
+                                    <msup>
+                                        <mi>x</mi>
+                                        <mn>7</mn>
+                                    </msup>
+                                </math>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>733833</td>
+                            <td>
+                                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <mfrac>
+                                        <mn>81537</mn>
+                                        <mn>4480</mn>
+                                    </mfrac>
+                                    <mo>&#x2062;<!--INVISIBLE TIMES--></mo>
+                                    <msup>
+                                        <mi>x</mi>
+                                        <mn>8</mn>
+                                    </msup>
+                                </math>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>9046648</td>
+                            <td>
+                                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <mfrac>
+                                        <mn>1130831</mn>
+                                        <mn>45360</mn>
+                                    </mfrac>
+                                    <mo>&#x2062;<!--INVISIBLE TIMES--></mo>
+                                    <msup>
+                                        <mi>x</mi>
+                                        <mn>9</mn>
+                                    </msup>
+                                </math>
+                            </td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table><!--/.table-->
+            </div><!--/.panel-->
+        </div><!--/.container-->
+
+        <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html class="no-js" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8"/>
+        <title>superroot</title>
+        <meta name="description" content=""/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <style>
+            math { font-size: large; }
+            * { font-family: Times New Roman,serif; }
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="jumbotron">
+            <div class="container">
+                <h1><samp>superroot</samp></h1>
+                <p>About super-root functions</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Definition</h3>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        For any positive integers <i>y</i>, <i>z</i> such that
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mmultiscripts>
+                                <mi>z</mi>
+                                <mprescripts/>
+                                <none/>
+                                <mi>y</mi>
+                            </mmultiscripts>
+                            <mo>=</mo>
+                            <mi>x</mi>
+                        </math>,
+                        this function is defined as
+                    </p>
+                    <p>
+                        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                            <mrow>
+                                <mrow>
+                                    <mi mathvariant="monospace">superroot</mi>
+                                    <mo>&#x2061;<!--FUNCTION APPLICATION--></mo>
+                                    <mfenced>
+                                        <mi>x</mi>
+                                        <mi>y</mi>
+                                    </mfenced>
+                                </mrow>
+                                <mo>:=</mo>
+                                <mrow>
+                                    <msup>
+                                        <mfenced>
+                                            <mrow>
+                                                <mi>_</mi>
+                                                <mo>&#x2191;&#x2191;</mo>
+                                                <mi>y</mi>
+                                            </mrow>
+                                        </mfenced>
+                                        <mn>-1</mn>
+                                    </msup>
+                                    <mo>&#x2061;<!--FUNCTION APPLICATION--></mo>
+                                    <mfenced>
+                                        <mi>x</mi>
+                                    </mfenced>
+                                </mrow>
+                            </mrow>
+                        </math>
+                    </p>
+                    <p>
+                        See <a href="https://en.wikipedia.org/wiki/Knuth's_up-arrow_notation">Knuth up-arrow notation</a> for more information.
+                    </p>
+                </div><!--/.panel-body-->
+            </div><!--/.panel-->
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Relations</h3>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        Equivalent definitions
+                        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                            <mrow>
+                                <mi mathvariant="monospace">superroot</mi>
+                                <mo>&#x2061;<!--FUNCTION APPLICATION--></mo>
+                                <mfenced>
+                                    <mi>x</mi>
+                                    <mi>y</mi>
+                                </mfenced>
+                            </mrow>
+                            <mo>=</mo>
+                            <mrow>
+                                <mi mathvariant="monospace" href="iterexproot.xhtml">iterexproot</mi>
+                                <mo>&#x2061;<!--FUNCTION APPLICATION--></mo>
+                                <mfenced>
+                                    <mi>x</mi>
+                                    <mi>y</mi>
+                                    <mn>1</mn>
+                                </mfenced>
+                            </mrow>
+                        </math>
+                    </p>
+                    <p>
+                        If <i>y</i> = 2,
+                        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                            <mrow>
+                                <mi mathvariant="monospace">superroot</mi>
+                                <mo>&#x2061;<!--FUNCTION APPLICATION--></mo>
+                                <mfenced>
+                                    <mi>x</mi>
+                                    <mn>2</mn>
+                                </mfenced>
+                            </mrow>
+                            <mo>=</mo>
+                            <mrow>
+                                <mi mathvariant="monospace" href="superroot_2.xhtml">superroot_2</mi>
+                                <mo>&#x2061;<!--FUNCTION APPLICATION--></mo>
+                                <mfenced>
+                                    <mi>x</mi>
+                                </mfenced>
+                            </mrow>
+                        </math>
+                    </p>
+                    <p>
+                        If <i>y</i> = 3,
+                        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                            <mrow>
+                                <mi mathvariant="monospace">superroot</mi>
+                                <mo>&#x2061;<!--FUNCTION APPLICATION--></mo>
+                                <mfenced>
+                                    <mi>x</mi>
+                                    <mn>3</mn>
+                                </mfenced>
+                            </mrow>
+                            <mo>=</mo>
+                            <mrow>
+                                <mi mathvariant="monospace" href="superroot_3.xhtml">superroot_3</mi>
+                                <mo>&#x2061;<!--FUNCTION APPLICATION--></mo>
+                                <mfenced>
+                                    <mi>x</mi>
+                                </mfenced>
+                            </mrow>
+                        </math>
+                    </p>
+                </div><!--/.panel-body-->
+            </div><!--/.panel-->
+        </div><!--/.container-->
+
+        <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </body>
+</html>

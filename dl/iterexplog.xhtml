@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html class="no-js" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8"/>
+        <title>iterexplog</title>
+        <meta name="description" content=""/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <style>
+            math { font-size: large; }
+            * { font-family: Times New Roman,serif; }
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="jumbotron">
+            <div class="container">
+                <h1><samp>iterexplog</samp></h1>
+                <p>About iterated exponential logarithms</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Definition</h3>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        For any complex number <i>x</i>, this function is defined as
+                    </p>
+                    <p>
+                        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                            <mrow>
+                                <mrow>
+                                    <mi mathvariant="monospace">iterexplog</mi>
+                                    <mo>&#x2061;<!--FUNCTION APPLICATION--></mo>
+                                    <mfenced>
+                                        <mi>x</mi>
+                                        <mi>y</mi>
+                                        <mi>z</mi>
+                                    </mfenced>
+                                </mrow>
+                                <mo>:=</mo>
+                                <mrow>
+                                    <msub>
+                                        <mi>slog</mi>
+                                        <mi>x</mi>
+                                    </msub>
+                                    <mo>&#x2061;<!--FUNCTION APPLICATION--></mo>
+                                    <mfenced>
+                                        <mi>y</mi>
+                                    </mfenced>
+                                    <mo>-</mo>
+                                    <msub>
+                                        <mi>slog</mi>
+                                        <mi>x</mi>
+                                    </msub>
+                                    <mo>&#x2061;<!--FUNCTION APPLICATION--></mo>
+                                    <mfenced>
+                                        <mi>z</mi>
+                                    </mfenced>
+                                </mrow>
+                            </mrow>
+                        </math>
+                    </p>
+                    <p>
+                        See <a href="https://en.wikipedia.org/wiki/Tetration#Notation">iterated exponential notation</a> for more information.
+                    </p>
+                </div><!--/.panel-body-->
+            </div><!--/.panel-->
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Relations</h3>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        Equivalent definitions
+                        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                            <mrow>
+                                <mi mathvariant="monospace">iterexplog</mi>
+                                <mo>&#x2061;<!--FUNCTION APPLICATION--></mo>
+                                <mfenced>
+                                    <mi>x</mi>
+                                    <mi>y</mi>
+                                    <mi>z</mi>
+                                </mfenced>
+                            </mrow>
+                            <mo>=</mo>
+                            <mi>w</mi>
+                            <mspace width="1em"/>
+                            <mtext>where</mtext>
+                            <mspace width="1em"/>
+                            <mrow>
+                                <msubsup>
+                                    <mi>exp</mi>
+                                    <mi>x</mi>
+                                    <mi>w</mi>
+                                </msubsup>
+                                <mo>&#x2061;<!--FUNCTION APPLICATION--></mo>
+                                <mfenced>
+                                    <mi>z</mi>
+                                </mfenced>
+                                <mo>=</mo>
+                                <mi>y</mi>
+                            </mrow>
+                        </math>
+                    </p>
+                </div><!--/.panel-body-->
+            </div><!--/.panel-->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Examples</h3>
+                </div>
+                <div class="panel-body">
+                    For more values, see <a href="tetrate_2.csv">tetrate_2.csv</a>.
+                </div><!--/.panel-body-->
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th width="15%"><samp>x</samp></th>
+                            <th width="15%"><samp>y</samp></th>
+                            <th width="15%"><samp>z</samp></th>
+                            <th width="15%"><samp>iterexplog(x,y,z)</samp></th>
+                            <th width="40%">Comment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>4</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>16</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table><!--/.table-->
+            </div><!--/.panel-->
+        </div><!--/.container-->
+
+        <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </body>
+</html>
