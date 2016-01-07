@@ -554,29 +554,68 @@ splicesexp(z) = { if (imag(z)>=0.8, thetaaprx(z), if (imag(z)<=-0.8, conj(thetaa
 
 sexptaylor( w,r) = {
   local(rinv,s,t,x0,y,z,tot,t_est,tcrc,wsexp);
+  npoints = 2000;
 /* outputs polynomial taylor tseries for the complex sexp function */
-  t_est    = vector (240,i,0);
-  tcrc     = vector (240,i,0);
+  t_est    = vector (npoints,i,0);
+  tcrc     = vector (npoints,i,0);
   if (loopcount==0,print("init required before generating taylor series");return(0));
   if (r==0,r=1);
   rinv = 1/r;
-  for(s=1, 240, x0=-1/(120*2)+(s/120); tcrc[s]=exp(Pi*I*x0); );
+  for(s=1, npoints, x0=-1/(npoints)+(s*2/npoints); tcrc[s]=exp(Pi*I*x0); );
 
-  for (t=1,240, t_est[t] = sexp(w+r*tcrc[t]); );
+  for (t=1,npoints, t_est[t] = sexp(w+r*tcrc[t]); );
   wsexp=0;
-  for (s=0,199,
+  for (s=0,256,
     tot=0;
-    for (t=1,240,
+    for (t=1,npoints,
       tot=tot+t_est[t];
       t_est[t]=t_est[t]*conj(tcrc[t]);
     );
-    tot=(tot/240);
+    tot=(tot/npoints);
     if (s>=1, tot=tot*(rinv)^s);
     if ((imag(w)==0) && (real(w)>-2), tot=real(tot));
     wsexp=wsexp+tot*x^s;
   );
   wsexp=precision(wsexp,precis);
   return(wsexp);
+}
+
+hexint(n, prec) = {
+  if(prec == 0, prec = 113); /* default quadruple-precision */
+  hexits = Str((prec - 1)/4);
+  return(Strprintf("%0" hexits "x", n));
+};
+
+hexfloat(x, prec) = {
+  local(fsign, fexpt, fmant, smant, s);
+  if(prec == 0, prec = 113); /* default quadruple-precision */
+  x = precision(x, prec);
+  fsign = sign(x);
+  x *= fsign;
+  if(x == 0, if(fsign == -1, return("-0x0"), return("0x0")));
+  fexpt = floor(log(x)/log(2));
+  fmant = x*2^(-fexpt);
+  fmant -= 1; /* remove implicit one */
+  smant = hexint(round(fmant*2^(prec - 1)), prec);
+  if((1 - fmant) < 2^(1 - prec), smant = "0"; fexpt += 1);
+  p = if(sign(fexpt) == -1, "", "+");
+  s = if(fsign == -1, "-", "+");
+  s = Str(s, "0x1.", smant, "p", p, fexpt);
+  return(s);
+};
+
+hexcomplex(x, prec) = {
+  return(Str(hexfloat(real(x), prec), ",", hexfloat(imag(x), prec)));
+};
+
+printhexpoly(wtaylor,t,x0,y0) = {
+  local(s,z);
+  if (t==0,t=255);
+  for (s=0,t-1,
+    z=polcoeff(wtaylor,s);
+    printf("%s,%s,0x0,0x%x,", hexcomplex(x0), hexcomplex(y0), s);
+    print(hexcomplex(z*factorial(s)) ", inexact");
+  );
 }
 
 prtpoly(wtaylor,t,name) = {
@@ -608,22 +647,23 @@ slogtaylor(w,r,est) = {
   local(rinv,s,t,x0,y,z,tot,t_est,tcrc,wtaylor);
 /* outputs polynomial taylor series, the complex taylor series for slog */
 /* est is an optional initial estimate for slog(w+r) */
-  t_est    = vector (240,i,0);
-  tcrc     = vector (240,i,0);
+  npoints = 2000;
+  t_est    = vector (npoints,i,0);
+  tcrc     = vector (npoints,i,0);
   if (loopcount==0,print("init required before generating taylor series");return(0));
   if (r==0,r=1);
   rinv = 1/r;
-  for(s=1, 240, x0=-1/(120*2)+(s/120); tcrc[s]=exp(Pi*I*x0); );
+  for(s=1, npoints, x0=-1/(npoints)+(s*2/npoints); tcrc[s]=exp(Pi*I*x0); );
   if (est==0, est=slog(w+r));
-  for (t=1,240, est=slog(w+r*tcrc[t],est);t_est[t]=est);
+  for (t=1,npoints, est=slog(w+r*tcrc[t],est);t_est[t]=est);
   wtaylor=0;
-  for (s=0,199,
+  for (s=0,256,
     tot=0;
-    for (t=1,240,
+    for (t=1,npoints,
       tot=tot+t_est[t];
       t_est[t]=t_est[t]*conj(tcrc[t]);
     );
-    tot=(tot/240);
+    tot=(tot/npoints);
     if (imag(w)==0, tot=real(tot));
     if (s>=1, tot=tot*(rinv)^s);
     wtaylor=wtaylor+tot*x^s;
@@ -816,8 +856,6 @@ gfunc(z)=cheta(z);
 gtaylor( w,r,samples) = {
   local(rinv,s,t,x1,y,z,tot,t_est,tcrc,halfsamples,wtaylor,terms);
 /* outputs gie taylor series, the complex taylor series for sexp, */
-/* default halfsamples=240 */
-  if (samples==0, samples=240);  /* no matter how many sample points, the default gie series size is 200 halfsamples */
   halfsamples=samples/2;
   terms = floor(samples*200/240);
   t_est    = vector (samples,i,0);
@@ -1068,6 +1106,6 @@ morestuff() = {
 
 {
   initcheta();
-  help();
+  /* help(); */
 }
 
