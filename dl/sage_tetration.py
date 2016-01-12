@@ -276,17 +276,21 @@ def superlog_series(log_base, z, order=ORDER, ring=None, polyring=None, cache=SU
 
 
 
+class EgfToOgfAdapter(object):
+    pass
+
 class TaylorSeriesEntry(object):
     """
     """
 
-    def __init__(self, ogf_coefficients, at, radius, ring=None):
+    def __init__(self, ogf_coefficients, at, radius, ring=None, order=None):
         """
         """
         object.__init__(self)
 
         # create fields
         self.ogf = ogf_coefficients
+        self.order = order or len(self.ogf)
         self.at = at
         self.radius = radius
         self.ring = ring or RR
@@ -294,11 +298,20 @@ class TaylorSeriesEntry(object):
     def __call__(self, z, ring=None):
         try:
             ring = ring or self.ring
-            z2 = N(z - self.at)
-            if z2 < self.radius:
-                return sum_ogf_series(z2, self.ogf, ring=ring)
+            if isinstance(z, PowerSeries):
+                ser = sum([z**k*ring(c) for k, c in enumerate(self.ogf)])
+                try:
+                    ser = ser.O(order + 1)
+                except:
+                    pass
+                return ser
             else:
-                return None
+                z2 = N(z - self.at)
+                if abs(z2) < self.radius:
+                    ser = sum([z2**k*ring(c) for k, c in enumerate(self.ogf)])
+                    return ser
+                else:
+                    return None
         except:
             return None
 
@@ -363,6 +376,58 @@ def read_csv_to_database(db):
 
 def write_csv_from_database(db):
     pass
+
+class Function_iterexp(SymbolicFunction):
+    """
+    iterexp(branch, base, height, init)
+    iterexp(base, height, init)
+    iterexp(base, height)
+
+    where
+
+    branch is an integer, base is complex,
+    height is an integer, init is complex.
+    """
+
+    def __init__(self):
+        """
+        """
+        SymbolicFunction.__init__(self, "iterexp", nargs=4,
+                                  conversions=dict(mathematica='IterExp'))
+        
+    def __call__(self, *args, **kwds):
+        """
+        """
+        if len(args) == 4:
+            return SymbolicFunction.__call__(self, *args, **kwds)
+        elif len(args) == 3:
+            return SymbolicFunction.__call__(self, 0, args[0], args[1], args[2], **kwds)
+        elif len(args) == 2:
+            return SymbolicFunction.__call__(self, 0, args[0], args[1], 1, **kwds)
+        else:
+            raise TypeError("iterexp takes 2, 3, or 4 arguments.")
+
+    def _eval_(self, branch, base, height, init=1):
+        if base == 0:
+            return 0 if height % 2 == 0 else 1
+        elif base == 1:
+            return 1
+        if branch == 0:
+            return nest(lambda x: base**x, height, init)
+        else:
+            return nest(lambda x: base**((2*pi*branch*I/log(base) + 1)*x), height, init)
+
+    def _evalf_(self, branch, base, height, init=1):
+        if base == 0:
+            return 0 if height % 2 == 0 else 1
+        elif base == 1:
+            return 1
+        if branch == 0:
+            return nest(lambda x: base**x, height, init)
+        else:
+            return nest(lambda x: base**((2*pi*branch*I/log(base) + 1)*x), height, init)
+
+iterexp = Function_iterexp()
 
 class Function_knoebel_h(SymbolicFunction):
     """
@@ -637,6 +702,8 @@ class Function_iterexproot_3(SymbolicFunction):
         self._cache['-0x1.0p+2,0x0.0p+0'] = load2d('superroot_3_at-4_series.txt', ring=CC)[:int(100)]
         self._cache['-0x1.0p+3,0x0.0p+0'] = load2d('superroot_3_at-8_series.txt', ring=CC)[:int(100)]
         self._cache['-0x1.0p+4,0x0.0p+0'] = load2d('superroot_3_at-16_series.txt', ring=CC)[:int(100)]
+        self._cache['-0x1.0p+5,0x0.0p+0'] = load2d('superroot_3_at-32_series.txt', ring=CC)[:int(100)]
+        #self._cache['-0x1.0p+6,0x0.0p+0'] = load2d('superroot_3_at-64_series.txt', ring=CC)[:int(100)]
         #self._cache['0x0.0p+0,0x0.0p+0,~_exp'] = load1d('superroot_3_exp_series.txt', ring=QQ, parser=long)
         #self._cache['log_@0#100'] = load1d('log_superroot_3_at1_series.txt', ring=QQ, parser=long)
         #self._cache['log_exp@0#100'] = load1d('log_superroot_3_exp_series.txt', ring=QQ, parser=long)
@@ -734,13 +801,48 @@ class Function_iterexproot_3(SymbolicFunction):
             return conjugate(sum_egf_series(
                 N(conjugate(z) - (0.25+0.25*I)),
                 self._cache['0x1.0p-2,0x1.0p-2'], ring=CC))
-        elif abs(z - (-2)) < 2.05:
+        elif abs(z - (-2)) < 2:
             if imag(z) >= 0:
                 return sum_egf_series(N(z - (-2)),
                     self._cache['-0x1.0p+1,0x0.0p+0'], ring=CC)
             else:
                 return conjugate(sum_egf_series(N(conjugate(z) - (-2)),
                     self._cache['-0x1.0p+1,0x0.0p+0'], ring=CC))
+        elif abs(z - (-4)) < 4:
+            if imag(z) >= 0:
+                return sum_egf_series(N(z - (-4)),
+                    self._cache['-0x1.0p+2,0x0.0p+0'], ring=CC)
+            else:
+                return conjugate(sum_egf_series(N(conjugate(z) - (-4)),
+                    self._cache['-0x1.0p+2,0x0.0p+0'], ring=CC))
+        elif abs(z - (-8)) < 8:
+            if imag(z) >= 0:
+                return sum_egf_series(N(z - (-8)),
+                    self._cache['-0x1.0p+3,0x0.0p+0'], ring=CC)
+            else:
+                return conjugate(sum_egf_series(N(conjugate(z) - (-8)),
+                    self._cache['-0x1.0p+3,0x0.0p+0'], ring=CC))
+        elif abs(z - (-16)) < 16:
+            if imag(z) >= 0:
+                return sum_egf_series(N(z - (-16)),
+                    self._cache['-0x1.0p+4,0x0.0p+0'], ring=CC)
+            else:
+                return conjugate(sum_egf_series(N(conjugate(z) - (-16)),
+                    self._cache['-0x1.0p+4,0x0.0p+0'], ring=CC))
+        elif abs(z - (-32)) < 60:
+            if imag(z) >= 0:
+                return sum_egf_series(N(z - (-32)),
+                    self._cache['-0x1.0p+5,0x0.0p+0'], ring=CC)
+            else:
+                return conjugate(sum_egf_series(N(conjugate(z) - (-32)),
+                    self._cache['-0x1.0p+5,0x0.0p+0'], ring=CC))
+        elif abs(z - (-64)) < 70:
+            if imag(z) >= 0:
+                return sum_egf_series(N(z - (-64)),
+                    self._cache['-0x1.0p+6,0x0.0p+0'], ring=CC)
+            else:
+                return conjugate(sum_egf_series(N(conjugate(z) - (-64)),
+                    self._cache['-0x1.0p+6,0x0.0p+0'], ring=CC))
         elif abs(z - 1) < 0.4:
             return sum_egf_series(N(z - (1)), self._cache['0x1.0p+0,0x0.0p+0'], ring=RR)
         #elif abs(log(z)) < 0.45:
@@ -778,6 +880,14 @@ class Function_superroot_3(SymbolicFunction):
         SymbolicFunction.__init__(self, "superroot_3", nargs=2,
                 conversions=dict(mathematica='SuperRoot3'))
 
+        self._exp_series_ = TaylorSeriesEntry.from_egf(
+            load1d('superroot_3_exp_series.txt', ring=QQ, parser=long)[:100],
+            at=0, radius=0.449544113030792, ring=QQ)
+            
+        self._at1_series_ = TaylorSeriesEntry.from_egf(
+            load1d('superroot_3_at1_series.txt', ring=QQ, parser=long)[:100],
+            at=1, radius=0.397624311199638, ring=QQ)
+        
     def __call__(self, *args, **kwds):
         """
         """
