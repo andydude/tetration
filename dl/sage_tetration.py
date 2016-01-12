@@ -2,19 +2,19 @@
 # -*- mode: python -*-
 from sage import all
 from sage.all import *
-from sage.plot.complex_plot import complex_to_rgb
 from sage.symbolic.function import SymbolicFunction
+import logging
 
 # superexp coefficient memoization
 SUPEREXP_CACHE = {}
 
 # superlog coefficient memoization
-SUPERLOG_CACHE = {} 
+SUPERLOG_CACHE = {}
 
 # number of terms in the power series
 ORDER = 65
 
-# number of bits in floating-point numbers 
+# number of bits in floating-point numbers
 PREC = 53
 
 # maximum recursion depth
@@ -83,8 +83,9 @@ def float16_iter(): # s10e5
             man *= 4
             yield "0x1.{:0=03x}p{}".format(man, exp)
     yield "inf"
-    
+
 def float16_complex_graph(f):
+    from sage.plot.complex_plot import complex_to_rgb
     from PIL import Image, ImageColor
     xmax, ymax = 250, 250
     im = Image.new("RGB", (xmax, ymax))
@@ -99,7 +100,7 @@ def float16_complex_graph(f):
                 zc = f(xc)
             except Exception as err:
                 zc = float('nan') + I*float('nan')
-                
+
             # color map step
             try:
                 color = complex_to_rgb([[zc]]).tolist()[0][0]
@@ -116,10 +117,11 @@ def fixed_iter(x_range):
     xdif = abs(xmax - xmin)
     for x in xrange(xmin*subdiv, (xmax*subdiv) + 1):
         yield N(x/subdiv)
-    
+
 def fixed_complex_graph(f, x_range, y_range):
+    from sage.plot.complex_plot import complex_to_rgb
     from PIL import Image, ImageColor
-    subdiv = 100    
+    subdiv = 100
     xmin, xmax = x_range
     ymin, ymax = y_range
     xdif = abs(xmax - xmin)
@@ -127,14 +129,14 @@ def fixed_complex_graph(f, x_range, y_range):
     im = Image.new("RGB", (601, 601))
     for xoff, x in enumerate(fixed_iter(x_range)):
         for yoff, y in enumerate(reversed(fixed_iter(y_range))):
-            
+
             # evaluate step
             try:
                 xc = x + y*I
                 zc = N(f(N(xc)))
             except Exception as err:
                 zc = float('nan') + I*float('nan')
-            
+
             # color map step
             try:
                 color = complex_to_rgb([[zc]]).tolist()[0][0]
@@ -144,6 +146,58 @@ def fixed_complex_graph(f, x_range, y_range):
 
             im.putpixel((xoff, yoff), color)
     return im
+
+def hexparser(s):
+    try:
+        x = float.fromhex(s.strip())
+    except Exception as err:
+        #logging.error("%s %s" % (s, repr(err)), exc_info=True)
+        return 0
+    return x
+
+def complexcombiner(re, im):
+    return re + im*I
+
+def load1d(path, ring=RR, parser=hexparser):
+    with open(path) as fp:
+        lines = fp.readlines()
+    return map(lambda cell: ring(parser(cell)), lines)
+
+def default_filterer(row):
+    return row != None
+
+def load2d(path, ring=CC, parser=hexparser, combiner=complexcombiner, filterer=default_filterer, columns=2):
+    with open(path) as fp:
+        lines = fp.readlines()
+    def parse_line(row):
+        if row.startswith('#'):
+            return None
+        if columns - row.count(',') != 1:
+            return None
+        row = map(lambda cell: ring(parser(cell)), row.split(','))
+        try:
+            row = combiner(*row)
+        except Exception as err:
+            logging.error("%s %s %s " % (row, repr(err)), exc_info=True)
+            return None
+        return row
+    return filter(filterer, map(parse_line, lines))
+
+def sum_ogf_series(z, ogf_coefficients=None, ring=None):
+    ser = sum([z**k*ring(c) for k, c in enumerate(ogf_coefficients)])
+    try:
+        ser = ser.O(order + 1)
+    except:
+        pass
+    return ser
+
+def sum_egf_series(z, egf_coefficients=None, ring=None):
+    ser = sum([z**k*ring(c)/ring(factorial(k)) for k, c in enumerate(egf_coefficients)])
+    try:
+        ser = ser.O(order + 1)
+    except:
+        pass
+    return ser
 
 # a better simplify
 def canonicalize(c):
@@ -189,12 +243,16 @@ def superlog_matrix(log_base, order=ORDER, ring=RING):
                     for j in range(0, order)])
 
 # power series about z=0
-def superlog_series(log_base, z, order=ORDER, ring=RING, polyring=POLYRING, cache=SUPERLOG_CACHE):
+def superlog_series(log_base, z, order=ORDER, ring=None, polyring=None, cache=SUPERLOG_CACHE):
     order = int(order)
     try:
         key_base = float(log_base)
     except:
         key_base = str(log_base)
+    if polyring is None:
+        polyring = lambda x: x
+    if ring is None:
+        ring = lambda x: x
 
     coeff = None
     if not cache:
@@ -206,37 +264,117 @@ def superlog_series(log_base, z, order=ORDER, ring=RING, polyring=POLYRING, cach
         #cache[key_base][order] = map(canonicalize, m.inverse().column(0))
         cache[key_base][order] = m.inverse().column(0)
     coeff = cache[key_base][order]
-    
+
     # N-ary summation
-    ser = sum([polyring(c)*polyring(z**(i+1)) for i, c in enumerate(coeff)]) - 1
-    try:
-        ser += z.O(order + 1)
-    except:
+    return sum_ogf_series(coeff)
+
+
+
+
+
+
+
+
+
+class TaylorSeriesEntry(object):
+    """
+    """
+
+    def __init__(self, ogf_coefficients, at, radius, ring=None):
+        """
+        """
+        object.__init__(self)
+
+        # create fields
+        self.ogf = ogf_coefficients
+        self.at = at
+        self.radius = radius
+        self.ring = ring or RR
+        
+    def __call__(self, z, ring=None):
+        try:
+            ring = ring or self.ring
+            z2 = N(z - self.at)
+            if z2 < self.radius:
+                return sum_ogf_series(z2, self.ogf, ring=ring)
+            else:
+                return None
+        except:
+            return None
+
+    @staticmethod
+    def from_egf(egf_coefficients, at=ZZ(0), radius=ZZ(0), ring=None):
+
+        # convert derivatives to coefficients
+        ogf_coefficients = [ring(c)/ring(factorial(k)) for
+                            k, c in enumerate(egf_coefficients)]
+        # create object
+        entry = TaylorSeriesEntry(ogf_coefficients,
+                                  at=at, radius=radius, ring=ring)
+        return entry
+
+    @property
+    def egf(self):
+        ring = self.ring
+        ogf_coefficients = self.ogf
+
+        # convert coefficients to derivatives
+        egf_coefficients = [ring(c)*ring(factorial(k))
+                            for k, c in enumerate(ogf_coefficients)]
+
+        return egf_coefficients
+
+
+class TaylorSeriesDatabase(object):
+    """
+    """
+
+    def __init__(self):
+        """
+        """
+        object.__init__(self)
+
+        # coefficient cache dictionary
+        self._cache = {}
+
+    def __call__(self, z, at=ZZ(0), ring=None):
+        return self[at](z, ring=ring)
+        
+    def __getitem__(self, at=ZZ(0)):
+        at_key = '%s,%s' % (float(real(at)).hex(), float(imag(at)).hex())
+        return self._cache[at_key]
+    
+    def from_ogf(self, ogf_coefficients, at=ZZ(0), radius=ZZ(0), ring=None):
+        at_key = '%s,%s' % (float(real(at)).hex(), float(imag(at)).hex())
+        self._cache[at_key] = TaylorSeriesEntry(ogf_coefficients, at=at, radius=radius, ring=ring)
+
+    def from_egf(self, egf_coefficients, at=ZZ(0), radius=ZZ(0), ring=None):
+        at_key = '%s,%s' % (float(real(at)).hex(), float(imag(at)).hex())
+        self._cache[at_key] = TaylorSeriesEntry.from_egf(egf_coefficients, at=at, radius=radius, ring=ring)
+
+    def derive(self, f, z, at=ZZ(0), radius=ZZ(0), ring=None):
         pass
-    return ser
 
+    def partial(self, at=ZZ(0)):
+        return lambda z: self(z, at=at)
 
+def read_csv_to_database(db):
+    pass
 
-
-
-
-
-
-
-
-
+def write_csv_from_database(db):
+    pass
 
 class Function_knoebel_h(SymbolicFunction):
     """
     knoebel_h(z) == z^^infinity
     """
-    
+
     def __init__(self):
         """
         """
         SymbolicFunction.__init__(self, "knoebel_h", nargs=2,
                                   conversions=dict(mathematica='KnoebelH'))
-        
+
     def __call__(self, *args, **kwds):
         """
         """
@@ -251,7 +389,7 @@ class Function_knoebel_h(SymbolicFunction):
         """
         """
         if branch == 0:
-            if z == exp(-e): 
+            if z == exp(-e):
                 return 1/e
             elif QQ(1)/z == 10000000000:
                 return QQ(1)/10
@@ -271,14 +409,14 @@ class Function_knoebel_h(SymbolicFunction):
                 return QQ(1)/3
             elif QQ(1)/z == 4:
                 return QQ(1)/2
-            elif z == 1: 
+            elif z == 1:
                 return 1
-            elif z == sqrt(2): 
+            elif z == sqrt(2):
                 return 2
-            elif z == exp(1/e): 
+            elif z == exp(1/e):
                 return e
         elif branch == -1:
-            if z == sqrt(2): 
+            if z == sqrt(2):
                 return 4
         return None
 
@@ -289,7 +427,7 @@ class Function_knoebel_h(SymbolicFunction):
 
     def _derivative_(self, branch, z, diff_param=None):
         return -knoebel_h(branch, z)**2/((knoebel_h(branch, z)*log(z) - 1)*z)
-    
+
     def _series_(self, branch, var, at=1, order=5):
         if at == 0:
             return self.exp_series(var, order=order)
@@ -297,25 +435,25 @@ class Function_knoebel_h(SymbolicFunction):
             return self.at1_series(var, order=order)
         if at != 1:
             raise ValueError("selfroot_series is only defined at=1")
-        
+
     def exp_series(self, var, order=5, ring=QQ):
-        ser = sum(ring(self.exp_series_coeff(k))*var**k/factorial(k) 
+        ser = sum(ring(self.exp_series_coeff(k))*var**k/factorial(k)
                   for k in range(order + 1))
         try:
             ser = ser.O(order + 1)
         except:
             pass
         return ser
-    
+
     def at1_series(self, var, order=5, ring=QQ):
-        ser = sum(ring(self.at1_series_coeff(k))*var**k/factorial(k) 
+        ser = sum(ring(self.at1_series_coeff(k))*var**k/factorial(k)
                   for k in range(order + 1))
         try:
             ser = ser.O(order + 1)
         except:
             pass
         return ser
-    
+
     @staticmethod
     def exp_series_coeff(k, ring=QQ):
         return ring(k + 1)**(k - 1)
@@ -330,7 +468,7 @@ class Function_knoebel_h(SymbolicFunction):
             return "knoebel_h(%s)" % z
         else:
             return "knoebel_h(%s, %s)" % (branch, z)
-        
+
     def _print_latex_(self, branch, z):
         if branch == 0:
             return r"\operatorname{H_0}(%s)" % z
@@ -338,12 +476,12 @@ class Function_knoebel_h(SymbolicFunction):
             return r"\operatorname{H_{%s}}(%s)" % (branch, z)
 
 knoebel_h = Function_knoebel_h()
-                               
+
 class Function_selfroot(SymbolicFunction):
     """
-    selfroot(x) == x^(1/x)
+    selfroot(x) == x^x^(-1)
     """
-    
+
     def __init__(self):
         """
         """
@@ -357,16 +495,16 @@ class Function_selfroot(SymbolicFunction):
             return 0
         elif x == 1:
             return 1
-        return x**(1/x)
+        return x**(QQ(1)/x)
 
     def _evalf_(self, x, parent=None, algorithm=None):
         """
         """
-        return x**(1/x)
+        return x**(QQ(1)/x)
 
     def _derivative_(self, x, diff_param=None):
-        return x**(1/x)*(1/x**2 - log(x)/x**2)
-    
+        return x**(QQ(1)/x)*(QQ(1)/x**2 - log(x)/x**2)
+
     def _series_(self, var, at=1, order=5):
         if at == 0:
             return self._exp_series_(var=var, order=order)
@@ -374,9 +512,9 @@ class Function_selfroot(SymbolicFunction):
             return self._at1_series_(var=var, order=order)
         if at != 1:
             raise ValueError("selfroot_series is only defined at=1")
-    
+
     def _exp_series_(self, var, order=5):
-        ser = sum(self._exp_series_coeff(k)*var**k/factorial(k) 
+        ser = sum(self._exp_series_coeff(k)*var**k/factorial(k)
                   for k in range(order + 1))
         try:
             ser += z.O(order + 1)
@@ -385,23 +523,283 @@ class Function_selfroot(SymbolicFunction):
         return ser
 
     def _at1_series_(self, var, order=5):
-        ser = sum(self._at1_series_coeff(k)*var**k/factorial(k) 
+        ser = sum(self._at1_series_coeff(k)*var**k/factorial(k)
                   for k in range(order + 1)).O(order + 1)
         try:
             ser += z.O(order + 1)
         except:
             pass
         return ser
-    
+
     @staticmethod
     def _exp_series_coeff(k):
-        return sum([binomial(k, j)*series_power(-j, k - j) 
+        return sum([binomial(k, j)*series_power(-j, k - j)
                     for j in range(k + 1)])
 
     @staticmethod
     def _at1_series_coeff(k):
-        return sum([sum([(-1)**(k - j)*stirling_number1(k, j)*binomial(j, i)*series_power(-i, j - i) 
+        return sum([sum([(-1)**(k - j)*stirling_number1(k, j)*binomial(j, i)*series_power(-i, j - i)
                          for i in range(j + 1)])
                     for j in range(k + 1)])
 
 selfroot = Function_selfroot()
+
+class Function_superroot_2(SymbolicFunction):
+    """
+    superroot_2(z)
+    """
+
+    def __init__(self):
+        """
+        """
+        SymbolicFunction.__init__(self, "superroot_2", nargs=2,
+                conversions=dict(mathematica='SuperRoot2'))
+
+    def __call__(self, *args, **kwds):
+        """
+        """
+        if len(args) == 2:
+            return SymbolicFunction.__call__(self, args[0], args[1], **kwds)
+        elif len(args) == 1:
+            return SymbolicFunction.__call__(self, 0, args[0], **kwds)
+        else:
+            raise TypeError("superroot_2 takes either one or two arguments.")
+
+    def _eval_(self, branch, z):
+        """
+        """
+        return log(z)/lambert_w(branch, log(z))
+
+    def _evalf_(self, branch, z, parent=None, algorithm=None):
+        """
+        """
+        return log(z)/lambert_w(branch, log(z))
+
+superroot_2 = Function_superroot_2()
+
+class Function_iterexproot_2(SymbolicFunction):
+    """
+    iterexproot_2(z)
+    """
+
+    def __init__(self):
+        """
+        """
+        SymbolicFunction.__init__(self, "iterexproot_2", nargs=3,
+                conversions=dict(mathematica='IterExpRoot2'))
+
+    def __call__(self, *args, **kwds):
+        """
+        """
+        if len(args) == 3:
+            return SymbolicFunction.__call__(self, args[0], args[1], args[2], **kwds)
+        elif len(args) == 2:
+            return SymbolicFunction.__call__(self, 0, args[0], args[1], **kwds)
+        elif len(args) == 1:
+            return SymbolicFunction.__call__(self, 0, args[0], 1, **kwds)
+        else:
+            raise TypeError("iterexproot_2 takes either one or two arguments.")
+
+    def _eval_(self, branch, z, a):
+        """
+        """
+        return superroot_2._eval_(branch, z**a)**(QQ(1)/a)
+
+    def _evalf_(self, branch, z, a, parent=None, algorithm=None):
+        """
+        """
+        return superroot_2._evalf_(branch, z**a)**(QQ(1)/a)
+
+iterexproot_2 = Function_iterexproot_2()
+
+class Function_iterexproot_3(SymbolicFunction):
+    """
+    iterexproot_3(z)
+    """
+
+    def __init__(self):
+        """
+        """
+        SymbolicFunction.__init__(self, "iterexproot_3", nargs=3,
+                conversions=dict(mathematica='IterExpRoot3'))
+
+        self._bp = 0.731531897477381 + 0.293308661285157*I
+
+        self._cache = {}
+        self._cache['0x1.0p+0,0x1.0p+0'] = load2d('superroot_3_at1i1_series.txt', ring=CC)[:int(100)]
+        self._cache['0x0.0p+0,0x1.0p+0'] = load2d('superroot_3_at0i1_series.txt', ring=CC)[:int(100)]
+        self._cache['0x1.0p-2,0x1.0p-2'] = load2d('superroot_3_at0.25i0.25_series.txt', ring=CC)[:int(100)]
+        self._cache['0x1.0p-2,0x0.0p+0'] = load1d('superroot_3_at0.25_series.txt')[:int(100)]
+        self._cache['0x1.0p-1,0x0.0p+0'] = load1d('superroot_3_at0.5_series.txt')[:int(100)]
+        self._cache['0x1.8p-1,0x0.0p+0'] = load1d('superroot_3_at0.75_series.txt')[:int(100)]
+        self._cache['0x1.0p+0,0x0.0p+0'] = load1d('superroot_3_at1_series.txt', ring=QQ, parser=long)
+        self._cache['-0x1.0p+1,0x0.0p+0'] = load2d('superroot_3_at-2_series.txt', ring=CC)[:int(100)]
+        self._cache['-0x1.0p+2,0x0.0p+0'] = load2d('superroot_3_at-4_series.txt', ring=CC)[:int(100)]
+        self._cache['-0x1.0p+3,0x0.0p+0'] = load2d('superroot_3_at-8_series.txt', ring=CC)[:int(100)]
+        self._cache['-0x1.0p+4,0x0.0p+0'] = load2d('superroot_3_at-16_series.txt', ring=CC)[:int(100)]
+        #self._cache['0x0.0p+0,0x0.0p+0,~_exp'] = load1d('superroot_3_exp_series.txt', ring=QQ, parser=long)
+        #self._cache['log_@0#100'] = load1d('log_superroot_3_at1_series.txt', ring=QQ, parser=long)
+        #self._cache['log_exp@0#100'] = load1d('log_superroot_3_exp_series.txt', ring=QQ, parser=long)
+
+    def __call__(self, *args, **kwds):
+        """
+        """
+        if len(args) == 3:
+            return SymbolicFunction.__call__(self, args[0], args[1], args[2], **kwds)
+        elif len(args) == 2:
+            return SymbolicFunction.__call__(self, 0, args[0], args[1], **kwds)
+        elif len(args) == 1:
+            return SymbolicFunction.__call__(self, 0, args[0], 1, **kwds)
+        else:
+            raise TypeError("iterexproot_3 takes either one, two, or three arguments.")
+
+    def _eval_(self, branch, z, a):
+        """
+        """
+        return None
+
+    def _evalf_branch_0_init_1_left_complex(self, branch, z, a, x_est=None, maxiter=10):
+        """
+        """
+        if x_est is None: # estimate
+            x_est = sqrt(z)
+            if real(z) > 0 and real(z) < abs(imag(z)):
+                x_est = real(z)**2/200 + 0.2*I
+                if imag(z) < 0:
+                    x_est = real(z)**2/200 - 0.2*I
+        for _ in range(maxiter): # iterate
+            x_next = iterexproot_2._evalf_(branch, log(z)/log(x_est), a)
+            if z == real(z):
+                x_next = real(x_next)
+            if x_next == x_est:
+                return x_next
+            else:
+                x_est = x_next
+        return x_next
+
+    def _evalf_branch_0_init_1_right_complex(self, branch, z, a, x_est=None, maxiter=10):
+        """
+        """
+        if x_est is None: # estimate
+            x_est = sqrt(z)
+        for _ in range(maxiter): # iterate
+            x_next = iterexproot_2._evalf_(branch, z**a, x_est**a/a)**(QQ(1)/a)
+            if z == real(z):
+                x_next = real(x_next)
+            if x_next == x_est:
+                return x_next
+            else:
+                x_est = x_next
+        return x_next
+
+    def _evalf_branch_0_init_1_negative_real(self, branch, z, a, x_est=None):
+        if x_est is None: # estimate
+            if imag(z) >= 0:
+                x_est = -0.25 + 0.05*I
+            else:
+                x_est = -0.25 - 0.05*I
+        return self._evalf_branch_0_init_1_right_complex(branch, z, a, x_est=x_est)
+
+    def _evalf_branch_0_init_1_far_real(self, branch, z, a, x_est=None):
+        if imag(z) > imag(self._bp):
+            if abs(z - (I)) < 1:
+                return sum_egf_series(N(z - (I)), self._cache['0x0.0p+0,0x1.0p+0'], ring=CC)
+            elif abs(z - (1 + I)) < 0.75:
+                return sum_egf_series(N(z - (1 + I)), self._cache['0x1.0p+0,0x1.0p+0'], ring=CC)
+            # fallthrough
+        elif imag(z) < -imag(self._bp):
+            if abs(z - (-I)) < 1:
+                return conjugate(sum_egf_series(N(conjugate(z) - (I)), self._cache['0x0.0p+0,0x1.0p+0'], ring=CC))
+            elif abs(z - (1 - I)) < 0.75:
+                return conjugate(sum_egf_series(N(conjugate(z) - (1 + I)), self._cache['0x1.0p+0,0x1.0p+0'], ring=CC))
+            # fallthrough
+        return None
+
+    def _evalf_branch_0_init_1_near_real(self, branch, z, a, x_est=None):
+        if z == 0:
+            return 0
+        elif z == 1:
+            return 1
+        elif abs(z - 0.25) < 0.25:
+            return sum_egf_series(N(z - (0.25)), self._cache['0x1.0p-2,0x0.0p+0'], ring=RR)
+        elif abs(z - 0.5) < 0.35:
+            return sum_egf_series(N(z - (0.50)), self._cache['0x1.0p-1,0x0.0p+0'], ring=RR)
+        elif abs(z - (0.75)) < 0.3:
+            return sum_egf_series(N(z - (0.75)), self._cache['0x1.8p-1,0x0.0p+0'], ring=RR)
+        elif abs(z - (0.25+0.25*I)) < 0.35:
+            return sum_egf_series(
+                N(z - (0.25+0.25*I)),
+                self._cache['0x1.0p-2,0x1.0p-2'], ring=CC)
+        elif abs(z - (0.25-0.25*I)) < 0.35:
+            return conjugate(sum_egf_series(
+                N(conjugate(z) - (0.25+0.25*I)),
+                self._cache['0x1.0p-2,0x1.0p-2'], ring=CC))
+        elif abs(z - (-2)) < 2.05:
+            if imag(z) >= 0:
+                return sum_egf_series(N(z - (-2)),
+                    self._cache['-0x1.0p+1,0x0.0p+0'], ring=CC)
+            else:
+                return conjugate(sum_egf_series(N(conjugate(z) - (-2)),
+                    self._cache['-0x1.0p+1,0x0.0p+0'], ring=CC))
+        elif abs(z - 1) < 0.4:
+            return sum_egf_series(N(z - (1)), self._cache['0x1.0p+0,0x0.0p+0'], ring=RR)
+        #elif abs(log(z)) < 0.45:
+        #    return superroot_3_exp_series(N(log(z)))
+        return None
+
+    def _evalf_(self, branch, z, a, x_est=None, parent=None, algorithm=None):
+        """
+        """
+        x_ret = None
+        if branch == 0:
+            if -imag(self._bp) < imag(z) and imag(z) < imag(self._bp):
+                x_ret = self._evalf_branch_0_init_1_near_real(branch, z, a, x_est=x_est)
+            else:
+                x_ret = self._evalf_branch_0_init_1_far_real(branch, z, a, x_est=x_est)
+            if x_ret is None or not x_est is None:
+                if real(z) > 0 and real(z) > abs(imag(z)):
+                    x_ret = self._evalf_branch_0_init_1_right_complex(branch, z, a, x_est=x_est)
+                else:
+                    x_ret = self._evalf_branch_0_init_1_left_complex(branch, z, a, x_est=x_est)
+        else:
+            raise NotImplementedError
+        return x_ret
+
+iterexproot_3 = Function_iterexproot_3()
+
+class Function_superroot_3(SymbolicFunction):
+    """
+    superroot_3(z)
+    """
+
+    def __init__(self):
+        """
+        """
+        SymbolicFunction.__init__(self, "superroot_3", nargs=2,
+                conversions=dict(mathematica='SuperRoot3'))
+
+    def __call__(self, *args, **kwds):
+        """
+        """
+        if len(args) == 2:
+            return SymbolicFunction.__call__(self, args[0], args[1], **kwds)
+        elif len(args) == 1:
+            return SymbolicFunction.__call__(self, 0, args[0], **kwds)
+        else:
+            raise TypeError("superroot_3 takes either one or two arguments.")
+
+    def _eval_(self, branch, z):
+        """
+        """
+        if branch != 0:
+            raise ValueError("superroot_3 is only defined on the main branch")
+        return None
+
+    def _evalf_(self, branch, z, parent=None, algorithm=None):
+        """
+        """
+        if branch != 0:
+            raise ValueError("superroot_3 is only defined on the main branch")
+        return iterexproot_3._evalf_(branch, z, 1)
+
+superroot_3 = Function_superroot_3()
